@@ -2,7 +2,7 @@ from .pages.base_page import BasePage
 from .pages.login_page import LoginPage
 from .pages.profile_page import ProfilePage
 from .pages.edit_profile_page import EditProfilePage
-from .configs import link, email, password, new_first_name
+from .configs import link, email, password, new_first_name_positive
 
 
 from time import sleep
@@ -15,7 +15,8 @@ import pytest
 # @allure.description("")
 # @allure.tag("")
 @severity(severity_level="MAJOR")
-def test_user_can_change_first_name(browser):
+@pytest.mark.parametrize('new_first_name', new_first_name_positive)
+def test_user_can_change_first_name(browser, new_first_name):
     with step('Open main page'):
         page = BasePage(browser, link)
         page.open()
