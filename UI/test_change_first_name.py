@@ -41,6 +41,3 @@ def test_user_can_change_first_name(browser, new_first_name):
     with step('Assert New First Name is present in profile'):
         page = ProfilePage(browser, browser.current_url)
         assert page.is_new_first_name_present(new_first_name), 'New First Name is not present in profile'
-
-
-sleep(5)

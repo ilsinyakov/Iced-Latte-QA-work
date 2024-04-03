@@ -39,6 +39,3 @@ def test_user_can_change_email(browser):
     with step('Assert New Email is present in profile'):
         page = ProfilePage(browser, browser.current_url)
         assert page.is_new_email_present(new_email), 'New Email is not present in profile'
-
-
-sleep(5)

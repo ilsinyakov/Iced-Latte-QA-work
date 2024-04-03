@@ -40,6 +40,3 @@ def test_user_can_change_last_name(browser):
     with step('Assert New Last Name is present in profile'):
         page = ProfilePage(browser, browser.current_url)
         assert page.is_new_last_name_present(new_last_name), 'New Last Name is not present in profile'
-
-
-sleep(5)
