@@ -2,7 +2,7 @@ from .pages.base_page import BasePage
 from .pages.login_page import LoginPage
 from .pages.profile_page import ProfilePage
 from .pages.edit_profile_page import EditProfilePage
-from .configs import link, email, password, new_first_name, new_last_name
+from .configs import link, email, password, new_last_name
 
 
 from time import sleep

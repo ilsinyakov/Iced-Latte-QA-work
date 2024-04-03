@@ -2,8 +2,7 @@ from .pages.base_page import BasePage
 from .pages.login_page import LoginPage
 from .pages.profile_page import ProfilePage
 from .pages.edit_profile_page import EditProfilePage
-from .configs import link, email, password, new_first_name,\
-                        new_last_name, new_email
+from .configs import link, email, password, new_email
 
 from time import sleep
 from allure import step, title, severity, story
