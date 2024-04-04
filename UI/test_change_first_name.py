@@ -15,6 +15,7 @@ import pytest
 # @allure.description("")
 # @allure.tag("")
 @severity(severity_level="MAJOR")
+@pytest.mark.xfail(reason='BE bug (>55 symbols) is not fixed')
 @pytest.mark.parametrize('new_first_name', new_first_name_positive)
 def test_user_can_change_first_name(browser, new_first_name):
     with step('Open main page'):

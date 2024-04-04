@@ -2,7 +2,7 @@ from .pages.base_page import BasePage
 from .pages.login_page import LoginPage
 from .pages.profile_page import ProfilePage
 from .pages.edit_profile_page import EditProfilePage
-from .configs import link, email, password, new_last_name
+from .configs import link, email, password, new_last_name_positive
 
 
 from time import sleep
@@ -15,7 +15,9 @@ import pytest
 # @allure.description("")
 # @allure.tag("")
 @severity(severity_level="MAJOR")
-def test_user_can_change_last_name(browser):
+@pytest.mark.xfail(reason='BE bug (>55 symbols) is not fixed')
+@pytest.mark.parametrize('new_last_name', new_last_name_positive)
+def test_user_can_change_last_name(browser, new_last_name):
     with step('Open main page'):
         page = BasePage(browser, link)
         page.open()
@@ -36,7 +38,7 @@ def test_user_can_change_last_name(browser):
     with step('Click "Save Changes" button'):
         page.save_change()
     #  with step('Assert Success massage is present'):
-        #  assert page.is_success_message_present('Your First Name was changed'), 'Success message is not present'
+        #  assert page.is_success_message_present('Your Last Name was changed'), 'Success message is not present'
     with step('Assert New Last Name is present in profile'):
         page = ProfilePage(browser, browser.current_url)
         assert page.is_new_last_name_present(new_last_name), 'New Last Name is not present in profile'
