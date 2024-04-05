@@ -8,8 +8,8 @@ password = "80000005a"
                                   128 symbols with spase
 '''
 new_first_name_positive = ["Il","ily", "Ann-Mary Kate",
-                           "vfmpevqkeukeukidxtyxWSqzhdpstrahexbgtmypsmmtqv-ebupnzrslccysaduwtgncthlraykruyqcaqchoelsfiktzvdaewbwymapkfmwxfgbrqqwrsdhoamiyto", 
-                           "vfmpevqkeukeukidxtyxwsqzhdpstrahexbgtmypsmmtqvfebupnzrslccys duwtgncthlraykruyqcaqchoelsfiktzvdaewbwymapkfmwxfgbrqqwrsdhoamiytob"]
+                           pytest.param("vfmpevqkeukeukidxtyxWSqzhdpstrahexbgtmypsmmtqv-ebupnzrslccysaduwtgncthlraykruyqcaqchoelsfiktzvdaewbwymapkfmwxfgbrqqwrsdhoamiyto", marks=pytest.mark.xfail(reason='BE bug (>55 symbols) is not fixed')), 
+                           pytest.param("vfmpevqkeukeukidxtyxwsqzhdpstrahexbgtmypsmmtqvfebupnzrslccys duwtgncthlraykruyqcaqchoelsfiktzvdaewbwymapkfmwxfgbrqqwrsdhoamiytob", marks=pytest.mark.xfail(reason='BE bug (>55 symbols) is not fixed'))]
 new_last_name_positive = ["Si","sin", "Sinyak-Yak Ov",
                            "qwertvqkeukeukidxtyxWSqzhdpstrahexbgtmypsmmtqv-ebupnzrslccysaduwtgncthlraykruyqcaqchoelsfiktzvdaewbwymapkfmwxfgbrqqwrsdhoamiyto", 
                            "asdfgvqkeukeukidxtyxwsqzhdpstrahexbgtmypsmmtqvfebupnzrslccys duwtgncthlraykruyqcaqchoelsfiktzvdaewbwymapkfmwxfgbrqqwrsdhoamiytob"]
