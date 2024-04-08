@@ -1,6 +1,4 @@
 from .locators import BasePageLocators
-from .login_page import LoginPage
-from .profile_page import ProfilePage
 
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.ui import WebDriverWait
