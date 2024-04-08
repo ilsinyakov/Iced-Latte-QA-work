@@ -17,7 +17,7 @@ import pytest
 # @allure.tag("")
 @severity(severity_level="MAJOR")
 @pytest.mark.parametrize('new_first_name', new_first_name_positive)
-def test_user_can_change_first_name(browser, link, new_first_name):
+def test_user_can_change_first_name(browser, new_first_name):
     with step('Go to Edit Profile Page'):        
         go_to_edit_profile_page(browser, link)
     with step('Enter new First Name'):
