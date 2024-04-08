@@ -5,7 +5,6 @@ from .pages.edit_profile_page import EditProfilePage
 from .configs import link, email, password, new_last_name_positive
 
 
-from time import sleep
 from allure import step, title, severity, story
 import pytest
 
