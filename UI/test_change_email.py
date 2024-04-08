@@ -2,9 +2,8 @@ from .pages.base_page import BasePage
 from .pages.login_page import LoginPage
 from .pages.profile_page import ProfilePage
 from .pages.edit_profile_page import EditProfilePage
-from .configs import link, email, password, new_email
+from .configs import link, email, password, new_email_positive
 
-from time import sleep
 from allure import step, title, severity, story
 import pytest
 
@@ -14,7 +13,9 @@ import pytest
 # @allure.description("")
 # @allure.tag("")
 @severity(severity_level="MAJOR")
-def test_user_can_change_email(browser):
+#@pytest.mark.xfail(reason='There is not completed requirements')
+@pytest.mark.parametrize('new_email', new_email_positive)
+def test_user_can_change_email(browser, new_email):
     with step('Open main page'):
         page = BasePage(browser, link)
         page.open()
