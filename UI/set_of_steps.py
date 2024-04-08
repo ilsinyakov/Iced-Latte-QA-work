@@ -2,7 +2,7 @@ from .pages.base_page import BasePage
 from .pages.login_page import LoginPage
 from .pages.profile_page import ProfilePage
 from .pages.edit_profile_page import EditProfilePage
-from .configs import link, email, password
+from .configs import email, password
 
 def go_to_edit_profile_page(self, browser, link):
         with step('Open main page'):
@@ -19,4 +19,3 @@ def go_to_edit_profile_page(self, browser, link):
         with step('Click "Edit" button'):
             page = ProfilePage(browser, browser.current_url)
             page.go_to_edit_page()
-            
