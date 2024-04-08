@@ -19,7 +19,7 @@ import pytest
 def test_user_can_change_first_name(browser, new_first_name):
     with step('Go to Edit Profile Page'):
         page = BasePage(browser, link)
-        page.go_to_edit_profile_page()
+        page.go_to_edit_profile_page(browser, link)
     with step('Enter new First Name'):
         page = EditProfilePage(browser, browser.current_url)
         page.change_first_name(new_first_name)
