@@ -2,7 +2,8 @@ from .pages.base_page import BasePage
 from .pages.login_page import LoginPage
 from .pages.profile_page import ProfilePage
 from .pages.edit_profile_page import EditProfilePage
-from .configs import link, email, password, new_last_name_positive
+from .set_of_steps import go_to_edit_profile_page
+from .configs import link, new_last_name_positive
 
 
 from allure import step, title, severity, story
@@ -16,20 +17,8 @@ import pytest
 @severity(severity_level="MAJOR")
 @pytest.mark.parametrize('new_last_name', new_last_name_positive)
 def test_user_can_change_last_name(browser, new_last_name):
-    with step('Open main page'):
-        page = BasePage(browser, link)
-        page.open()
-    with step('Go to login page'):
-        page.go_to_login_page()
-    with step('Login existing user'):
-        login_page = LoginPage(browser, browser.current_url)
-        login_page.login_existing_user(email, password)
-    with step('Go to profile page'):
-        page = BasePage(browser, browser.current_url)
-        page.go_to_profile_page()
-    with step('Click "Edit" button'):
-        page = ProfilePage(browser, browser.current_url)
-        page.go_to_edit_page()
+    with step('Go to Edit Profile Page'):        
+        go_to_edit_profile_page(browser, link)
     with step('Enter new Last Name'):
         page = EditProfilePage(browser, browser.current_url)
         page.change_last_name(new_last_name)
