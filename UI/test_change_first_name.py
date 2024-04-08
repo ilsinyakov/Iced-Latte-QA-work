@@ -1,4 +1,4 @@
-from .pages.base_page import BasePage, SetOfSteps
+from .pages.base_page import BasePage
 from .pages.login_page import LoginPage
 from .pages.profile_page import ProfilePage
 

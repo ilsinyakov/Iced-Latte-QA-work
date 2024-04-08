@@ -37,7 +37,6 @@ class BasePage:
         link = self.browser.find_element(*BasePageLocators.PROFILE_LINK)
         link.click()
 
-class SetOfSteps:    
     def go_to_edit_profile_page(self, browser, link):
         with step('Open main page'):
             page = BasePage(browser, link)
