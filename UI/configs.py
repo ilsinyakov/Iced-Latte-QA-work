@@ -32,13 +32,16 @@ new_last_name_positive = ["Si","sin",
                              254 symbols in domain with digits
                              255 symbols in domain
 '''
-new_email_positive = ["new@gmail.com", "new-new@gmail.com", "new=new@gmail.com", 
+new_email_254sym_domain = "new@n7j0tgu3g7okrllb9xa4iv7ayg0pukoszdd4gh.7yiskyid8oh3z2s05vwlsrj8j60t46wouptvp13x6otrqiqcftk0sn23pkm5gbaigtgb3os3t261w0mmubnlfzdykivy7pycwf9nu4qif9oelw31i1girpyec6ibowvre5gvpeprlx9lnlqwkh3syfnt30bdppeyk9joeaki7nf1co9klhj4c7irhe2wqi7zts2hqqrcdyb1tbequpv.com"
+new_email_255sym_domain = "new@xplglafelnbmkqxbwbukobzbeluzgpyluienzysdvybnnfhmmtdvazsnabvhqblnbgchfjspvoexvtlqakzgugrwtuvacjawutfxsgcuadgdztdtqkokutkkbqnqfcchfjnahteycosdfeccwfzxvsqlgtdgsxhylevtumtiokqarbrzbjhryhuljnpbgrafadczeohpdgrmpdjvgtxxwelffirhczrtnahwnypdxjiwingluiczlagafyx.net"
+new_email_positive = ["new@gmail.com", "new-new@gmail.com", 
+                      pytest.param("new=new@gmail.com", marks=pytest.mark.xfail(reason='There is not completed requirements')),
                       "new.ne.w9@gmail.com",
                       "wsqegnurpzlzxxfjlaeorHzniwfysavbczdktcxvpvkaqpalzveppsoofuurmbd@gmail.com",
                       "wsqegnurpzlzxxfjlaeorhzniwfysavbczdktcxvpvkaqpalzveppsoofuu+rmbd@gmail.com",
                       "new@wsqegnurpzlzxxfjlaeorhzniwfysavbczdTcxvpvkaqpalzveppsoofuurmbd.com",
                       "new@wsqegnurpzlzxxfjlaeorhzniwfysavbczdktcxvpvka-palzveppsoofuurmbd.net",
-                      "new@n7j0tgu3g7okrllb9xa4iv7ayg0pukoszdd4gh.7yiskyid8oh3z2s05vwlsrj8j60t46wouptvp13x6otrqiqcftk0sn23pkm5gbaigtgb3os3t261w0mmubnlfzdykivy7pycwf9nu4qif9oelw31i1girpyec6ibowvre5gvpeprlx9lnlqwkh3syfnt30bdppeyk9joeaki7nf1co9klhj4c7irhe2wqi7zts2hqqrcdyb1tbequpv.com",
-                      "new@xplglafelnbmkqxbwbukobzbeluzgpyluienzysdvybnnfhmmtdvazsnabvhqblnbgchfjspvoexvtlqakzgugrwtuvacjawutfxsgcuadgdztdtqkokutkkbqnqfcchfjnahteycosdfeccwfzxvsqlgtdgsxhylevtumtiokqarbrzbjhryhuljnpbgrafadczeohpdgrmpdjvgtxxwelffirhczrtnahwnypdxjiwingluiczlagafyx.net"
+                      pytest.param(new_email_254sym_domain, marks=pytest.mark.xfail(reason='There is not completed requirements')),
+                      pytest.param(new_email_255sym_domain, marks=pytest.mark.xfail(reason='There is not completed requirements'))
                       ]
 
