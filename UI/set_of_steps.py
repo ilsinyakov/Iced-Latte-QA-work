@@ -4,7 +4,7 @@ from .pages.profile_page import ProfilePage
 from .pages.edit_profile_page import EditProfilePage
 from .configs import email, password
 
-def go_to_edit_profile_page(self, browser, link):
+def go_to_edit_profile_page(browser, link):
         with step('Open main page'):
             page = BasePage(browser, link)
             page.open()
