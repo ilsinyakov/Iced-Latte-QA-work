@@ -1,10 +1,7 @@
-from .pages.base_page import BasePage
-from .pages.login_page import LoginPage
 from .pages.profile_page import ProfilePage
 from .pages.edit_profile_page import EditProfilePage
 from .set_of_steps import go_to_edit_profile_page
 from .configs import link, new_last_name_positive
-
 
 from allure import step, title, severity, story
 import pytest

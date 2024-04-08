@@ -1,5 +1,3 @@
-from .pages.base_page import BasePage
-from .pages.login_page import LoginPage
 from .pages.profile_page import ProfilePage
 from .pages.edit_profile_page import EditProfilePage
 from .set_of_steps import go_to_edit_profile_page
@@ -14,7 +12,6 @@ import pytest
 # @allure.description("")
 # @allure.tag("")
 @severity(severity_level="MAJOR")
-#@pytest.mark.xfail(reason='There is not completed requirements')
 @pytest.mark.parametrize('new_email', new_email_positive)
 def test_user_can_change_email(browser, new_email):
     with step('Go to Edit Profile Page'):        
