@@ -42,5 +42,9 @@ new_email_positive = ["new@gmail.com", "new-new@gmail.com",
                       "new@wsqegnurpzlzxxfjlaeorhzniwfysavbczdTcxvpvkaqpalzveppsoofuurmbd.com",
                       "new@wsqegnurpzlzxxfjlaeorhzniwfysavbczdktcxvpvka-palzveppsoofuurmbd.net",
                       pytest.param(new_email_254sym_domain, marks=pytest.mark.xfail(reason='There is not completed requirements')),
-                      pytest.param(new_email_255sym_domain, marks=pytest.mark.xfail(reason='There is not completed requirements'))
+                      pytest.param(new_email_255sym_domain, marks=pytest.mark.xfail(reason='There is not completed requirements'))                      
                       ]
+# Negative values of First Name: special characters, 1 symbol, empty, 129 symbols, 200 symbols
+new_first_name_129sym = "kqijmbiwghdqyflvberhuyzzduezixhzgbtqeeizljzggxbrpgukjfdvsgwzarexwcauuhurnukwtsgqtpqtdwjxdpkaqcwmhobykrksbgppbmoasvwqbcrrkrjljkoev"
+new_first_name_200sym = "jsopivxfqnkjjyoskwadzzjxisnbbmjsyxdqetkqnhsduatqhlrfzdlxuniecpbvmyvdfzjvflknsimaxbnwyeeifpyxjnyxevmfnbuvcvjnnwachecpcioveipbsidujhcbjdgevbwwtmuxybulzzvgdrwktxtdcrixrrbnqpqpzqcigegtlkhcvskrgvfhxczimrkm"
+new_first_name_negative = ["An&na!", "A", "", new_first_name_129sym, new_first_name_200sym]
