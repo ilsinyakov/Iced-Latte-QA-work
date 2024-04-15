@@ -16,7 +16,7 @@ import pytest
 def test_user_cant_change_first_name(browser, new_first_name):
     with step('Go to Edit Profile Page'):        
         go_to_edit_profile_page(browser, link)
-    with step('Enter new First Name'):
+    with step('Enter new Negative First Name'):
         page = EditProfilePage(browser, browser.current_url)
         page.change_first_name(new_first_name)
     with step('Click "Save Changes" button'):
