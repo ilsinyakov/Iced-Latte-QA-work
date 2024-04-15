@@ -1,3 +1,4 @@
+from .page.base_page import BasePage
 from .pages.profile_page import ProfilePage
 from .pages.edit_profile_page import EditProfilePage
 from .set_of_steps import go_to_edit_profile_page
