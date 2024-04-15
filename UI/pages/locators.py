@@ -34,6 +34,5 @@ class EditProfilePageLocators:
     LAST_NAME_FIELD = (By.ID, 'lastName')
     SAVE_CHANGE_BUTTON = (By.CSS_SELECTOR, '[type="submit"]')
     #  SUCCESS_MESSAGE = (By.ID, 'success')
-    EMPTY_NONLATIN_MESSAGE = (By.XPATH, "//input[@id='firstName']/following-sibling::*")
-    SERVER_ERROR_MESSAGE = (By.XPATH, "//button[@type='submit']/preceding-sibling::*")
-    
+    EMPTY_NONLATIN_MESSAGE = (By.XPATH, "//input[@id='firstName']/following-sibling::div")
+    SERVER_ERROR_MESSAGE = (By.XPATH, "//button[@type='submit']/preceding-sibling::div")
