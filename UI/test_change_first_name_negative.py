@@ -23,8 +23,14 @@ def test_user_cant_change_first_name(browser, new_first_name):
         page.save_change()
     #  with step('Assert Success massage is present'):
         #  assert page.is_success_message_present('Your First Name was changed'), 'Success message is not present'
-    with step('Assert Error message is present'):        
-        assert page.is_error_message_present(('Invalid name format. Use extended Latin letters, spaces, and specified symbols', 
-                                              'name is required', 
-                                              'Server Error: Internal server error')), 'Error message is not present'
+    with step('Go to profile page'):
+        page = BasePage(browser, link)
+        page.go_to_profile_page()
+    #  with step('Assert Error message is present'):                
+       # assert page.is_error_message_present(('Invalid name format. Use extended Latin letters, spaces, and specified symbols', 
+        #                                      'name is required', 
+         #                                     'Server Error: Internal server error')), 'Error message is not present'
+    with step('Assert New Negative First Name is not present in profile'):
+        page = ProfilePage(browser, browser.current_url)
+        assert page.is_not_negative_first_name_present(new_first_name), 'New Negative First Name is present in profile'
         
