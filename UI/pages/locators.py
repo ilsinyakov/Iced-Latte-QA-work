@@ -40,5 +40,5 @@ class EditProfilePageLocators:
     #  SERVER_ERROR_MESSAGE = (By.XPATH, '/html/body/main/div/div/div[3]/form/div[9]/div')
     #  EMPTY_NONLATIN_MESSAGE = (By.XPATH, '//*[@id="firstName"]')
     #  SERVER_ERROR_MESSAGE = (By.XPATH, '//*[@id="firstName"]')
-    SERVER_ERROR_MESSAGE = (By.CSS_SELECTOR, 'body > main > div > div > div:nth-child(3) > form > div.mt-4 > div')
-    EMPTY_NONLATIN_MESSAGE = (By.CSS_SELECTOR, 'body > main > div > div > div:nth-child(3) > form > div.flex.flex-col.md\:flex-row.md\:gap-\[16px\] > div:nth-child(1) > div > div')
+    EMPTY_NONLATIN_MESSAGE = (By.CSS_SELECTOR, '.mt-2.font-medium.text-negative')
+    SERVER_ERROR_MESSAGE = (By.CSS_SELECTOR, '.mt-4.text-negative')    
