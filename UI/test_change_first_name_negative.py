@@ -3,7 +3,7 @@ from .pages.edit_profile_page import EditProfilePage
 from .set_of_steps import go_to_edit_profile_page
 from .configs import link, new_first_name_negative
 
-from allure import step, title, severity, story
+from allure import step, title, severity, story, severity_level
 import pytest
 
 
