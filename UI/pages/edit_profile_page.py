@@ -23,6 +23,7 @@ class EditProfilePage(BasePage):
         save_change_button.click()
     
     def is_error_message_present(self, error_message):
+        print('\nCurrent url', self.browser.current_url)
         message_empty_nonlatin = self.browser.find_element(*EditProfilePageLocators.EMPTY_NONLATIN_MESSAGE)
         message_server_error = self.browser.find_element(*EditProfilePageLocators.SERVER_ERROR_MESSAGE)
         if (message_empty_nonlatin.text in error_message) or (message_server_error.text in error_message):
