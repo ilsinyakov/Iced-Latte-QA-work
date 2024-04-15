@@ -21,8 +21,16 @@ class EditProfilePage(BasePage):
     def save_change(self):
         save_change_button = self.browser.find_element(*EditProfilePageLocators.SAVE_CHANGE_BUTTON)
         save_change_button.click()
+    
+    def is_error_message_present(self, error_message):
+        message_empty_nonlatin = self.browser.find_element(*EditProfilePageLocators.EMPTY_NONLATIN_MESSAGE)
+        message_server_error = self.browser.find_element(*EditProfilePageLocators.SERVER_ERROR_MESSAGE)
+        if (message_empty_nonlatin.text in error_message) or (message_server_error.text in error_message):
+            return True
+        else:
+            return False
 
-'''    def is_success_message_present(self, success_message):
+'''    def is_success_message_present(self, error_message):
         message_element = self.browser.find_element(*EditProfilePageLocators.SUCCESS_MESSAGE)
         if message_element.text == success_message:
             return True

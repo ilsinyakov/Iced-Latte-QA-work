@@ -24,5 +24,7 @@ def test_user_cant_change_first_name(browser, new_first_name):
     #  with step('Assert Success massage is present'):
         #  assert page.is_success_message_present('Your First Name was changed'), 'Success message is not present'
     with step('Assert New First Name is present in profile'):
-        page = ProfilePage(browser, browser.current_url)
-        assert page.is_new_first_name_present(new_first_name), 'New First Name is not present in profile'
+        assert page.is_error_message_present(('Invalid name format. Use extended Latin letters, spaces, and specified symbols', 
+                                              'name is required', 
+                                              'Server Error: Internal server error')), 'Error message is not present'
+        
