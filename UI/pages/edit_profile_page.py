@@ -20,7 +20,11 @@ class EditProfilePage(BasePage):
 
     def save_change(self):
         save_change_button = self.browser.find_element(*EditProfilePageLocators.SAVE_CHANGE_BUTTON)
-        save_change_button.click()   
+        save_change_button.click()
+
+    def go_to_main_page(self):
+        main_page_link = self.browser.find_element(*EditProfilePageLocators.MAIN_PAGE_LINK)
+        main_page_link.click()
 
     
 '''    def is_error_message_present(self, error_message):
