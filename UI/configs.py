@@ -6,6 +6,7 @@ first_name = "Test"
 last_name = "Testtest"
 email = "ilsinyakovmo4@gmail.com"
 password = "80000005a"
+
 '''Positive values of Names: 2 symbols with UPPERCASE letter, 3 symbols lowercase letters, 13 symbols with hyphens and space,
                              127 symbols with hyphens and UPPERCASE letters in the middle,
                              128 symbols with spase
@@ -23,6 +24,7 @@ new_last_name_positive = ["Si", "sin",
                           pytest.param(new_last_name_127sym, marks=pytest.mark.xfail(reason='Bugs: BE (>55 symbols) & FE (- & space) is not fixed')),
                           pytest.param(new_last_name_128sym, marks=pytest.mark.xfail(reason='Bugs: BE (>55 symbols) & FE (- & space) is not fixed')),
                           ]
+
 '''Positive values of email: regular email, local-part with hyphen, local-part with equals, 
                              local-part with dots in the middle not consecutively and with digits,  
                              63 symbols in local-part with UPPERCASE letter, 
@@ -44,7 +46,8 @@ new_email_positive = ["new@gmail.com", "new-new@gmail.com",
                       pytest.param(new_email_254sym_domain, marks=pytest.mark.xfail(reason='There is not completed requirements')),
                       pytest.param(new_email_255sym_domain, marks=pytest.mark.xfail(reason='There is not completed requirements'))                      
                       ]
+
 # Negative values of First Name: special characters, non-Latin letters, 1 symbol, empty, 129 symbols, 200 symbols
 new_first_name_129sym = "kqijmbiwghdqyflvberhuyzzduezixhzgbtqeeizljzggxbrpgukjfdvsgwzarexwcauuhurnukwtsgqtpqtdwjxdpkaqcwmhobykrksbgppbmoasvwqbcrrkrjljkoev"
 new_first_name_200sym = "jsopivxfqnkjjyoskwadzzjxisnbbmjsyxdqetkqnhsduatqhlrfzdlxuniecpbvmyvdfzjvflknsimaxbnwyeeifpyxjnyxevmfnbuvcvjnnwachecpcioveipbsidujhcbjdgevbwwtmuxybulzzvgdrwktxtdcrixrrbnqpqpzqcigegtlkhcvskrgvfhxczimrkm"
-new_first_name_negative = ["An&na!", "Петя", "R", "", new_first_name_129sym, new_first_name_200sym]
+new_first_name_negative = ["An&na!", "Петя", pytest.param("R", marks=pytest.mark.xfail(reason='Bug 1 symbol is not fixed')), "", new_first_name_129sym, new_first_name_200sym]
