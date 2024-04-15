@@ -30,7 +30,7 @@ class EditProfilePage(BasePage):
         else:
             return False
 
-'''    def is_success_message_present(self, error_message):
+'''    def is_success_message_present(self, success_message):
         message_element = self.browser.find_element(*EditProfilePageLocators.SUCCESS_MESSAGE)
         if message_element.text == success_message:
             return True
