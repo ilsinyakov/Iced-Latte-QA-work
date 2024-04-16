@@ -29,20 +29,20 @@ class EditProfilePage(BasePage):
     
     def is_error_message_present(self, error_message):
         try:
-            message_empty = self.browser.find_element(*EditProfilePageLocators.EMPTY_MESSAGE)
+            message_empty = self.browser.find_element(*EditProfilePageLocators.EMPTY_MESSAGE).text
         except:
             message_empty = ''
         try:
-            message_nonlatin = self.browser.find_element(*EditProfilePageLocators.NONLATIN_MESSAGE)
+            message_nonlatin = self.browser.find_element(*EditProfilePageLocators.NONLATIN_MESSAGE).text
         except:
             message_nonlatin = ''
         try:
-            message_server_error = self.browser.find_element(*EditProfilePageLocators.SERVER_ERROR_MESSAGE)
+            message_server_error = self.browser.find_element(*EditProfilePageLocators.SERVER_ERROR_MESSAGE).text
         except:
             message_server_error = ''        
-        if (message_empty.text in error_message) or \
-           (message_nonlatin.text in error_message) or \
-           (message_server_error.text in error_message):
+        if (message_empty in error_message) or \
+           (message_nonlatin in error_message) or \
+           (message_server_error in error_message):
             return True
         else:
             return False
