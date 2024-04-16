@@ -31,7 +31,9 @@ class EditProfilePage(BasePage):
         message_empty = self.browser.find_element(*EditProfilePageLocators.EMPTY_MESSAGE)
         message_nonlatin = self.browser.find_element(*EditProfilePageLocators.NONLATIN_MESSAGE)
         message_server_error = self.browser.find_element(*EditProfilePageLocators.SERVER_ERROR_MESSAGE)
-        if (message_empty_nonlatin.text in error_message) or (message_server_error.text in error_message):
+        if (message_empty.text in error_message) or \
+           (message_nonlatin.text in error_message) or \
+           (message_server_error.text in error_message):
             return True
         else:
             return False

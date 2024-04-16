@@ -22,10 +22,11 @@ def test_user_cant_change_first_name(browser, new_first_name):
         page.change_first_name(new_first_name)
     with step('Click "Save Changes" button'):
         page.save_change()    
-    #  with step('Assert Error message is present'):                
-    #      assert page.is_error_message_present(('Invalid name format. Use extended Latin letters, spaces, and specified symbols', 
-    #                                            'name is required', 
-    #                                            'Server Error: Internal server error')), 'Error message is not present'
+    with step('Assert Error message is present'):                
+        assert page.is_error_message_present(('Invalid name format. Use extended Latin letters, spaces, and specified symbols', 
+                                              'name is required', 
+                                              'Server Error: Internal server error')
+                                             ), 'Error message is not present'
     with step('Go to Main Page'):        
         page.go_to_main_page()
     with step('Go to Profile Page'):
