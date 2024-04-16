@@ -47,7 +47,20 @@ new_email_positive = ["new@gmail.com", "new-new@gmail.com",
                       pytest.param(new_email_255sym_domain, marks=pytest.mark.xfail(reason='There is not completed requirements'))                      
                       ]
 
-# Negative values of First Name: special characters, non-Latin letters, 1 symbol, empty, 129 symbols, 200 symbols
+# Negative values of Names: special characters, non-Latin letters, 1 symbol, empty, 129 symbols, 200 symbols
 new_first_name_129sym = "kqijmbiwghdqyflvberhuyzzduezixhzgbtqeeizljzggxbrpgukjfdvsgwzarexwcauuhurnukwtsgqtpqtdwjxdpkaqcwmhobykrksbgppbmoasvwqbcrrkrjljkoev"
 new_first_name_200sym = "jsopivxfqnkjjyoskwadzzjxisnbbmjsyxdqetkqnhsduatqhlrfzdlxuniecpbvmyvdfzjvflknsimaxbnwyeeifpyxjnyxevmfnbuvcvjnnwachecpcioveipbsidujhcbjdgevbwwtmuxybulzzvgdrwktxtdcrixrrbnqpqpzqcigegtlkhcvskrgvfhxczimrkm"
-new_first_name_negative = ["An&na!", "Петя", pytest.param("R", marks=pytest.mark.xfail(reason='Bug 1 symbol is not fixed')), "", new_first_name_129sym, new_first_name_200sym]
+new_first_name_negative = ["An&na!", "Петя", 
+                           pytest.param("R", marks=pytest.mark.xfail(reason='Bug 1 symbol is not fixed')), 
+                           "", new_first_name_129sym, new_first_name_200sym
+                           ]
+
+new_last_name_129sym = "kqijmbiwghdqyflvberhuyzzduezixhzgbtqeeizljzggxbrpgukjfdvsgwzarexwcauuhurnukwtsgqtpqtdwjxdpkaqcwmhobykrksbgppbmoasvwqbcrrkrjljkoev"
+new_last_name_200sym = "jsopivxfqnkjjyoskwadzzjxisnbbmjsyxdqetkqnhsduatqhlrfzdlxuniecpbvmyvdfzjvflknsimaxbnwyeeifpyxjnyxevmfnbuvcvjnnwachecpcioveipbsidujhcbjdgevbwwtmuxybulzzvgdrwktxtdcrixrrbnqpqpzqcigegtlkhcvskrgvfhxczimrkm"
+new_last_name_negative = ["Sm&it!", "Иванов", 
+                          pytest.param("Q", marks=pytest.mark.xfail(reason='Bug 1 symbol is not fixed')), 
+                          "", new_last_name_129sym, new_last_name_200sym
+                          ]
+
+
+
