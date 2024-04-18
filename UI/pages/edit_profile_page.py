@@ -25,15 +25,14 @@ class EditProfilePage(BasePage):
     def go_to_main_page(self):
         main_page_link = self.browser.find_element(*EditProfilePageLocators.MAIN_PAGE_LINK)
         main_page_link.click()
-
     
-    def is_error_message_present(self, error_message):
+    def is_error_message_first_name_present(self, error_message):
         try:
-            message_empty = self.browser.find_element(*EditProfilePageLocators.EMPTY_MESSAGE).text
+            message_empty = self.browser.find_element(*EditProfilePageLocators.EMPTY_FIRST_NAME_MESSAGE).text
         except:
             message_empty = ''
         try:
-            message_nonlatin = self.browser.find_element(*EditProfilePageLocators.NONLATIN_MESSAGE).text
+            message_nonlatin = self.browser.find_element(*EditProfilePageLocators.NONLATIN_FIRST_NAME_MESSAGE).text
         except:
             message_nonlatin = ''
         try:
@@ -46,6 +45,27 @@ class EditProfilePage(BasePage):
             return True
         else:
             return False
+    
+    def is_error_message_last_name_present(self, error_message):
+        try:
+            message_empty = self.browser.find_element(*EditProfilePageLocators.EMPTY_LAST_NAME_MESSAGE).text
+        except:
+            message_empty = ''
+        try:
+            message_nonlatin = self.browser.find_element(*EditProfilePageLocators.NONLATIN_LAST_NAME_MESSAGE).text
+        except:
+            message_nonlatin = ''
+        try:
+            message_server_error = self.browser.find_element(*EditProfilePageLocators.SERVER_ERROR_MESSAGE).text
+        except:
+            message_server_error = ''        
+        if (message_empty in error_message) or \
+           (message_nonlatin in error_message) or \
+           (message_server_error in error_message):
+            return True
+        else:
+            return False
+
 
 '''    def is_success_message_present(self, success_message):
         message_element = self.browser.find_element(*EditProfilePageLocators.SUCCESS_MESSAGE)

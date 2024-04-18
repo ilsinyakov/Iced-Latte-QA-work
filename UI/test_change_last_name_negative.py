@@ -23,8 +23,8 @@ def test_user_cant_change_last_name(browser, new_last_name):
     with step('Click "Save Changes" button'):
         page.save_change()    
     with step('Assert Error message is present'):                
-        assert page.is_error_message_present(('Invalid name format. Use extended Latin letters, spaces, and specified symbols', 
-                                              'name is required', 
+        assert page.is_error_message_present(('Invalid Last name format. Use extended Latin letters', 
+                                              'Last name is required', 
                                               'Server Error: Internal server error')
                                              ), 'Error message is not present'
     with step('Go to Main Page'):        
