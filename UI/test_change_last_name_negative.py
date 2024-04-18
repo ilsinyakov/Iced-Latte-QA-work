@@ -34,5 +34,5 @@ def test_user_cant_change_last_name(browser, new_last_name):
         page.go_to_profile_page()        
     with step('Assert New Negative Last Name is not present in profile'):
         page = ProfilePage(browser, browser.current_url)
-        assert page.is_not_negative_last_name_present(new_last_name), 'New Negative Last Name is present in profile'
+        assert not page.is_new_last_name_present(new_last_name), 'New Negative Last Name is present in profile'
         
