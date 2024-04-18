@@ -5,7 +5,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 
 class BasePage:
-    def __init__(self, browser, url, timeout=5):
+    def __init__(self, browser, url, timeout=2):
         self.browser = browser
         self.url = url
         self.browser.implicitly_wait(timeout)  # turn on implicitly wait
