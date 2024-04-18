@@ -34,5 +34,5 @@ def test_user_cant_change_first_name(browser, new_first_name):
         page.go_to_profile_page()        
     with step('Assert New Negative First Name is not present in profile'):
         page = ProfilePage(browser, browser.current_url)
-        assert page.is_not_negative_first_name_present(new_first_name), 'New Negative First Name is present in profile'
+        assert not page.is_new_first_name_present(new_first_name), 'New Negative First Name is present in profile'
         
