@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 class BasePageLocators:
     LOGIN_LINK = (By.CSS_SELECTOR, '[href="/auth/login"]')
     PROFILE_LINK = (By.CSS_SELECTOR, '[href="/profile"]')
-    SORT_DROPDOWN = (By.XPATH, "//*[contains(text(), 'Sort by: \nPrice: Low to High')]")
+    SORT_DROPDOWN = (By.XPATH, "//*[contains(text(), 'Sort by:')]")
 
 
 class LoginPageLocators:
