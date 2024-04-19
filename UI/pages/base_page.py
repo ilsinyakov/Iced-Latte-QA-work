@@ -10,9 +10,13 @@ class BasePage:
         self.url = url
         self.browser.implicitly_wait(timeout)  # turn on implicitly wait
 
-    # open page
-    def open(self):
-        self.browser.get(self.url)
+    def go_to_login_page(self):
+        link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
+        link.click()
+
+    def go_to_profile_page(self):
+        link = self.browser.find_element(*BasePageLocators.PROFILE_LINK)
+        link.click()    
 
     # check that the element is present on the page
     def is_element_present(self, how, what):
@@ -21,16 +25,20 @@ class BasePage:
         except NoSuchElementException:
             return False
         return True
-
-    def go_to_login_page(self):
-        link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
-        link.click()
+    
+    # check that sort drop-down is not present on the page
+    def is_dropdown_not_present(self):
+        try:
+            dropdown = self.browser.find_element(*BasePageLocators.SORT_DROPDOWN)
+            return False
+        except:
+            return True
+    
+    # open page
+    def open(self):
+        self.browser.get(self.url)    
 
     # check that login link is present on the page
     def should_be_login_link(self):
-        assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
-
-    def go_to_profile_page(self):
-        link = self.browser.find_element(*BasePageLocators.PROFILE_LINK)
-        link.click()    
+        assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"    
     

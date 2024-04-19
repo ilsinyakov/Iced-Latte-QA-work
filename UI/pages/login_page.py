@@ -1,5 +1,5 @@
 from .base_page import BasePage
-from .locators import LoginPageLocators
+from .locators import BasePageLocators, LoginPageLocators
 
 
 class LoginPage(BasePage):
@@ -13,4 +13,4 @@ class LoginPage(BasePage):
         login_button = self.browser.find_element(*LoginPageLocators.LOGIN_BUTTON)
         email_field.send_keys(email)
         password_field.send_keys(password)
-        login_button.click()
+        login_button.click()    
