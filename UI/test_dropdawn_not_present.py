@@ -22,8 +22,9 @@ def test_dropdawn_not_present(browser):
        # assert page.is_dropdown_not_present(), 'Sort drop-down is present on Main Page'
         page.go_to_login_page()
     with step('Assert Sort Drop-down is not present on Login Page'):
-        page = LoginPage(browser, browser.current_url)
+        page = LoginPage(browser, browser.current_url)        
         sleep(5)
+        page.refresh()
         assert page.is_dropdown_not_present(), 'Sort drop-down is present on Login Page'        
     with step('Go to Registration Page'):
         page.go_to_registration_page()
