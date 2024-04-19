@@ -5,6 +5,7 @@ from .configs import link
 
 from allure import step, title, severity, story, severity_level
 import pytest
+from time import sleep
 
 
 @title("Test Fixed Bug: Sort Drop-down is present on Login and Registration page")
@@ -25,3 +26,4 @@ def test_dropdawn_not_present(browser):
     with step('Assert Sort Drop-down is not present on Registration Page'):
         page = RegistrationPage(browser, browser.current_url)
         assert page.is_dropdown_not_present(), 'Sort drop-down is present on Registration Page'
+    sleep(2)
