@@ -10,12 +10,15 @@ class LoginPage(BasePage):
         link.click()
     
     # check that sort drop-down is not present on the page
-    def is_dropdown_present(self):
+    '''def is_dropdown_present(self):
         try:
             self.browser.find_element(*BasePageLocators.SORT_DROPDOWN)
         except NoSuchElementException:
             return False
         return True        
+    '''
+    def is_dropdown_present(self):
+        self.is_element_present(*BasePageLocators.SORT_DROPDOWN)
 
     def login_existing_user(self, email, password):
         email_field = self.browser.find_element(*LoginPageLocators.EMAIL_FIELD)
