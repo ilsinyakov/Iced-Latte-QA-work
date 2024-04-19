@@ -14,3 +14,7 @@ class RegistrationPage(BasePage):
         password_field.send_keys(password)
         register_button = self.browser.find_element(*RegistrationPageLocators.REGISTER_BUTTON)
         register_button.click()
+    
+    # check that sort drop-down is not present on the page
+    def is_dropdown_present(self):
+        is_element_present(*BasePageLocators.SORT_DROPDOWN)

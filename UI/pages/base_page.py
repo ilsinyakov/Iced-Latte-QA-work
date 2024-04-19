@@ -24,15 +24,7 @@ class BasePage:
             self.browser.find_element(how, what)
         except NoSuchElementException:
             return False
-        return True
-    
-    # check that sort drop-down is not present on the page
-    def is_dropdown_not_present(self):
-        dropdown = self.browser.find_element(*BasePageLocators.SORT_DROPDOWN)
-        if dropdown.is_displayed():
-            return False
-        else:
-            return True
+        return True    
     
     # open page
     def open(self):

@@ -16,19 +16,16 @@ from time import sleep
 def test_dropdawn_not_present(browser):
     with step('Go to Login Page'):
         page = BasePage(browser, link)
-        page.open()
-    # with step('Assert Sort Drop-down is not present on Registration Page'):        
-       # sleep(5)
-       # assert page.is_dropdown_not_present(), 'Sort drop-down is present on Main Page'
+        page.open()    
         page.go_to_login_page()
     with step('Assert Sort Drop-down is not present on Login Page'):
         page = LoginPage(browser, browser.current_url)        
         sleep(5)
         page.open()
-        assert page.is_dropdown_not_present(), 'Sort drop-down is present on Login Page'        
+        assert not page.is_dropdown_present(), 'Sort drop-down is present on Login Page'        
     with step('Go to Registration Page'):
         page.go_to_registration_page()
     with step('Assert Sort Drop-down is not present on Registration Page'):
         page = RegistrationPage(browser, browser.current_url)
         sleep(5)
-        assert page.is_dropdown_not_present(), 'Sort drop-down is present on Registration Page'        
+        assert not page.is_dropdown_present(), 'Sort drop-down is present on Registration Page'        
