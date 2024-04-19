@@ -8,7 +8,8 @@ class BasePageLocators:
 
 
 class LoginPageLocators:
-    REGISTER_BUTTON = (By.CSS_SELECTOR, '[href="/auth/registration"]')
+    # REGISTER_BUTTON = (By.CSS_SELECTOR, '[href="/auth/registration"]')
+    REGISTER_BUTTON = (By.XPATH, '/html/body/main/div/div[2]/div[2]/a[2]/button')
     EMAIL_FIELD = (By.ID, 'email')
     PASSWORD_FIELD = (By.ID, 'password')
     LOGIN_BUTTON = (By.CSS_SELECTOR, '[type="submit"]')
