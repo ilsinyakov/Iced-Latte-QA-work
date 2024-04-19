@@ -17,4 +17,4 @@ class LoginPage(BasePage):
 
     # check that sort drop-down is not present on the page
     def is_dropdown_present(self):
-        is_element_present(*BasePageLocators.SORT_DROPDOWN) 
+        is_element_present(self, *BasePageLocators.SORT_DROPDOWN) 
