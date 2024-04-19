@@ -9,14 +9,7 @@ class LoginPage(BasePage):
         link = self.browser.find_element(*LoginPageLocators.REGISTER_BUTTON)
         link.click()
     
-    # check that sort drop-down is not present on the page
-    '''def is_dropdown_present(self):
-        try:
-            self.browser.find_element(*BasePageLocators.SORT_DROPDOWN)
-        except NoSuchElementException:
-            return False
-        return True        
-    '''
+    # check that sort drop-down is not present on the page    
     def is_dropdown_present(self):
         self.is_element_present(*BasePageLocators.SORT_DROPDOWN)
 

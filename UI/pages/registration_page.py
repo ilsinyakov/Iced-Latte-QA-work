@@ -7,11 +7,7 @@ from selenium.common.exceptions import NoSuchElementException
 class RegistrationPage(BasePage):
     # check that sort drop-down is not present on the page
     def is_dropdown_present(self):
-        try:
-            self.browser.find_element(*BasePageLocators.SORT_DROPDOWN)
-        except NoSuchElementException:
-            return False
-        return True       
+        self.is_element_present(*BasePageLocators.SORT_DROPDOWN)
     
     def register_new_user(self, first_name, last_name, email, password):
         first_name_field = self.browser.find_element(*RegistrationPageLocators.FIRST_NAME_FIELD)
