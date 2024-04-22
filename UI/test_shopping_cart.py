@@ -36,4 +36,9 @@ class TestCart:
         with step('Add Product to Cart'):
             page.add_product_to_cart()
             sleep(3)
-            assert page.is_change_cart_icon('1'), 'Cart icon is not change'    
+            assert page.is_change_cart_icon('1'), 'Cart icon is not change'
+        with step('Go to Cart Page'):
+            page.go_to_cart_page()
+        with step('Assert added product is in the cart'):
+            page = CartPage(browser, browser.current_url)
+            page.is_product_in_cart(), 'Product is not in the cart'

@@ -4,11 +4,14 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.ui import WebDriverWait
 
 
-class BasePage:
+class BasePage:    
+
     def __init__(self, browser, url, timeout=2):
         self.browser = browser
         self.url = url
         self.browser.implicitly_wait(timeout)  # turn on implicitly wait
+    
+    main_page_product_name = self.browser.find_element(*BasePageLocators.PRODUCT_NAME)
     
     def add_product_to_cart(self):
         button = self.browser.find_element(*BasePageLocators.ADD_TO_CART_BUTTON)
