@@ -2,8 +2,10 @@ from selenium.webdriver.common.by import By
 
 
 class BasePageLocators:
+    ADD_TO_CART_BUTTON = (By.XPATH, '//li[2]/div/div[2]/div/button')
+    PRODUCT_NAME = (By.XPATH, '//li[2]/div/a/div[2]/h2')
     CART_LINK = (By.CSS_SELECTOR, '[href="/cart"]')
-    # CART_LINK = (By.LINK_TEXT, '/cart')
+    CART_ICON = (By.XPATH, '//header/div/a[3]/button/div[2]/span') 
     LOGIN_LINK = (By.CSS_SELECTOR, '[href="/auth/login"]')
     PROFILE_LINK = (By.CSS_SELECTOR, '[href="/profile"]')
     SORT_DROPDOWN = (By.XPATH, "//*[contains(text(), 'Sort by:')]")

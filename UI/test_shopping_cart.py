@@ -1,6 +1,6 @@
 from .pages.cart_page import CartPage
 from .pages.base_page import BasePage
-from .configs import link
+from .configs import link, product_id
 
 from allure import step, title, severity, story, severity_level
 import pytest
@@ -21,18 +21,18 @@ class TestCart:
             page.go_to_cart_page()
         with step('Assert Cart is Empty'):
             page = CartPage(browser, browser.current_url)
-            sleep(3)
+            sleep(2)
             assert page.is_cart_empty, 'Cart is not empty'
         with step('Go to Main Page from Empty Cart'):
             page.go_to_main_page()
-            sleep(3)
+            sleep(2)
             assert browser.current_url == link, 'Continue Shopping Button do not work'
     
-    '''@title("Test Full Shopping Cart")
-    def test_full_cart(browser):
+    @title("Test Full Shopping Cart")
+    def test_full_cart(self, browser):
         with step('Open Main Page'):
             page = BasePage(browser, link)
             page.open()
         with step('Add Product to Cart'):
             page.add_product_to_cart()
-    '''
+            assert is_change_cart_icon('1'), 'Cart icon is not change'    

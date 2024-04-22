@@ -10,6 +10,10 @@ class BasePage:
         self.url = url
         self.browser.implicitly_wait(timeout)  # turn on implicitly wait
     
+    def add_product_to_cart(self):
+        button = self.browser.find_element(*BasePageLocators.ADD_TO_CART_BUTTON)
+        button.click()        
+    
     def go_to_cart_page(self):
         link = self.browser.find_element(*BasePageLocators.CART_LINK)
         link.click()
@@ -20,7 +24,15 @@ class BasePage:
 
     def go_to_profile_page(self):
         link = self.browser.find_element(*BasePageLocators.PROFILE_LINK)
-        link.click()    
+        link.click()
+    
+    # check than amount on cart icon changed after adding product to cart
+    def is_change_cart_icon(self, amount):
+        cart_icon = self.browser.find_element(*BasePageLocators.CART_ICON)
+        if cart_icon.text == amount:
+            return True
+        else: 
+            return False
 
     # check that the element is present on the page
     def is_element_present(self, how, what):

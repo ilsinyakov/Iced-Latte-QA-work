@@ -88,3 +88,5 @@ new_email_negative = [".new@gmail.com", "new.@gmail.com", "ne..w@gmail.com",
                       new_email_256sym_domain,
                       new_email_300sym_domain
                       ]
+
+product_id = '4e9a7d28-5e40-4b14-bc72-a5d1b547c3d0'

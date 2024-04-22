@@ -9,4 +9,3 @@ class CartPage(BasePage):
     def go_to_main_page(self):
         button = self.browser.find_element(*CartPageLocators.CONTINUE_SHOPPING_BUTTON)
         button.click()
-        
