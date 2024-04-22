@@ -1,6 +1,6 @@
 from .pages.cart_page import CartPage
 from .pages.base_page import BasePage
-from .configs import link, product_id
+from .configs import link
 
 from allure import step, title, severity, story, severity_level
 import pytest
