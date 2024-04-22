@@ -4,6 +4,7 @@ from .configs import link
 
 from allure import step, title, severity, story, severity_level
 import pytest
+from time import sleep
 
 
 @story("Cart Page")
@@ -20,9 +21,11 @@ class TestCart:
             page.go_to_cart_page()
         with step('Assert Cart is Empty'):
             page = CartPage(browser, browser.current_url)
+            sleep(3)
             assert page.is_cart_empty, 'Cart is not empty'
         with step('Go to Main Page from Empty Cart'):
             page.go_to_main_page()
+            sleep(3)
             assert browser.current_url == link, 'Continue Shopping Button do not work'
     
     '''@title("Test Full Shopping Cart")
