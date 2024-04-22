@@ -2,7 +2,8 @@ from selenium.webdriver.common.by import By
 
 
 class BasePageLocators:
-    CART_LINK = (By.LINK_TEXT, '/cart')
+    CART_LINK = (By.CSS_SELECTOR, '[href="/cart"]')
+    # CART_LINK = (By.LINK_TEXT, '/cart')
     LOGIN_LINK = (By.CSS_SELECTOR, '[href="/auth/login"]')
     PROFILE_LINK = (By.CSS_SELECTOR, '[href="/profile"]')
     SORT_DROPDOWN = (By.XPATH, "//*[contains(text(), 'Sort by:')]")
