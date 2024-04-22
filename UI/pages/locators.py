@@ -2,19 +2,20 @@ from selenium.webdriver.common.by import By
 
 
 class BasePageLocators:
-    ADD_TO_CART_BUTTON = (By.XPATH, '//li[2]/div/div[2]/div/button')
-    PRODUCT_NAME = (By.XPATH, '//li[2]/div/a/div[2]/h2')
+    ADD_TO_CART_BUTTON = (By.XPATH, '//li[2]/div/div[2]/div/button')    
     CART_LINK = (By.CSS_SELECTOR, '[href="/cart"]')
-    CART_ICON = (By.XPATH, '//header/div/a[3]/button/div[2]/span') 
+    CART_ICON = (By.XPATH, '//header/div/a[3]/button/div[2]/span') # same on every pages
     LOGIN_LINK = (By.CSS_SELECTOR, '[href="/auth/login"]')
+    PRODUCT_NAME = (By.XPATH, '//li[2]/div/a/div[2]/h2')
     PROFILE_LINK = (By.CSS_SELECTOR, '[href="/profile"]')
     SORT_DROPDOWN = (By.XPATH, "//*[contains(text(), 'Sort by:')]")
 
 
 class CartPageLocators:
-    EMPTY_CART_MESSAGE = (By.XPATH, "//*[contains(text(), 'Your cart is empty')]")
     CONTINUE_SHOPPING_BUTTON = (By.CSS_SELECTOR, '[type="button"]')
+    EMPTY_CART_MESSAGE = (By.XPATH, "//*[contains(text(), 'Your cart is empty')]")    
     PRODUCT_NAME = (By.XPATH, '//div/div[1]/div/div[2]/p[1]')
+    PLUS_BUTTON = (By.CSS_SELECTOR, '[alt="plus"]')
 
 
 class EditProfilePageLocators:
