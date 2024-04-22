@@ -10,7 +10,7 @@ class BasePageLocators:
 
 class CartPageLocators:
     EMPTY_CART_MESSAGE = (By.XPATH, "//*[contains(text(), 'Your cart is empty')]")
-    CONTINUE_SHOPPING.BUTTON = (By.CSS_SELECTOR, '[type="button"]')
+    CONTINUE_SHOPPING_BUTTON = (By.CSS_SELECTOR, '[type="button"]')
 
 
 class EditProfilePageLocators:
