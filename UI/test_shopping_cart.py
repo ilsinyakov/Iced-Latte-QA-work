@@ -35,4 +35,5 @@ class TestCart:
             page.open()
         with step('Add Product to Cart'):
             page.add_product_to_cart()
+            sleep(3)
             assert page.is_change_cart_icon('1'), 'Cart icon is not change'    
