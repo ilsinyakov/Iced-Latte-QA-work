@@ -28,4 +28,8 @@ class CartPage(BasePage):
         if cart_page_product_name.text == main_page_product_name:
             return True
         else:
-            return False   
+            return False
+
+    def remove_product():
+        button = self.browser.find_element(*CartPageLocators.BUSKET_BUTTON)
+        button.click()

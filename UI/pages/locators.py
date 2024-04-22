@@ -16,6 +16,7 @@ class CartPageLocators:
     EMPTY_CART_MESSAGE = (By.XPATH, "//*[contains(text(), 'Your cart is empty')]")    
     PRODUCT_NAME = (By.XPATH, '//div/div[1]/div/div[2]/p[1]')
     PLUS_BUTTON = (By.CSS_SELECTOR, '[alt="plus"]')
+    BUSKET_BUTTON = (By.XPATH, '//div/div[1]/div/div[2]/div/button')
 
 
 class EditProfilePageLocators:
