@@ -56,3 +56,14 @@ class TestCart:
             page.remove_product()
             sleep(3)
             assert page.is_cart_empty, 'Cart is not empty'
+    
+    @title("Test the Cost in the Shopping Cart")
+    def test_cart_cost(self, browser):
+        with step('Open Main Page'):
+            page = BasePage(browser, link)
+            page.open()
+        with step('Add Product to Cart'):
+            page.add_product_to_cart()
+            sleep(3)
+            assert page.is_change_cart_icon('1'), 'Cart icon is not change'
+
