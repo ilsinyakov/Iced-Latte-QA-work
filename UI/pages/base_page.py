@@ -16,7 +16,7 @@ class BasePage:
         button.click()
 
     def get_product_name(self):
-        return self.browser.find_element(*BasePageLocators.PRODUCT_NAME)
+        return self.browser.find_element(*BasePageLocators.PRODUCT_NAME).text
 
     def go_to_cart_page(self):
         link = self.browser.find_element(*BasePageLocators.CART_LINK)

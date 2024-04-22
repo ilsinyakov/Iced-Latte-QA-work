@@ -44,4 +44,4 @@ class TestCart:
         with step('Assert added product is in the cart'):
             page = CartPage(browser, browser.current_url)
             sleep(3)
-            page.is_product_in_cart(main_page_product_name), 'Product is not in the cart'
+            assert page.is_product_in_cart(main_page_product_name), 'Product is not in the cart'
