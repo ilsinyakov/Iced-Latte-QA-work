@@ -9,14 +9,15 @@ class BasePage:
     def __init__(self, browser, url, timeout=2):
         self.browser = browser
         self.url = url
-        self.browser.implicitly_wait(timeout)  # turn on implicitly wait
-    
-    main_page_product_name = browser.find_element(*BasePageLocators.PRODUCT_NAME)
+        self.browser.implicitly_wait(timeout)  # turn on implicitly wait   
     
     def add_product_to_cart(self):
         button = self.browser.find_element(*BasePageLocators.ADD_TO_CART_BUTTON)
-        button.click()        
-    
+        button.click()
+
+    def get_product_name(self):
+        return self.browser.find_element(*BasePageLocators.PRODUCT_NAME)
+
     def go_to_cart_page(self):
         link = self.browser.find_element(*BasePageLocators.CART_LINK)
         link.click()
@@ -29,7 +30,7 @@ class BasePage:
         link = self.browser.find_element(*BasePageLocators.PROFILE_LINK)
         link.click()
     
-    # check than amount on cart icon changed after adding product to cart
+    # check that amount on cart icon changed after adding product to cart
     def is_change_cart_icon(self, amount):
         cart_icon = self.browser.find_element(*BasePageLocators.CART_ICON)
         if cart_icon.text == amount:

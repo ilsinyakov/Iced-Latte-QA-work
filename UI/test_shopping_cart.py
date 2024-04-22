@@ -33,6 +33,8 @@ class TestCart:
         with step('Open Main Page'):
             page = BasePage(browser, link)
             page.open()
+        with step('Get Product Name from Main Page'):
+            main_page_product_name = page.get_product_name()
         with step('Add Product to Cart'):
             page.add_product_to_cart()
             sleep(3)
@@ -41,4 +43,5 @@ class TestCart:
             page.go_to_cart_page()
         with step('Assert added product is in the cart'):
             page = CartPage(browser, browser.current_url)
-            page.is_product_in_cart(), 'Product is not in the cart'
+            sleep(3)
+            page.is_product_in_cart(main_page_product_name), 'Product is not in the cart'
