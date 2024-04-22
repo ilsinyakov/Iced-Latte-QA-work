@@ -12,7 +12,7 @@ import pytest
 @severity(severity_level.CRITICAL)
 class TestCart:
     @title("Test Empty Shopping Cart")
-    def test_empty_cart(browser):
+    def test_empty_cart(self, browser):
         with step('Open Main Page'):
             page = BasePage(browser, link)
             page.open()
