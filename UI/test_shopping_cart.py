@@ -46,7 +46,9 @@ class TestCart:
             sleep(3)
             assert page.is_product_in_cart(main_page_product_name), 'Product is not in the cart'
         with step('Click on Plus Button'):
+            page = CartPage(browser, browser.current_url)
             page.click_plus_button()
+            sleep(3)
             assert page.is_change_cart_icon('2'), 'Cart icon is not change'
         # with step('Click on Minus Button'):
         #    page.click_minus_button()
