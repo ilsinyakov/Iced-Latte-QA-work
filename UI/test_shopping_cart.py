@@ -54,4 +54,5 @@ class TestCart:
         '''
         with step('Remove Product from the Cart'):
             page.remove_product()
+            sleep(3)
             assert page.is_cart_empty, 'Cart is not empty'

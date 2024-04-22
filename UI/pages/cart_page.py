@@ -30,6 +30,6 @@ class CartPage(BasePage):
         else:
             return False
 
-    def remove_product():
+    def remove_product(self):
         button = self.browser.find_element(*CartPageLocators.BUSKET_BUTTON)
         button.click()
