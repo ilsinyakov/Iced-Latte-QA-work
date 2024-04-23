@@ -22,7 +22,7 @@ class CartPageLocators:
     PRODUCT_NAME = (By.XPATH, '//div/div[1]/div/div[2]/p[1]')
     PRODUCT_PRICE = (By.XPATH, '//div/div[1]/div[1]/div[2]/p[3]')
     PRODUCT_2_PRICE = (By.XPATH, '//div/div[1]/div[2]/div[2]/p[3]')
-    SUBTOTAL = (By.XPATH, '//div/div[2]/p[2]/text()[2]')
+    SUBTOTAL = (By.XPATH, '//div/div[2]/p[2]')
 
 
 class EditProfilePageLocators:

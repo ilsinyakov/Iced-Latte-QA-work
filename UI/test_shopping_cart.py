@@ -77,6 +77,7 @@ class TestCart:
         with step('Go to Cart Page'):
             page.go_to_cart_page()
             page = CartPage(browser, browser.current_url)
+            sleep(3)
             cart_page_product_price = float(page.get_product_price()[1:])
             cart_page_product_2_price = float(page.get_product_2_price()[1:])
         with step('Assert Main Page Prices are Equal Cart Page Prices'):
@@ -84,5 +85,5 @@ class TestCart:
                    main_page_product_2_price == cart_page_product_2_price, \
                    'Main Page Prices are not Equal Cart Page Prices'
         with step('Assert Subtotal Cost is Equal Sum of Prices'):
-            subtotal = float(page.get_subtotal())
+            subtotal = float(page.get_subtotal()[1:])
             assert (cart_page_product_price + cart_page_product_2_price) == subtotal
