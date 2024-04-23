@@ -7,11 +7,15 @@ class CartPage(BasePage):
         button = self.browser.find_element(*CartPageLocators.PLUS_BUTTON)
         button.click()
 
-    def get_product_price(self):
-        return self.browser.find_element(*CartPageLocators.PRODUCT_PRICE).text
+    def click_plus_2_button(self):
+        button = self.browser.find_element(*CartPageLocators.PLUS_2_BUTTON)
+        button.click()
+
+    def get_product_cost(self):
+        return self.browser.find_element(*CartPageLocators.PRODUCT_COST).text
     
-    def get_product_2_price(self):
-        return self.browser.find_element(*CartPageLocators.PRODUCT_2_PRICE).text
+    def get_product_2_cost(self):
+        return self.browser.find_element(*CartPageLocators.PRODUCT_2_COST).text
     
     def get_subtotal(self):
         return self.browser.find_element(*CartPageLocators.SUBTOTAL).text
@@ -22,6 +26,14 @@ class CartPage(BasePage):
 
     def is_cart_empty(self):
         not self.is_element_present(*CartPageLocators.EMPTY_CART_MESSAGE)
+    
+    # check that amount changed after click "Plus" or "Minus"
+    def is_change_amount(self, amount):
+        amount_element = self.browser.find_element(*CartPageLocators.AMOUNT)
+        if amount.text == amount:
+            return True
+        else: 
+            return False
     
     # check that amount on cart icon changed after click "Plus" or "Minus"
     def is_change_cart_icon(self, amount):
