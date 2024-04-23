@@ -8,8 +8,8 @@ class BasePageLocators:
     CART_ICON = (By.XPATH, '//header/div/a[3]/button/div[2]/span') # same on every pages
     LOGIN_LINK = (By.CSS_SELECTOR, '[href="/auth/login"]')
     PRODUCT_NAME = (By.XPATH, '//li[2]/div/a/div[2]/h2')
-    PRODUCT_PRICE = (By.XPATH, '//li[2]/div/div[2]/p/text()[2]')
-    PRODUCT_2_PRICE = (By.XPATH, '//li[3]/div/div[2]/p/text()[2]')
+    PRODUCT_PRICE = (By.XPATH, '//li[2]/div/div[2]/p')
+    PRODUCT_2_PRICE = (By.XPATH, '//li[3]/div/div[2]/p')
     PROFILE_LINK = (By.CSS_SELECTOR, '[href="/profile"]')
     SORT_DROPDOWN = (By.XPATH, "//*[contains(text(), 'Sort by:')]")
 
