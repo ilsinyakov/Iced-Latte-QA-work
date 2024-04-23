@@ -13,7 +13,7 @@ class CartPage(BasePage):
     def get_product_2_price(self):
         return self.browser.find_element(*CartPageLocators.PRODUCT_2_PRICE).text
     
-    def get_subtotal():
+    def get_subtotal(self):
         return self.browser.find_element(*CartPageLocators.SUBTOTAL).text
 
     def go_to_main_page(self):
