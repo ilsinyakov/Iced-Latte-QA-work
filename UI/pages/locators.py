@@ -8,16 +8,21 @@ class BasePageLocators:
     CART_ICON = (By.XPATH, '//header/div/a[3]/button/div[2]/span') # same on every pages
     LOGIN_LINK = (By.CSS_SELECTOR, '[href="/auth/login"]')
     PRODUCT_NAME = (By.XPATH, '//li[2]/div/a/div[2]/h2')
+    PRODUCT_PRICE = (By.XPATH, '//li[2]/div/div[2]/p/text()[2]')
+    PRODUCT_2_PRICE = (By.XPATH, '//li[3]/div/div[2]/p/text()[2]')
     PROFILE_LINK = (By.CSS_SELECTOR, '[href="/profile"]')
     SORT_DROPDOWN = (By.XPATH, "//*[contains(text(), 'Sort by:')]")
 
 
 class CartPageLocators:
+    BUSKET_BUTTON = (By.XPATH, '//div/div[1]/div/div[2]/div/button')
     CONTINUE_SHOPPING_BUTTON = (By.CSS_SELECTOR, '[type="button"]')
     EMPTY_CART_MESSAGE = (By.XPATH, "//*[contains(text(), 'Your cart is empty')]")    
-    PRODUCT_NAME = (By.XPATH, '//div/div[1]/div/div[2]/p[1]')
     PLUS_BUTTON = (By.CSS_SELECTOR, '[alt="plus"]')
-    BUSKET_BUTTON = (By.XPATH, '//div/div[1]/div/div[2]/div/button')
+    PRODUCT_NAME = (By.XPATH, '//div/div[1]/div/div[2]/p[1]')
+    PRODUCT_PRICE = (By.XPATH, '//div/div[1]/div[1]/div[2]/p[3]')
+    PRODUCT_2_PRICE = (By.XPATH, '//div/div[1]/div[2]/div[2]/p[3]')
+    SUBTOTAL = (By.XPATH, '//div/div[2]/p[2]/text()[2]')
 
 
 class EditProfilePageLocators:

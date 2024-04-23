@@ -62,8 +62,25 @@ class TestCart:
         with step('Open Main Page'):
             page = BasePage(browser, link)
             page.open()
-        with step('Add Product to Cart'):
+        with step('Add Product 1 to Cart'):
             page.add_product_to_cart()
+            main_page_product_price = float(page.get_product_price())
             sleep(3)
             assert page.is_change_cart_icon('1'), 'Cart icon is not change'
-
+        with step ('Add Product 2 to Cart'):
+            page.add_product_2_to_cart()
+            main_page_product_2_price = float(page.get_product_2_price())
+            sleep(3)
+            assert page.is_change_cart_icon('2'), 'Cart icon is not change'
+        with step('Go to Cart Page'):
+            page.go_to_cart_page()
+            page = CartPage(browser, browser.current_url)
+            cart_page_product_price = float(page.get_product_price()[1:])
+            cart_page_product_2_price = float(page.get_product_2_price()[1:])
+        with step('Assert Main Page Prices are Equal Cart Page Prices'):
+            assert main_page_product_price == cart_page_product_price and \
+                   main_page_product_2_price == cart_page_product_2_price, \
+                   'Main Page Prices are not Equal Cart Page Prices'
+        with step('Assert Subtotal Cost is Equal Sum of Prices'):
+            subtotal = float(page.get_subtotal())
+            assert (cart_page_product_price + cart_page_product_2_price) == subtotal

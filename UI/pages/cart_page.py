@@ -7,6 +7,15 @@ class CartPage(BasePage):
         button = self.browser.find_element(*CartPageLocators.PLUS_BUTTON)
         button.click()
 
+    def get_product_price(self):
+        return self.browser.find_element(*CartPageLocators.PRODUCT_PRICE).text
+    
+    def get_product_2_price(self):
+        return self.browser.find_element(*CartPageLocators.PRODUCT_2_PRICE).text
+    
+    def get_subtotal():
+        return self.browser.find_element(*CartPageLocators.SUBTOTAL).text
+
     def go_to_main_page(self):
         button = self.browser.find_element(*CartPageLocators.CONTINUE_SHOPPING_BUTTON)
         button.click()
