@@ -66,12 +66,12 @@ class TestCart:
             page.open()
         with step('Add Product 1 to Cart'):
             page.add_product_to_cart()
-            main_page_product_price = float(page.get_product_price())
+            main_page_product_price = float(page.get_product_price()[1:])
             sleep(3)
             assert page.is_change_cart_icon('1'), 'Cart icon is not change'
         with step ('Add Product 2 to Cart'):
             page.add_product_2_to_cart()
-            main_page_product_2_price = float(page.get_product_2_price())
+            main_page_product_2_price = float(page.get_product_2_price()[1:])
             sleep(3)
             assert page.is_change_cart_icon('2'), 'Cart icon is not change'
         with step('Go to Cart Page'):
