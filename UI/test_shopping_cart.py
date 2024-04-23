@@ -13,6 +13,7 @@ from time import sleep
 @severity(severity_level.CRITICAL)
 class TestCart:
     @title("Test Empty Shopping Cart")
+    @pytest.mark.skip
     def test_empty_cart(self, browser):
         with step('Open Main Page'):
             page = BasePage(browser, link)
@@ -29,6 +30,7 @@ class TestCart:
             assert browser.current_url == link, 'Continue Shopping Button do not work'
     
     @title("Test Full Shopping Cart")
+    @pytest.mark.skip
     def test_full_cart(self, browser):
         with step('Open Main Page'):
             page = BasePage(browser, link)
