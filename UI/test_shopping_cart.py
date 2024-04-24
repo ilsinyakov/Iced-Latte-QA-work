@@ -44,13 +44,16 @@ class TestCart:
         with step('Add Product to Cart'):
             page.add_product_to_cart()
             sleep(3)
+            main_page_product_price = float(page.get_product_price()[1:])
             assert page.is_change_cart_icon('1'), 'Cart icon is not change'
         with step('Go to Cart Page'):
             page.go_to_cart_page()
         with step('Assert added product is in the cart'):
             page = CartPage(browser, browser.current_url)
             sleep(3)
+            cart_page_product_price = float(page.get_product_cost()[1:])
             assert page.is_product_in_cart(main_page_product_name), 'Product is not in the cart'
+            assert main_page_product_price == cart_page_product_price, 'Main Page Price are not Equal Cart Page Price'
         '''with step('Click on Plus Button'):            
             page.click_plus_button()
             sleep(3)
@@ -73,13 +76,11 @@ class TestCart:
             page = BasePage(browser, link)
             page.open()
         with step('Add Product 1 to Cart'):
-            page.add_product_to_cart()
-            main_page_product_price = float(page.get_product_price()[1:])
+            page.add_product_to_cart()            
             sleep(3)
             assert page.is_change_cart_icon('1'), 'Cart icon is not change'
         with step ('Add Product 2 to Cart'):
-            page.add_product_2_to_cart()
-            main_page_product_2_price = float(page.get_product_2_price()[1:])
+            page.add_product_2_to_cart()            
             sleep(3)
             assert page.is_change_cart_icon('2'), 'Cart icon is not change'
         with step('Go to Cart Page'):
@@ -87,11 +88,7 @@ class TestCart:
             page = CartPage(browser, browser.current_url)
             sleep(3)
             cart_page_product_price = float(page.get_product_cost()[1:])
-            cart_page_product_2_price = float(page.get_product_2_cost()[1:])
-        with step('Assert Main Page Prices are Equal Cart Page Prices'):
-            assert main_page_product_price == cart_page_product_price and \
-                   main_page_product_2_price == cart_page_product_2_price, \
-                   'Main Page Prices are not Equal Cart Page Prices'
+            cart_page_product_2_price = float(page.get_product_2_cost()[1:])        
         with step('Assert Subtotal Cost is Equal Sum of Prices'):
             subtotal = float(page.get_subtotal()[1:])
             assert (cart_page_product_price + cart_page_product_2_price) == subtotal
