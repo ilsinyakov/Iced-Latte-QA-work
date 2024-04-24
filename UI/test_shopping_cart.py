@@ -111,6 +111,7 @@ class TestCart:
     # @pytest.mark.skip
     def test_user_empty_cart(self, browser):        
         with step('Login User'):
+            browser.delete_all_cookies()
             login_user(browser, link)
         with step('Go to Cart Page'):
             page = BasePage(browser, link)
