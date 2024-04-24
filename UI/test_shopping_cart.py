@@ -17,7 +17,7 @@ class TestCart:
     # ------------- GUEST ---------------
 
     @title("Test Empty Shopping Cart. User is not logged in")
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_guest_empty_cart(self, browser):
         with step('Open Main Page'):
             page = BasePage(browser, link)
@@ -34,7 +34,7 @@ class TestCart:
             assert browser.current_url == link, 'Continue Shopping Button do not work'
     
     @title("Test Full Shopping Cart. User is not logged in")
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_guest_full_cart(self, browser):
         with step('Open Main Page'):
             page = BasePage(browser, link)
@@ -71,7 +71,7 @@ class TestCart:
             assert page.is_cart_empty, 'Cart is not empty'
     
     @title("Test the Cost in the Shopping Cart. User is not logged in")
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_guest_cart_cost(self, browser):
         with step('Open Main Page'):
             page = BasePage(browser, link)
@@ -113,7 +113,7 @@ class TestCart:
     # ------------- USER ---------------
 
     @title("Test Empty Shopping Cart. User is logged in")
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_user_empty_cart(self, browser):        
         with step('Login User'):
             browser.delete_all_cookies()
@@ -132,7 +132,7 @@ class TestCart:
             assert browser.current_url == link, 'Continue Shopping Button do not work'
     
     @title("Test Full Shopping Cart. User is logged in")
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_user_full_cart(self, browser):
         with step('Login User'):
             login_user(browser, link)
