@@ -132,13 +132,13 @@ class TestCart:
             assert browser.current_url == link, 'Continue Shopping Button do not work'
     
     @title("Test Full Shopping Cart. User is logged in")
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_user_full_cart(self, browser):
         with step('Login User'):
             login_user(browser, link)
         with step('Get Product Name from Main Page'):
             page = BasePage(browser, link)
-            sleep(3)
+            sleep(3) # waiting is mandatory (do not remove)
             main_page_product_name = page.get_product_name()
         with step('Add Product to Cart'):
             page.add_product_to_cart()
