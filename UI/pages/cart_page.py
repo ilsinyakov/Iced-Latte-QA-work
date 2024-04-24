@@ -51,6 +51,7 @@ class CartPage(BasePage):
         else:
             return False
 
-    def remove_product(self):
-        button = self.browser.find_element(*CartPageLocators.BUSKET_BUTTON)
-        button.click()
+    def remove_products(self):
+        buttons = self.browser.find_elements(*CartPageLocators.BUSKET_BUTTON)
+        for buttton in buttons:
+            button.click()

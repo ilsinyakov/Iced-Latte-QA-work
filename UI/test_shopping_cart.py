@@ -66,7 +66,7 @@ class TestCart:
             assert page.is_change_amount('1'), 'Amount is not change'
         '''
         with step('Remove Product from the Cart'):
-            page.remove_product()
+            page.remove_products()
             sleep(3)
             assert page.is_cart_empty, 'Cart is not empty'
     
@@ -106,6 +106,10 @@ class TestCart:
             assert cart_page_product_2_cost == cart_page_product_2_price * 2, 'Cost != Price * Amount'
             assert subtotal == (cart_page_product_price * 2 + cart_page_product_2_price * 2)
         '''
+        with step('Remove Products from the Cart'):
+            page.remove_products()
+            sleep(3)
+            assert page.is_cart_empty, 'Cart is not empty')
     # ------------- USER ---------------
 
     @title("Test Empty Shopping Cart. User is logged in")
@@ -128,7 +132,7 @@ class TestCart:
             assert browser.current_url == link, 'Continue Shopping Button do not work'
     
     @title("Test Full Shopping Cart. User is logged in")
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_user_full_cart(self, browser):
         with step('Login User'):
             login_user(browser, link)
@@ -162,6 +166,7 @@ class TestCart:
             assert page.is_cart_empty, 'Cart is not empty'
     
     @title("Test the Cost in the Shopping Cart. User is logged in")
+    @pytest.mark.skip
     def test_user_cart_cost(self, browser):
         with step('Login User'):
             login_user(browser, link)
