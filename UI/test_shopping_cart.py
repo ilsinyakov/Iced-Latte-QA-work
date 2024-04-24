@@ -167,7 +167,7 @@ class TestCart:
             assert page.is_cart_empty, 'Cart is not empty'
     
     @title("Test the Cost in the Shopping Cart. User is logged in")
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_user_cart_cost(self, browser):
         with step('Login User'):
             login_user(browser, link)
