@@ -109,7 +109,7 @@ class TestCart:
         with step('Remove Products from the Cart'):
             page.remove_products()
             sleep(3)
-            assert page.is_cart_empty, 'Cart is not empty')
+            assert page.is_cart_empty, 'Cart is not empty'
     # ------------- USER ---------------
 
     @title("Test Empty Shopping Cart. User is logged in")
