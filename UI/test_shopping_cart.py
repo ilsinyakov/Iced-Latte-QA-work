@@ -114,6 +114,7 @@ class TestCart:
         with step('Login User'):
             browser.delete_all_cookies()
             login_user(browser, link)
+            sleep(2)
         with step('Go to Cart Page'):
             page = BasePage(browser, link)
             page.go_to_cart_page()
