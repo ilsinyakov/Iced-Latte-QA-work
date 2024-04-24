@@ -17,7 +17,7 @@ class BasePageLocators:
 class CartPageLocators:
     AMOUNT = (By.XPATH, '/html/body/main/div/div[1]/div[1]/div[2]/div/div[1]/span')
     BUSKET_BUTTON = (By.XPATH, '//div/div[1]/div/div[2]/div/button')
-    CONTINUE_SHOPPING_BUTTON = (By.CSS_SELECTOR, '[type="button"]')
+    CONTINUE_SHOPPING_BUTTON = (By.CSS_SELECTOR, 'button[type="button"]')
     EMPTY_CART_MESSAGE = (By.XPATH, "//*[contains(text(), 'Your cart is empty')]")    
     PLUS_BUTTON = (By.CSS_SELECTOR, '[alt="plus"]')
     # PLUS_2_BUTTON = 
