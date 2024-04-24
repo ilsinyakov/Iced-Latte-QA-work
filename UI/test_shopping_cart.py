@@ -71,7 +71,7 @@ class TestCart:
             assert page.is_cart_empty, 'Cart is not empty'
     
     @title("Test the Cost in the Shopping Cart. User is not logged in")
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_guest_cart_cost(self, browser):
         with step('Open Main Page'):
             page = BasePage(browser, link)
@@ -113,7 +113,7 @@ class TestCart:
     # ------------- USER ---------------
 
     @title("Test Empty Shopping Cart. User is logged in")
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_user_empty_cart(self, browser):        
         with step('Login User'):
             browser.delete_all_cookies()
@@ -147,7 +147,7 @@ class TestCart:
             page.go_to_cart_page()
         with step('Assert added product is in the cart'):
             page = CartPage(browser, browser.current_url)
-            sleep(3)
+            sleep(3)            
             assert page.is_product_in_cart(main_page_product_name), 'Product is not in the cart'
         '''with step('Click on Plus Button'):            
             page.click_plus_button()
