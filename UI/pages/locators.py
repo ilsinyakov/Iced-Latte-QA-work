@@ -44,16 +44,16 @@ class EditProfilePageLocators:
     #  SERVER_ERROR_MESSAGE = (By.CSS_SELECTOR, '.mt-4.text-negative')    
 
 
-class LoginPageLocators:
-    # REGISTER_BUTTON = (By.CSS_SELECTOR, '[href="/auth/registration"]')
-    REGISTER_BUTTON = (By.XPATH, '/html/body/main/div/div[2]/div[2]/a[2]/button')
+class LoginPageLocators:    
+    REGISTER_BUTTON = (By.XPATH, '//button[@type="button" and text()="Register"]')
     EMAIL_FIELD = (By.ID, 'email')
     PASSWORD_FIELD = (By.ID, 'password')
     LOGIN_BUTTON = (By.CSS_SELECTOR, '[type="submit"]')
 
 
 class ProfilePageLocators:
-    EDIT_BUTTON = (By.XPATH, '/html/body/main/div/div/div[3]/div/button')
+    EDIT_BUTTON = (By.XPATH, '//button[@type="button"]/span[contains(text(), "Edit")]')
+    # EDIT_BUTTON = (By.XPATH, '/html/body/main/div/div/div[3]/div/button')
     EMAIL_FIELD = (By.XPATH, '(//ul/li[4])[1]')
     FIRST_NAME_FIELD = (By.XPATH, '(//ul/li[1])[1]')
     LAST_NAME_FIELD = (By.XPATH, '(//ul/li[2])[1]')
