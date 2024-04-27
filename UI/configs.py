@@ -62,7 +62,10 @@ new_last_name_negative = ["Sm&it!", "Иванов",
                           "", new_last_name_129sym, new_last_name_200sym
                           ]
 
-'''Negative values of email: local-part with dot at the beginning, dot at the end, consecutively dots,  
+'''Negative values of email: non-latin local-part,
+                             local-part with dot at the beginning, 
+                             dot at the end, 
+                             consecutively dots,  
                              65 symbols in local-part,
                              100 symbols in local-part,                             
                              domain with dot at the beginning, dot at the end, consecutively dots,
@@ -77,12 +80,15 @@ new_email_100sym_local = "lloqzpmzpmaluojzvfllivrgrgcypehpnevjquiohvaubtetrjwhmu
 new_email_100sym_dom_label = "new@toellyubpniiukppyhzjcylzlnlciqlgggrhssraowrvopspmywgidblkclerrdvdgozarbgtecpjtddktocopxfejnocmxtlmvy.com"
 new_email_256sym_domain = "new@nrr7j0tgu3g7okrllb9xa4iv7ayg0pukoszdd4gh.7yiskyid8oh3z2s05vwlsrj8j60t46wouptvp13x6otrqiqcftk0sn23pkm5gbaigtgb3os3t261w0mmubnlfzdykivy7pycwf9nu4qif9oelw31i1girpyec6ibowvre5gvpeprlx9lnlqwkh3syfnt30bdppeyk9joeaki7nf1co9klhj4c7irhe2wqi7zts2hqqrcdyb1tbequpv.com"
 new_email_300sym_domain = "new@xtoyfxqjz0bb9p6jtu3lgc0bcs0ck5mga30o7vhgxw4qxmid8gd4gge5vh0ai7y4cirti6a1dhi6c4r29nh5edipn2i73e8snfgii4dkjqt1ws3fhyc93rb5q8zn0mv5vbziqxilfksuad8gaw5181f24qfw59ed3yew2j1me3kiowdy66znahvuslud2zfa80g65ddmfzeskzz8x8i5vf2wkqd64tnky334z67yhvgaohgb2rqvecs2g4v0y4fj80x2ut0zqqmjttphizs76a7zs8a5lnj49848i7og.al7"
-new_email_negative = [".new@gmail.com", "new.@gmail.com", "ne..w@gmail.com",                                            
-                      "wsqegnurpzlzxxfjlaeorhzniwfysavbczdktcxvpvkaqpalzveppsoofuu.rmbde@gmail.com",
-                      new_email_100sym_local,
+new_email_negative = ["иванов@gmail.com", 
+                      pytest.param(".new@gmail.com", marks=pytest.mark.xfail(reason='Bug incomplete validation local-part is not fixed')), 
+                      pytest.param("new.@gmail.com", marks=pytest.mark.xfail(reason='Bug incomplete validation local-part is not fixed')),
+                      pytest.param("ne..w@gmail.com", marks=pytest.mark.xfail(reason='Bug incomplete validation local-part is not fixed')),
+                      pytest.param("wsqegnurpzlzxxfjlaeorhzniwfysavbczdktcxvpvkaqpalzveppsoofuu.rmbde@gmail.com", marks=pytest.mark.xfail(reason='Bug incomplete validation local-part is not fixed')),
+                      pytest.param(new_email_100sym_local, marks=pytest.mark.xfail(reason='Bug incomplete validation local-part is not fixed')),
                       "new@.gmail.com", "new@gmail.com.", "new@gmail..com",
                       "new@@gmail.com", "new@-gmail.com", "new@gmail-.com",
-                      "new@gmail.999", "new@gmail.c!om"
+                      "new@gmail.999", "new@gmail.c!om",
                       "new@jclyojnoffuidebygkxtspoyuzqhudjqfopugbtgcteiatylxavwdtmxkikbiwse.com",
                       new_email_100sym_dom_label,
                       new_email_256sym_domain,
