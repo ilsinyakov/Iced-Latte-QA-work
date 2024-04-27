@@ -22,7 +22,7 @@ def test_user_cant_change_last_name(browser, new_last_name):
         page.change_last_name(new_last_name)
     with step('Click "Save Changes" button'):
         page.save_change()    
-    with step('Assert Error message is present'):                
+    with step('Assert Error Message is Present'):                
         assert page.is_error_message_last_name_present(('Invalid Last name format. Use extended Latin letters', 
                                               'Last name is required', 
                                               'Server Error: Internal server error')
@@ -32,7 +32,7 @@ def test_user_cant_change_last_name(browser, new_last_name):
     with step('Go to Profile Page'):
         page = BasePage(browser, browser.current_url)
         page.go_to_profile_page()        
-    with step('Assert New Negative Last Name is not present in profile'):
+    with step('Assert New Negative Last Name is not Present in Profile'):
         page = ProfilePage(browser, browser.current_url)
-        assert not page.is_new_last_name_present(new_last_name), 'New Negative Last Name is present in profile'
+        assert not page.is_new_last_name_present(new_last_name), 'New Negative Last Name is Present in Profile'
         

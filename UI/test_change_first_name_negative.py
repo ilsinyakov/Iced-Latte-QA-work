@@ -22,7 +22,7 @@ def test_user_cant_change_first_name(browser, new_first_name):
         page.change_first_name(new_first_name)
     with step('Click "Save Changes" button'):
         page.save_change()    
-    with step('Assert Error message is present'):                
+    with step('Assert Error Message is Present'):                
         assert page.is_error_message_first_name_present(('Invalid name format. Use extended Latin letters, spaces, and specified symbols', 
                                               'name is required', 
                                               'Server Error: Internal server error')
@@ -32,7 +32,7 @@ def test_user_cant_change_first_name(browser, new_first_name):
     with step('Go to Profile Page'):
         page = BasePage(browser, browser.current_url)
         page.go_to_profile_page()        
-    with step('Assert New Negative First Name is not present in profile'):
+    with step('Assert New Negative First Name is not Present in Profile'):
         page = ProfilePage(browser, browser.current_url)
-        assert not page.is_new_first_name_present(new_first_name), 'New Negative First Name is present in profile'
+        assert not page.is_new_first_name_present(new_first_name), 'New Negative First Name is Present in Profile'
         
