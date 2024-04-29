@@ -1,7 +1,7 @@
 from .pages.cart_page import CartPage
 from .pages.base_page import BasePage
 from .set_of_steps import login_user
-from .configs import link, email, password
+from .configs import link
 
 from allure import step, title, severity, story, severity_level
 import pytest
@@ -17,7 +17,7 @@ class TestCart:
     # ------------- GUEST ---------------
 
     @title("Test Empty Shopping Cart. User is not logged in")
-    # @pytest.mark.skip
+    @pytest.mark.g1
     def test_guest_empty_cart(self, browser):
         with step('Open Main Page'):
             page = BasePage(browser, link)
@@ -34,17 +34,18 @@ class TestCart:
             assert browser.current_url == link, 'Continue Shopping Button do not work'
     
     @title("Test Full Shopping Cart. User is not logged in")
-    # @pytest.mark.skip
+    @pytest.mark.g2
     def test_guest_full_cart(self, browser):
         with step('Open Main Page'):
             page = BasePage(browser, link)
             page.open()
-        with step('Get Product Name from Main Page'):
+        with step('Get Product Name, Price and weight from Main Page'):
             main_page_product_name = page.get_product_name()
+            main_page_product_price = float(page.get_product_price()[1:])
+            main_page_product_weight = page.get_product_weight()
         with step('Add Product to Cart'):
             page.add_product_to_cart()
             sleep(3)
-            main_page_product_price = float(page.get_product_price()[1:])
             assert page.is_change_cart_icon('1'), 'Cart icon is not change'
         with step('Go to Cart Page'):
             page.go_to_cart_page()
@@ -52,8 +53,10 @@ class TestCart:
             page = CartPage(browser, browser.current_url)
             sleep(3)
             cart_page_product_price = float(page.get_product_cost()[1:])
+            cart_page_product_weight = page.get_product_weight()
             assert page.is_product_in_cart(main_page_product_name), 'Product is not in the cart'
             assert main_page_product_price == cart_page_product_price, 'Main Page Price are not Equal Cart Page Price'
+            assert main_page_product_weight == cart_page_product_weight, 'Main Page Weight are not Equal Cart Page Weight'
         '''with step('Click on Plus Button'):            
             page.click_plus_button()
             sleep(3)
@@ -71,7 +74,7 @@ class TestCart:
             assert page.is_cart_empty, 'Cart is not empty'
     
     @title("Test the Cost in the Shopping Cart. User is not logged in")
-    # @pytest.mark.skip
+    @pytest.mark.g3
     def test_guest_cart_cost(self, browser):
         with step('Open Main Page'):
             page = BasePage(browser, link)
@@ -80,7 +83,7 @@ class TestCart:
             page.add_product_to_cart()            
             sleep(3)
             assert page.is_change_cart_icon('1'), 'Cart icon is not change'
-        with step ('Add Product 2 to Cart'):
+        with step('Add Product 2 to Cart'):
             page.add_product_2_to_cart()            
             sleep(3)
             assert page.is_change_cart_icon('2'), 'Cart icon is not change'
@@ -110,10 +113,11 @@ class TestCart:
             page.remove_products()
             sleep(3)
             assert page.is_cart_empty, 'Cart is not empty'
+
     # ------------- USER ---------------
 
     @title("Test Empty Shopping Cart. User is logged in")
-    # @pytest.mark.skip
+    @pytest.mark.u1
     def test_user_empty_cart(self, browser):        
         with step('Login User'):
             browser.delete_all_cookies()
@@ -132,14 +136,16 @@ class TestCart:
             assert browser.current_url == link, 'Continue Shopping Button do not work'
     
     @title("Test Full Shopping Cart. User is logged in")
-    # @pytest.mark.skip
+    @pytest.mark.u2
     def test_user_full_cart(self, browser):
         with step('Login User'):
             login_user(browser, link)
         with step('Get Product Name from Main Page'):
             page = BasePage(browser, link)
-            sleep(3) # waiting is mandatory (do not remove)
+            sleep(3)  # waiting is mandatory (do not remove)
             main_page_product_name = page.get_product_name()
+            main_page_product_price = float(page.get_product_price()[1:])
+            main_page_product_weight = page.get_product_weight()
         with step('Add Product to Cart'):
             page.add_product_to_cart()
             sleep(3)
@@ -148,8 +154,13 @@ class TestCart:
             page.go_to_cart_page()
         with step('Assert added product is in the cart'):
             page = CartPage(browser, browser.current_url)
-            sleep(3)            
+            sleep(3)
+            cart_page_product_price = float(page.get_product_cost()[1:])
+            cart_page_product_weight = page.get_product_weight()
             assert page.is_product_in_cart(main_page_product_name), 'Product is not in the cart'
+            assert main_page_product_price == cart_page_product_price, 'Main Page Price are not Equal Cart Page Price'
+            assert main_page_product_weight == cart_page_product_weight, 'Main Page Weight are not Equal Cart Page Weight'
+
         '''with step('Click on Plus Button'):            
             page.click_plus_button()
             sleep(3)
@@ -167,19 +178,17 @@ class TestCart:
             assert page.is_cart_empty, 'Cart is not empty'
     
     @title("Test the Cost in the Shopping Cart. User is logged in")
-    # @pytest.mark.skip
+    @pytest.mark.u3
     def test_user_cart_cost(self, browser):
         with step('Login User'):
             login_user(browser, link)
         with step('Add Product 1 to Cart'):
             page = BasePage(browser, link)
             page.add_product_to_cart()
-            main_page_product_price = float(page.get_product_price()[1:])
             sleep(3)
             assert page.is_change_cart_icon('1'), 'Cart icon is not change'
-        with step ('Add Product 2 to Cart'):
+        with step('Add Product 2 to Cart'):
             page.add_product_2_to_cart()
-            main_page_product_2_price = float(page.get_product_2_price()[1:])
             sleep(3)
             assert page.is_change_cart_icon('2'), 'Cart icon is not change'
         with step('Go to Cart Page'):
@@ -188,10 +197,6 @@ class TestCart:
             sleep(3)
             cart_page_product_price = float(page.get_product_cost()[1:])
             cart_page_product_2_price = float(page.get_product_2_cost()[1:])
-        with step('Assert Main Page Prices are Equal Cart Page Prices'):
-            assert main_page_product_price == cart_page_product_price and \
-                   main_page_product_2_price == cart_page_product_2_price, \
-                   'Main Page Prices are not Equal Cart Page Prices'
         with step('Assert Subtotal Cost is Equal Sum of Prices'):
             subtotal = float(page.get_subtotal()[1:])
             assert (cart_page_product_price + cart_page_product_2_price) == subtotal

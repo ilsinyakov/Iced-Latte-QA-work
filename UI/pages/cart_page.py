@@ -1,6 +1,8 @@
 from .base_page import BasePage
 from .locators import CartPageLocators, BasePageLocators
 
+import re
+
 
 class CartPage(BasePage):    
     def click_plus_button(self):
@@ -16,6 +18,12 @@ class CartPage(BasePage):
     
     def get_product_2_cost(self):
         return self.browser.find_element(*CartPageLocators.PRODUCT_2_COST).text
+
+    def get_product_weight(self):
+        product_weight_element = self.browser.find_element(*CartPageLocators.PRODUCT_WEIGHT).text
+        pattern = re.compile(r'\b\d+\b')
+        product_weight = pattern.findall(product_weight_element)
+        return product_weight[0]
     
     def get_subtotal(self):
         return self.browser.find_element(*CartPageLocators.SUBTOTAL).text
@@ -25,12 +33,12 @@ class CartPage(BasePage):
         button.click()
 
     def is_cart_empty(self):
-        not self.is_element_present(*CartPageLocators.EMPTY_CART_MESSAGE)
+        self.is_element_present(*CartPageLocators.EMPTY_CART_MESSAGE)
     
     # check that amount changed after click "Plus" or "Minus"
     def is_change_amount(self, amount):
         amount_element = self.browser.find_element(*CartPageLocators.AMOUNT)
-        if amount.text == amount:
+        if amount_element.text == amount:
             return True
         else: 
             return False
@@ -43,16 +51,15 @@ class CartPage(BasePage):
         else: 
             return False
     
-    #check that product name on main page equal product name on cart page
+    # check that product name on main page equal product name on cart page
     def is_product_in_cart(self, main_page_product_name):
         cart_page_product_name = self.browser.find_element(*CartPageLocators.PRODUCT_NAME)
-        print(f'cart_page_product_name={cart_page_product_name.text}; main_page_product_name={main_page_product_name}')
         if cart_page_product_name.text == main_page_product_name:
             return True
         else:
             return False
 
     def remove_products(self):
-        buttons = self.browser.find_elements(*CartPageLocators.BUSKET_BUTTON)
+        buttons = self.browser.find_elements(*CartPageLocators.REMOVE_BUTTON)
         for button in buttons:
             button.click()

@@ -3,6 +3,8 @@ from .locators import BasePageLocators
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.ui import WebDriverWait
 
+import re
+
 
 class BasePage:    
 
@@ -24,9 +26,12 @@ class BasePage:
     
     def get_product_price(self):
         return self.browser.find_element(*BasePageLocators.PRODUCT_PRICE).text
-    
-    def get_product_2_price(self):
-        return self.browser.find_element(*BasePageLocators.PRODUCT_2_PRICE).text
+
+    def get_product_weight(self):
+        product_weight_element = self.browser.find_element(*BasePageLocators.PRODUCT_WEIGHT).text
+        pattern = re.compile(r'\b\d+\b')
+        product_weight = pattern.findall(product_weight_element)
+        return product_weight[0]
 
     def go_to_cart_page(self):
         link = self.browser.find_element(*BasePageLocators.CART_LINK)

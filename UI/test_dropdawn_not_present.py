@@ -4,8 +4,6 @@ from .pages.registration_page import RegistrationPage
 from .configs import link
 
 from allure import step, title, severity, story, severity_level
-import pytest
-from time import sleep
 
 
 @title("Test Fixed Bug: Sort Drop-down is present on Login and Registration page")

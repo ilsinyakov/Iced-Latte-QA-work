@@ -5,24 +5,25 @@ class BasePageLocators:
     ADD_TO_CART_BUTTON = (By.XPATH, '//li[2]/div/div[2]/div/button')
     ADD_TO_CART_BUTTON_2 = (By.XPATH, '//li[3]/div/div[2]/div/button')
     CART_LINK = (By.CSS_SELECTOR, '[href="/cart"]')
-    CART_ICON = (By.XPATH, '//header/div/a[3]/button/div[2]/span') # same on every pages
+    CART_ICON = (By.XPATH, '//header/div/a[3]/button/div[2]/span')  # same on every pages
     LOGIN_LINK = (By.CSS_SELECTOR, '[href="/auth/login"]')
     PRODUCT_NAME = (By.XPATH, '//li[2]/div/a/div[2]/h2')
     PRODUCT_PRICE = (By.XPATH, '//li[2]/div/div[2]/p')
-    PRODUCT_2_PRICE = (By.XPATH, '//li[3]/div/div[2]/p')
+    PRODUCT_WEIGHT = (By.XPATH, '//li[2]//div[1]//a[1]//div[2]//div[1]//span[2]')
     PROFILE_LINK = (By.CSS_SELECTOR, '[href="/profile"]')
     SORT_DROPDOWN = (By.XPATH, "//*[contains(text(), 'Sort by:')]")
 
 
 class CartPageLocators:
     AMOUNT = (By.XPATH, '/html/body/main/div/div[1]/div[1]/div[2]/div/div[1]/span')
-    BUSKET_BUTTON = (By.XPATH, '//div/div[1]/div/div[2]/div/button')
+    REMOVE_BUTTON = (By.ID, 'remove-all-btn')
     CONTINUE_SHOPPING_BUTTON = (By.CSS_SELECTOR, 'button[type="button"]')
     EMPTY_CART_MESSAGE = (By.XPATH, "//*[contains(text(), 'Your cart is empty')]")    
     PLUS_BUTTON = (By.CSS_SELECTOR, '[alt="plus"]')
     # PLUS_2_BUTTON = 
     PRODUCT_NAME = (By.XPATH, '//div/div[1]/div/div[2]/p[1]')
     PRODUCT_COST = (By.XPATH, '//div/div[1]/div[1]/div[2]/p[3]')
+    PRODUCT_WEIGHT = (By.XPATH, "//p[@class='font-medium text-placeholder']")
     PRODUCT_2_COST = (By.XPATH, '//div/div[1]/div[2]/div[2]/p[3]')
     SUBTOTAL = (By.XPATH, '/html/body/main/div/div[2]/p[2]')
 
