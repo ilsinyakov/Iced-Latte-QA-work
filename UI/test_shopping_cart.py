@@ -94,18 +94,18 @@ class TestCart:
             cart_page_product_2_price = float(page.get_product_2_cost()[1:])        
         with step('Assert Subtotal Cost is Equal Sum of Prices'):
             subtotal = float(page.get_subtotal()[1:])
-            assert (cart_page_product_price + cart_page_product_2_price) == subtotal
+            assert (cart_page_product_price + cart_page_product_2_price) == subtotal, 'Wrong subtotal'
         with step('Click on Plus Button by Product 1'):
             page.click_plus_button()
             sleep(3)
             cart_page_product_cost = float(page.get_product_cost()[1:])
-            # assert cart_page_product_cost == cart_page_product_price * 2, 'Cost != Price * Amount'
+            assert cart_page_product_cost == cart_page_product_price * 2, 'Cost != Price * Amount'
         with step('Click on Plus Button by Product 2'):
             page.click_plus_2_button()
             sleep(3)
             cart_page_product_2_cost = float(page.get_product_2_cost()[1:])
             subtotal = float(page.get_subtotal()[1:])
-            # assert cart_page_product_2_cost == cart_page_product_2_price * 2, 'Cost != Price * Amount'
+            assert cart_page_product_2_cost == cart_page_product_2_price * 2, 'Cost != Price * Amount'
             assert subtotal == (cart_page_product_price * 2 + cart_page_product_2_price * 2), 'Wrong subtotal'
         with step('Remove Products from the Cart'):
             page.remove_products()
