@@ -45,13 +45,13 @@ class TestCart:
             main_page_product_weight = page.get_product_weight()
         with step('Add Product to Cart'):
             page.add_product_to_cart()
-            sleep(3)
+            sleep(2)
             assert page.is_change_cart_icon('1'), 'Cart icon is not change'
         with step('Go to Cart Page'):
             page.go_to_cart_page()
         with step('Assert added product is in the cart'):
             page = CartPage(browser, browser.current_url)
-            sleep(3)
+            sleep(2)
             cart_page_product_price = float(page.get_product_cost()[1:])
             cart_page_product_weight = page.get_product_weight()
             assert page.is_product_in_cart(main_page_product_name), 'Product is not in the cart'
@@ -59,17 +59,17 @@ class TestCart:
             assert main_page_product_weight == cart_page_product_weight, 'Main Page Weight are not Equal Cart Page Weight'
         with step('Click on Plus Button'):            
             page.click_plus_button()
-            sleep(3)
+            sleep(2)
             assert page.is_change_cart_icon('2'), 'Cart icon is not change'
             assert page.is_change_amount('2'), 'Amount is not change'
         with step('Click on Minus Button'):
             page.click_minus_button()
-            sleep(3)
+            sleep(2)
             assert page.is_change_cart_icon('1'), 'Cart icon is not change'
             assert page.is_change_amount('1'), 'Amount is not change'                
         with step('Remove Product from the Cart'):
             page.remove_products()
-            sleep(3)
+            sleep(2)
             assert page.is_cart_empty, 'Cart is not empty'
     
     @title("Test the Cost in the Shopping Cart. User is not logged in")
@@ -80,16 +80,16 @@ class TestCart:
             page.open()
         with step('Add Product 1 to Cart'):
             page.add_product_to_cart()            
-            sleep(3)
+            sleep(2)
             assert page.is_change_cart_icon('1'), 'Cart icon is not change'
         with step('Add Product 2 to Cart'):
             page.add_product_2_to_cart()            
-            sleep(3)
+            sleep(2)
             assert page.is_change_cart_icon('2'), 'Cart icon is not change'
         with step('Go to Cart Page'):
             page.go_to_cart_page()
             page = CartPage(browser, browser.current_url)
-            sleep(3)
+            sleep(2)
             cart_page_product_price = float(page.get_product_cost()[1:])
             cart_page_product_2_price = float(page.get_product_2_cost()[1:])        
         with step('Assert Subtotal Cost is Equal Sum of Prices'):
@@ -97,19 +97,19 @@ class TestCart:
             assert (cart_page_product_price + cart_page_product_2_price) == subtotal, 'Wrong subtotal'
         with step('Click on Plus Button by Product 1'):
             page.click_plus_button()
-            sleep(3)
+            sleep(2)
             cart_page_product_cost = float(page.get_product_cost()[1:])
             assert cart_page_product_cost == cart_page_product_price * 2, 'Cost != Price * Amount'            
         with step('Click on Plus Button by Product 2'):
             page.click_plus_2_button()
-            sleep(3)
+            sleep(2)
             cart_page_product_2_cost = float(page.get_product_2_cost()[1:])
             subtotal = float(page.get_subtotal()[1:])
             assert cart_page_product_2_cost == cart_page_product_2_price * 2, 'Cost != Price * Amount'
             assert subtotal == (cart_page_product_price * 2 + cart_page_product_2_price * 2), 'Wrong subtotal'
         with step('Remove Products from the Cart'):
             page.remove_products()
-            sleep(3)
+            sleep(2)
             assert page.is_cart_empty, 'Cart is not empty'
 
     # ------------- USER ---------------
@@ -140,19 +140,19 @@ class TestCart:
             login_user(browser, link)
         with step('Get Product Name from Main Page'):
             page = BasePage(browser, link)
-            sleep(3)  # waiting is mandatory (do not remove)
+            sleep(2)  # waiting is mandatory (do not remove)
             main_page_product_name = page.get_product_name()
             main_page_product_price = float(page.get_product_price()[1:])
             main_page_product_weight = page.get_product_weight()
         with step('Add Product to Cart'):
             page.add_product_to_cart()
-            sleep(3)
+            sleep(2)
             assert page.is_change_cart_icon('1'), 'Cart icon is not change'
         with step('Go to Cart Page'):
             page.go_to_cart_page()
         with step('Assert added product is in the cart'):
             page = CartPage(browser, browser.current_url)
-            sleep(3)
+            sleep(2)
             cart_page_product_price = float(page.get_product_cost()[1:])
             cart_page_product_weight = page.get_product_weight()
             assert page.is_product_in_cart(main_page_product_name), 'Product is not in the cart'
@@ -160,17 +160,17 @@ class TestCart:
             assert main_page_product_weight == cart_page_product_weight, 'Main Page Weight are not Equal Cart Page Weight'
         with step('Click on Plus Button'):            
             page.click_plus_button()
-            sleep(3)
+            sleep(2)
             assert page.is_change_cart_icon('2'), 'Cart icon is not change'
             assert page.is_change_amount('2'), 'Amount is not change'
         with step('Click on Minus Button'):
             page.click_minus_button()
-            sleep(3)
+            sleep(2)
             assert page.is_change_cart_icon('1'), 'Cart icon is not change'
             assert page.is_change_amount('1'), 'Amount is not change'        
         with step('Remove Product from the Cart'):
             page.remove_products()
-            sleep(3)
+            sleep(2)
             assert page.is_cart_empty, 'Cart is not empty'
     
     @title("Test the Cost in the Shopping Cart. User is logged in")
@@ -181,16 +181,16 @@ class TestCart:
         with step('Add Product 1 to Cart'):
             page = BasePage(browser, link)
             page.add_product_to_cart()
-            sleep(3)
+            sleep(2)
             assert page.is_change_cart_icon('1'), 'Cart icon is not change'
         with step('Add Product 2 to Cart'):
             page.add_product_2_to_cart()
-            sleep(3)
+            sleep(2)
             assert page.is_change_cart_icon('2'), 'Cart icon is not change'
         with step('Go to Cart Page'):
             page.go_to_cart_page()
             page = CartPage(browser, browser.current_url)
-            sleep(3)
+            sleep(2)
             cart_page_product_price = float(page.get_product_cost()[1:])
             cart_page_product_2_price = float(page.get_product_2_cost()[1:])
         with step('Assert Subtotal Cost is Equal Sum of Prices'):
@@ -198,17 +198,17 @@ class TestCart:
             assert (cart_page_product_price + cart_page_product_2_price) == subtotal, 'Wrong subtotal'
         with step('Click on Plus Button by Product 1'):
             page.click_plus_button()
-            sleep(3)
+            sleep(2)
             cart_page_product_cost = float(page.get_product_cost()[1:])
             assert cart_page_product_cost == cart_page_product_price * 2, 'Cost != Price * Amount'
         with step('Click on Plus Button by Product 2'):
             page.click_plus_2_button()
-            sleep(3)
+            sleep(2)
             cart_page_product_2_cost = float(page.get_product_2_cost()[1:])
             subtotal = float(page.get_subtotal()[1:])
             assert cart_page_product_2_cost == cart_page_product_2_price * 2, 'Cost != Price * Amount'
             assert subtotal == (cart_page_product_price * 2 + cart_page_product_2_price * 2), 'Wrong subtotal'          
         with step('Remove Product from the Cart'):
             page.remove_products()
-            sleep(3)
+            sleep(2)
             assert page.is_cart_empty, 'Cart is not empty'
