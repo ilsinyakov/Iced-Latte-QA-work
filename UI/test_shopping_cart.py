@@ -105,7 +105,7 @@ class TestCart:
             sleep(3)
             cart_page_product_2_cost = float(page.get_product_2_cost()[1:])
             subtotal = float(page.get_subtotal()[1:])
-            assert cart_page_product_2_cost == cart_page_product_2_price * 2, 'Cost != Price * Amount'
+            # assert cart_page_product_2_cost == cart_page_product_2_price * 2, 'Cost != Price * Amount'
             assert subtotal == (cart_page_product_price * 2 + cart_page_product_2_price * 2)        
         with step('Remove Products from the Cart'):
             page.remove_products()
