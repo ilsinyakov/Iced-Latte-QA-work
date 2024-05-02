@@ -1,8 +1,6 @@
 from .base_page import BasePage
 from .locators import BasePageLocators, RegistrationPageLocators
 
-from selenium.common.exceptions import NoSuchElementException
-
 
 class RegistrationPage(BasePage):
     # check that sort drop-down is not present on the page
