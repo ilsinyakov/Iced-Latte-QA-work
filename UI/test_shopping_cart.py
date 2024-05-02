@@ -40,7 +40,8 @@ class TestCart:
             main_page_product_price = float(page.get_product_price()[1:])
             main_page_product_weight = page.get_product_weight()
         with step('Add Product to Cart'):
-            page.add_product_to_cart()            
+            page.add_product_to_cart()
+            sleep(2)            
             assert page.is_change_cart_icon('1'), 'Cart icon is not change'
         with step('Go to Cart Page'):
             page.go_to_cart_page()
@@ -125,7 +126,8 @@ class TestCart:
             main_page_product_price = float(page.get_product_price()[1:])
             main_page_product_weight = page.get_product_weight()
         with step('Add Product to Cart'):
-            page.add_product_to_cart()            
+            page.add_product_to_cart()   
+            sleep(2)                     
             assert page.is_change_cart_icon('1'), 'Cart icon is not change'
         with step('Go to Cart Page'):
             page.go_to_cart_page()
