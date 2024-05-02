@@ -4,7 +4,15 @@ from .locators import CartPageLocators, BasePageLocators
 import re
 
 
-class CartPage(BasePage):    
+class CartPage(BasePage):
+    def click_minus_button(self):
+        button = self.browser.find_element(*CartPageLocators.MINUS_BUTTON)
+        button.click()
+
+    def click_minus_2_button(self):
+        button = self.browser.find_element(*CartPageLocators.MINUS_2_BUTTON)
+        button.click()
+
     def click_plus_button(self):
         button = self.browser.find_element(*CartPageLocators.PLUS_BUTTON)
         button.click()

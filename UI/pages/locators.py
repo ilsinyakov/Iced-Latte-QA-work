@@ -19,8 +19,10 @@ class CartPageLocators:
     REMOVE_BUTTON = (By.ID, 'remove-all-btn')
     CONTINUE_SHOPPING_BUTTON = (By.CSS_SELECTOR, 'button[type="button"]')
     EMPTY_CART_MESSAGE = (By.XPATH, "//*[contains(text(), 'Your cart is empty')]")    
-    PLUS_BUTTON = (By.CSS_SELECTOR, '[alt="plus"]')
-    # PLUS_2_BUTTON = 
+    MINUS_BUTTON = (By.XPATH, '(//button[@id="min-btn"])[1]')
+    MINUS_2_BUTTON = (By.XPATH, '(//button[@id="min-btn"])[2]')
+    PLUS_BUTTON = (By.XPATH, '(//button[@id="plus-btn"])[1]')
+    PLUS_2_BUTTON = (By.XPATH, '(//button[@id="plus-btn"])[2]')
     PRODUCT_NAME = (By.XPATH, '//div/div[1]/div/div[2]/p[1]')
     PRODUCT_COST = (By.XPATH, '//div/div[1]/div[1]/div[2]/p[3]')
     PRODUCT_WEIGHT = (By.XPATH, "//p[@class='font-medium text-placeholder']")

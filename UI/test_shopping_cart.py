@@ -57,7 +57,7 @@ class TestCart:
             assert page.is_product_in_cart(main_page_product_name), 'Product is not in the cart'
             assert main_page_product_price == cart_page_product_price, 'Main Page Price are not Equal Cart Page Price'
             assert main_page_product_weight == cart_page_product_weight, 'Main Page Weight are not Equal Cart Page Weight'
-        '''with step('Click on Plus Button'):            
+        with step('Click on Plus Button'):            
             page.click_plus_button()
             sleep(3)
             assert page.is_change_cart_icon('2'), 'Cart icon is not change'
@@ -66,8 +66,7 @@ class TestCart:
             page.click_minus_button()
             sleep(3)
             assert page.is_change_cart_icon('1'), 'Cart icon is not change'
-            assert page.is_change_amount('1'), 'Amount is not change'
-        '''
+            assert page.is_change_amount('1'), 'Amount is not change'        
         with step('Remove Product from the Cart'):
             page.remove_products()
             sleep(3)
@@ -96,7 +95,7 @@ class TestCart:
         with step('Assert Subtotal Cost is Equal Sum of Prices'):
             subtotal = float(page.get_subtotal()[1:])
             assert (cart_page_product_price + cart_page_product_2_price) == subtotal
-        '''with step('Click on Plus Button by Product 1'):
+        with step('Click on Plus Button by Product 1'):
             page.click_plus_button()
             sleep(3)
             cart_page_product_cost = float(page.get_product_cost()[1:])
@@ -107,8 +106,7 @@ class TestCart:
             cart_page_product_2_cost = float(page.get_product_2_cost()[1:])
             subtotal = float(page.get_subtotal()[1:])
             assert cart_page_product_2_cost == cart_page_product_2_price * 2, 'Cost != Price * Amount'
-            assert subtotal == (cart_page_product_price * 2 + cart_page_product_2_price * 2)
-        '''
+            assert subtotal == (cart_page_product_price * 2 + cart_page_product_2_price * 2)        
         with step('Remove Products from the Cart'):
             page.remove_products()
             sleep(3)
@@ -160,8 +158,7 @@ class TestCart:
             assert page.is_product_in_cart(main_page_product_name), 'Product is not in the cart'
             assert main_page_product_price == cart_page_product_price, 'Main Page Price are not Equal Cart Page Price'
             assert main_page_product_weight == cart_page_product_weight, 'Main Page Weight are not Equal Cart Page Weight'
-
-        '''with step('Click on Plus Button'):            
+        with step('Click on Plus Button'):            
             page.click_plus_button()
             sleep(3)
             assert page.is_change_cart_icon('2'), 'Cart icon is not change'
@@ -170,8 +167,7 @@ class TestCart:
             page.click_minus_button()
             sleep(3)
             assert page.is_change_cart_icon('1'), 'Cart icon is not change'
-            assert page.is_change_amount('1'), 'Amount is not change'
-        '''
+            assert page.is_change_amount('1'), 'Amount is not change'        
         with step('Remove Product from the Cart'):
             page.remove_products()
             sleep(3)
@@ -200,7 +196,7 @@ class TestCart:
         with step('Assert Subtotal Cost is Equal Sum of Prices'):
             subtotal = float(page.get_subtotal()[1:])
             assert (cart_page_product_price + cart_page_product_2_price) == subtotal
-        '''with step('Click on Plus Button by Product 1'):
+        with step('Click on Plus Button by Product 1'):
             page.click_plus_button()
             sleep(3)
             cart_page_product_cost = float(page.get_product_cost()[1:])
@@ -211,8 +207,7 @@ class TestCart:
             cart_page_product_2_cost = float(page.get_product_2_cost()[1:])
             subtotal = float(page.get_subtotal()[1:])
             assert cart_page_product_2_cost == cart_page_product_2_price * 2, 'Cost != Price * Amount'
-            assert subtotal == (cart_page_product_price * 2 + cart_page_product_2_price * 2)
-        '''  
+            assert subtotal == (cart_page_product_price * 2 + cart_page_product_2_price * 2)          
         with step('Remove Product from the Cart'):
             page.remove_products()
             sleep(3)
