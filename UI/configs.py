@@ -4,8 +4,8 @@ import pytest
 link = "https://iced-latte.uk/"
 first_name = "Test"
 last_name = "Testtest"
-email = "jane@example.com"
-password = "pass54321"
+email = "olivia@example.com"
+password = "p@ss1logic11"
 
 '''Positive values of Names: 2 symbols with UPPERCASE letter, 3 symbols lowercase letters, 13 symbols with hyphens and space,
                              127 symbols with hyphens and UPPERCASE letters in the middle,
