@@ -99,10 +99,7 @@ class TestCart:
             page.click_plus_button()
             sleep(3)
             cart_page_product_cost = float(page.get_product_cost()[1:])
-            try:
-                assert cart_page_product_cost == cart_page_product_price * 2, 'Cost != Price * Amount'
-            except AssertionError as error:
-                print(f"Assertion error: {error}")
+            assert cart_page_product_cost == cart_page_product_price * 2, 'Cost != Price * Amount'            
         with step('Click on Plus Button by Product 2'):
             page.click_plus_2_button()
             sleep(3)
