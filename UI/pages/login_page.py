@@ -1,8 +1,6 @@
 from .base_page import BasePage
 from .locators import BasePageLocators, LoginPageLocators
 
-from selenium.common.exceptions import NoSuchElementException
-
 
 class LoginPage(BasePage):
     def go_to_registration_page(self):
