@@ -35,7 +35,7 @@ class TestCart:
     
     @title("Test Full Shopping Cart. User is not logged in")
     @pytest.mark.g2
-    def test_guest_full_cart(self, browser):
+    def test_guest_full_cart(self, browser):        
         with step('Open Main Page'):
             page = BasePage(browser, link)
             page.open()
@@ -66,7 +66,7 @@ class TestCart:
             page.click_minus_button()
             sleep(3)
             assert page.is_change_cart_icon('1'), 'Cart icon is not change'
-            assert page.is_change_amount('1'), 'Amount is not change'        
+            assert page.is_change_amount('1'), 'Amount is not change'                
         with step('Remove Product from the Cart'):
             page.remove_products()
             sleep(3)
