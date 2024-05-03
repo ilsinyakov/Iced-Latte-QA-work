@@ -22,5 +22,6 @@ class TestPruductPage:
             main_page_product_name = page.get_product_name()
             main_page_product_price = page.get_product_price()
             main_page_product_weight = page.get_product_weight()
+            main_page_product_rating = page.get_product_rating()
         
 

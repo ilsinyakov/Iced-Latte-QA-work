@@ -56,6 +56,13 @@ class LoginPageLocators:
     LOGIN_BUTTON = (By.CSS_SELECTOR, '[type="submit"]')
 
 
+class ProductPageLocators:
+    ADD_TO_CART_BUTTON = (By_ID, 'add-btn')
+    PRODUCT_NAME = (By.XPATH, '(//h2)[1]')
+    
+
+
+
 class ProfilePageLocators:
     EDIT_BUTTON = (By.XPATH, '//button[@type="button"]/span[contains(text(), "Edit")]')
     # EDIT_BUTTON = (By.XPATH, '/html/body/main/div/div/div[3]/div/button')
