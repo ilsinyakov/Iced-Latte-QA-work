@@ -37,7 +37,7 @@ class TestCart:
             page.open()
         with step('Get Product Name, Price and weight from Main Page'):
             main_page_product_name = page.get_product_name()
-            main_page_product_price = float(page.get_product_price()[1:])
+            main_page_product_price = page.get_product_price()
             main_page_product_weight = page.get_product_weight()
         with step('Add Product to Cart'):
             page.add_product_to_cart()

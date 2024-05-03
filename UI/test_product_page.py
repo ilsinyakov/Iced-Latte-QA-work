@@ -20,10 +20,7 @@ class TestPruductPage:
             page.open()
         with step('Get product data from main page'):
             main_page_product_name = page.get_product_name()
-            main_page_product_price = float(page.get_product_price()[1:])
+            main_page_product_price = page.get_product_price()
             main_page_product_weight = page.get_product_weight()
-
-
-
-
+        
 

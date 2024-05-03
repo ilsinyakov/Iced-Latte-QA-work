@@ -25,7 +25,8 @@ class BasePage:
         return self.browser.find_element(*BasePageLocators.PRODUCT_NAME).text
     
     def get_product_price(self):
-        return self.browser.find_element(*BasePageLocators.PRODUCT_PRICE).text
+        product_price_element = self.browser.find_element(*BasePageLocators.PRODUCT_PRICE).text
+        return float(product_price_element[1:])
 
     def get_product_weight(self):
         product_weight_element = self.browser.find_element(*BasePageLocators.PRODUCT_WEIGHT).text
