@@ -47,6 +47,6 @@ class TestPruductPage:
         #     assert product_page_product_rating == main_page_product_rating, \
         #     'Product rating is not equal on main and product pages'
         with step('Check product reviews count'):
-            product_page_product_reviews == page.get_product_reviews()
+            product_page_product_reviews = page.get_product_reviews()
             assert product_page_product_reviews == main_page_product_reviews, \
             'Product reviews count is not equal on main and product pages'
