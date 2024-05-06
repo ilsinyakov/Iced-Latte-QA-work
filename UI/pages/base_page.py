@@ -30,6 +30,12 @@ class BasePage:
     def get_product_rating(self):
         product_rating = self.browser.find_element(*BasePageLocators.PRODUCT_RATING).text
         return product_rating
+    
+    def get_product_reviews(self):
+        product_reviews_element = self.browser.find_element(*BasePageLocators.PRODUCT_REVIEWS).text
+        pattern = re.compile(r'\b\d+\b')
+        product_reviews = pattern.findall(product_reviews_element)
+        return product_reviews[0]
 
     def get_product_weight(self):
         product_weight_element = self.browser.find_element(*BasePageLocators.PRODUCT_WEIGHT).text

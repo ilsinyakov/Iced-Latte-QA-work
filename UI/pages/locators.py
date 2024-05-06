@@ -10,7 +10,8 @@ class BasePageLocators:
     PRODUCT_LINK = (By.CSS_SELECTOR, 'ul li:nth-child(2) [href]')
     PRODUCT_NAME = (By.XPATH, '//li[2]/div/a/div[2]/h2')
     PRODUCT_PRICE = (By.XPATH, '//li[2]/div/div[2]/p')
-    PRODUCT_RATING = (By.XPATH, '//li[2]/div/a/div[2]/div/span[1]')
+    PRODUCT_RATING = (By.XPATH, '//li[2]/div/a/div[2]/div/span/span[1]')
+    PRODUCT_REVIEWS = (By.XPATH, '//li[2]/div/a/div[2]/div/span/span[2]')
     PRODUCT_WEIGHT = (By.XPATH, '//li[2]/div/a/div[2]/div/span[2]')
     PROFILE_LINK = (By.CSS_SELECTOR, '[href="/profile"]')
     SORT_DROPDOWN = (By.XPATH, "//*[contains(text(), 'Sort by:')]")
@@ -61,9 +62,8 @@ class ProductPageLocators:
     ADD_TO_CART_BUTTON = (By.ID, 'add-btn')
     PRODUCT_NAME = (By.XPATH, '(//h2)[1]')
     PRODUCT_WEIGHT = (By.CLASS_NAME, 'text-placeholder')
-
-
-
+    PRODUCT_RATING = (By.XPATH, '//h2/following-sibling::div/span[1]')
+    PRODUCT_REVIEWS = (By.XPATH, '//h2/following-sibling::div/span[2]')
 
 
 class ProfilePageLocators:

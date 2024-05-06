@@ -23,6 +23,7 @@ class TestPruductPage:
             main_page_product_price = page.get_product_price()
             main_page_product_weight = page.get_product_weight()
             main_page_product_rating = page.get_product_rating()
+            main_page_product_reviews = page.get_product_reviews()
         with step('Go to product page'):
             page.go_to_product_page()
             page = ProductPage(browser, browser.current_url)
@@ -38,6 +39,9 @@ class TestPruductPage:
         with step('Check product rating'):
             assert main_page_product_rating == page.get_product_rating(), \
             'Product rating is not equal on main and product pages'
+        with step('Check product reviews count'):
+            assert main_page_product_reviews == page.get_product_reviews(), \
+            'Product reviews count is not equal on main and product pages'
         
         
 
