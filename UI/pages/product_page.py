@@ -28,5 +28,12 @@ class ProductPage(BasePage):
         product_weight_element = self.browser.find_element(*ProductPageLocators.PRODUCT_WEIGHT).text
         pattern = re.compile(r'\b\d+\b')
         product_weight = pattern.findall(product_weight_element)
-        return product_weight[0]    
+        return product_weight[0]
+    
+    def is_main_page_link_present(self):
+        self.is_element_present(*ProductPageLocators.MAIN_PAGE_LINK)
+    
+    def is_main_page_link_clickable(self):
+        self.is_element_clickable(*ProductPageLocators.MAIN_PAGE_LINK)
+
     

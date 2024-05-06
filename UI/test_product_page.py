@@ -18,7 +18,7 @@ class TestPruductPage:
         with step('Open main page'):            
             page = BasePage(browser, link)
             page.open()
-            sleep(3)
+            sleep(2) # waiting is mandatory (do not remove)
         with step('Get product data from main page'):
             main_page_product_name = page.get_product_name()
             main_page_product_price = page.get_product_price()
@@ -27,7 +27,7 @@ class TestPruductPage:
             main_page_product_reviews = page.get_product_reviews()
         with step('Go to product page'):
             page.go_to_product_page()
-            sleep(3)
+            sleep(2) # waiting is mandatory (do not remove)
             page = ProductPage(browser, browser.current_url)
         with step('Check product name'):            
             product_page_product_name = page.get_product_name()
@@ -50,3 +50,19 @@ class TestPruductPage:
             product_page_product_reviews = page.get_product_reviews()
             assert product_page_product_reviews == main_page_product_reviews, \
             'Product reviews count is not equal on main and product pages'
+
+    @title('Test header links')
+    def test_header_links(self, browser):
+        with step('Open main page'):            
+            page = BasePage(browser, link)
+            page.open()
+            sleep(2) # waiting is mandatory (do not remove)
+        with step('Go to product page'):
+            page.go_to_product_page()
+            sleep(2) # waiting is mandatory (do not remove)
+            page = ProductPage(browser, browser.current_url)
+        with step ('Assert main page link is presented and clickable'):
+            assert is_main_page_link_present(), 'Main page link is not presented'
+            assert is_main_page_link_clickable(), 'Main page link is not clickable'
+        
+

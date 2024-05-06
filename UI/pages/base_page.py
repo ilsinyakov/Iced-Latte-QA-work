@@ -1,6 +1,8 @@
 import re
 
-from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import NoSuchElementException, \
+                                       ElementClickInterceptedException, \
+                                       ElementNotInteractableException
 from selenium.webdriver.support.ui import WebDriverWait
 
 from .locators import BasePageLocators
@@ -66,6 +68,14 @@ class BasePage:
             return True
         else: 
             return False
+
+    # check that the element is clickable
+    def is_element_clickable(self, how, what):
+        try:
+            self.browser.find_element(how, what)
+        except ElementClickInterceptedException or ElementNotInteractableException:
+            return False
+        return True    
 
     # check that the element is present on the page
     def is_element_present(self, how, what):

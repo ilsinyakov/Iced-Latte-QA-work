@@ -60,6 +60,8 @@ class LoginPageLocators:
 
 class ProductPageLocators:
     ADD_TO_CART_BUTTON = (By.ID, 'add-btn')
+    FAVORITES_LINK = (By.CSS_SELECTOR, '[href='/favourites']')
+    MAIN_PAGE_LINK = (By.CSS_SELECTOR, '[href="/"]')
     PRODUCT_NAME = (By.XPATH, '(//h2)[1]')
     PRODUCT_WEIGHT = (By.CLASS_NAME, 'text-placeholder')
     PRODUCT_RATING = (By.XPATH, '//h2/following-sibling::div/span[1]')
