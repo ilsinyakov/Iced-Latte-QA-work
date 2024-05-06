@@ -10,8 +10,10 @@ class ProductPage(BasePage):
     
     def get_product_price(self):
         product_price_element = self.browser.find_element(*ProductPageLocators.ADD_TO_CART_BUTTON).text
-        return float(product_price_element[1:])
-    
+        pattern = r"[0-9.]"
+        product_price = re.findall(pattern, product_price_element)
+        return float("".join(product_price))
+        
     def get_product_rating(self):
         product_rating = self.browser.find_element(*ProductPageLocators.PRODUCT_RATING).text
         return product_rating
