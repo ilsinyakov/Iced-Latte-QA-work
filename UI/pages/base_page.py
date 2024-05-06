@@ -1,10 +1,9 @@
-from .locators import BasePageLocators
+import re
 
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.ui import WebDriverWait
 
-import re
-
+from .locators import BasePageLocators
 
 class BasePage:    
 
@@ -44,6 +43,10 @@ class BasePage:
 
     def go_to_login_page(self):
         link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
+        link.click()
+
+    def go_to_product_page(self):
+        link = self.browser.find_element(*BasePageLocators.PRODUCT_LINK)
         link.click()
 
     def go_to_profile_page(self):

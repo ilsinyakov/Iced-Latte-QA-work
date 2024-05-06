@@ -7,6 +7,7 @@ class BasePageLocators:
     CART_LINK = (By.CSS_SELECTOR, '[href="/cart"]')
     CART_ICON = (By.XPATH, '//header/div/a[3]/button/div[2]/span')  # same on every pages
     LOGIN_LINK = (By.CSS_SELECTOR, '[href="/auth/login"]')
+    PRODUCT_LINK = (By.CSS_SELECTOR, 'ul li:nth-child(2) [href]')
     PRODUCT_NAME = (By.XPATH, '//li[2]/div/a/div[2]/h2')
     PRODUCT_PRICE = (By.XPATH, '//li[2]/div/div[2]/p')
     PRODUCT_RATING = (By.XPATH, '//li[2]/div/a/div[2]/div/span[1]')
@@ -59,6 +60,7 @@ class LoginPageLocators:
 class ProductPageLocators:
     ADD_TO_CART_BUTTON = (By.ID, 'add-btn')
     PRODUCT_NAME = (By.XPATH, '(//h2)[1]')
+    PRODUCT_WEIGHT = (By.CLASS_NAME, 'text-placeholder')
 
 
 
