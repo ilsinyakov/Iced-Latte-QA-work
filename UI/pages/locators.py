@@ -60,6 +60,7 @@ class ProductPageLocators:
     ADD_TO_CART_BUTTON = (By_ID, 'add-btn')
     PRODUCT_NAME = (By.XPATH, '(//h2)[1]')
     
+    
 
 
 
