@@ -19,7 +19,7 @@ class CartPageLocators:
     AMOUNT = (By.XPATH, '/html/body/main/div/div[1]/div[1]/div[2]/div/div[1]/span')
     REMOVE_BUTTON = (By.ID, 'remove-all-btn')
     CONTINUE_SHOPPING_BUTTON = (By.CSS_SELECTOR, 'button[type="button"]')
-    EMPTY_CART_MESSAGE = (By.XPATH, "//*[contains(text(), 'Your cart is empty')]")    
+    EMPTY_CART_MESSAGE = (By.XPATH, "//*[contains(text(), 'Your cart is empty')]")
     MINUS_BUTTON = (By.XPATH, '(//button[@id="min-btn"])[1]')
     MINUS_2_BUTTON = (By.XPATH, '(//button[@id="min-btn"])[2]')
     PLUS_BUTTON = (By.XPATH, '(//button[@id="plus-btn"])[1]')
@@ -42,13 +42,13 @@ class EditProfilePageLocators:
     NONLATIN_FIRST_NAME_MESSAGE = (By.XPATH, "//*[contains(text(), 'Invalid name format. Use extended Latin letters, spaces, and specified symbols')]")
     SERVER_ERROR_MESSAGE = (By.XPATH, "//*[contains(text(), 'Server Error: Internal server error')]")
     EMPTY_LAST_NAME_MESSAGE = (By.XPATH, "//*[contains(text(), 'Last name is required')]")
-    NONLATIN_LAST_NAME_MESSAGE = (By.XPATH, "//*[contains(text(), 'Invalid Last name format. Use extended Latin letters')]")    
-    #  SERVER_ERROR_MESSAGE = (By.XPATH, '/html/body/main/div/div/div[3]/form/div[9]/div')    
+    NONLATIN_LAST_NAME_MESSAGE = (By.XPATH, "//*[contains(text(), 'Invalid Last name format. Use extended Latin letters')]")
+    #  SERVER_ERROR_MESSAGE = (By.XPATH, '/html/body/main/div/div/div[3]/form/div[9]/div')
     #  EMPTY_NONLATIN_MESSAGE = (By.CSS_SELECTOR, '.mt-2.font-medium.text-negative')
-    #  SERVER_ERROR_MESSAGE = (By.CSS_SELECTOR, '.mt-4.text-negative')    
+    #  SERVER_ERROR_MESSAGE = (By.CSS_SELECTOR, '.mt-4.text-negative')
 
 
-class LoginPageLocators:    
+class LoginPageLocators:
     REGISTER_BUTTON = (By.XPATH, '/html/body/main/div/div[2]/div[2]/a[2]/button')
     # REGISTER_BUTTON = (By.XPATH, '//button[@type="button" and text()="Register"]')
     EMAIL_FIELD = (By.ID, 'email')
@@ -57,10 +57,10 @@ class LoginPageLocators:
 
 
 class ProductPageLocators:
-    ADD_TO_CART_BUTTON = (By_ID, 'add-btn')
+    ADD_TO_CART_BUTTON = (By.ID, 'add-btn')
     PRODUCT_NAME = (By.XPATH, '(//h2)[1]')
-    
-    
+
+
 
 
 
