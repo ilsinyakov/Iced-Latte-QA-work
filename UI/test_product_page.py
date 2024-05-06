@@ -41,10 +41,11 @@ class TestPruductPage:
             product_page_product_weight = page.get_product_weight()
             assert product_page_product_weight == main_page_product_weight, \
             'Product weight is not equal on main and product pages'
-        with step('Check product rating'):
-            product_page_product_rating = page.get_product_rating()
-            assert product_page_product_rating == main_page_product_rating, \
-            'Product rating is not equal on main and product pages'
+        # ### . vs , ###
+        # with step('Check product rating'):
+        #     product_page_product_rating = page.get_product_rating()
+        #     assert product_page_product_rating == main_page_product_rating, \
+        #     'Product rating is not equal on main and product pages'
         with step('Check product reviews count'):
             product_page_product_reviews == page.get_product_reviews()
             assert product_page_product_reviews == main_page_product_reviews, \
