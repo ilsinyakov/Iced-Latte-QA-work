@@ -28,20 +28,23 @@ class TestPruductPage:
             page.go_to_product_page()
             page = ProductPage(browser, browser.current_url)
         with step('Check product name'):            
-            assert product_page_product_name == page.get_product_name(), \
+            product_page_product_name = page.get_product_name()
+            assert product_page_product_name == main_page_product_name, \
             'Product names is not equal on main and product pages'
         with step('Check product price'):
-            assert main_page_product_price == page.get_product_price(), \
+            product_page_product_price = page.get_product_price()
+            assert product_page_product_price == main_page_product_price, \
             'Product price is not equal on main and product pages'
         with step('Check product weight'):
-            assert main_page_product_weight == page.get_product_weight(), \
+            product_page_product_weight = page.get_product_weight()
+            assert product_page_product_weight == main_page_product_weight, \
             'Product weight is not equal on main and product pages'
         with step('Check product rating'):
-            assert main_page_product_rating == page.get_product_rating(), \
+            product_page_product_rating == page.get_product_rating()
+            assert product_page_product_rating == main_page_product_rating, \
             'Product rating is not equal on main and product pages'
         with step('Check product reviews count'):
-            assert main_page_product_reviews == page.get_product_reviews(), \
+            product_page_product_reviews == page.get_product_reviews()
+            assert product_page_product_reviews == main_page_product_reviews, \
             'Product reviews count is not equal on main and product pages'
-        
-        
-
+            
