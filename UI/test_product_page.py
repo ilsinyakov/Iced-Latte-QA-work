@@ -63,7 +63,7 @@ class TestPruductPage:
             sleep(2) # waiting is mandatory (do not remove)
         with step('Go to product page'):
             page.go_to_product_page()
-            sleep(3) # waiting is mandatory (do not remove)
+            sleep(2) # waiting is mandatory (do not remove)
             page = ProductPage(browser, browser.current_url)
         with step ('Assert main page link is presented and clickable'):
             assert page.is_main_page_link_present(), 'Main page link is not presented'
