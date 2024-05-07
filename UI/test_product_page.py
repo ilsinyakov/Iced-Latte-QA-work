@@ -65,17 +65,17 @@ class TestPruductPage:
             sleep(2) # waiting is mandatory (do not remove)
             page = ProductPage(browser, browser.current_url)
         with step ('Assert main page link is presented and clickable'):
-            assert is_main_page_link_present(), 'Main page link is not presented'
-            assert is_main_page_link_clickable(), 'Main page link is not clickable'
+            assert page.is_main_page_link_present(), 'Main page link is not presented'
+            assert page.is_main_page_link_clickable(), 'Main page link is not clickable'
         with step ('Assert favorites page link is presented and clickable'):
-            assert is_favorites_page_link_present(), 'Favorites page link is not presented'
-            assert is_favorites_page_link_clickable(), 'Favorites page link is not clickable'
+            assert page.is_favorites_page_link_present(), 'Favorites page link is not presented'
+            assert page.is_favorites_page_link_clickable(), 'Favorites page link is not clickable'
         with step ('Assert login page link is presented and clickable'):
-            assert is_login_page_link_present(), 'Login page link is not presented'
-            assert is_login_page_link_clickable(), 'Login page link is not clickable'
+            assert page.is_login_page_link_present(), 'Login page link is not presented'
+            assert page.is_login_page_link_clickable(), 'Login page link is not clickable'
         with step ('Assert shopping cart page link is presented and clickable'):
-            assert is_cart_page_link_present(), 'Cart page link is not presented'
-            assert is_cart_page_link_clickable(), 'Cart page link is not clickable'
+            assert page.is_cart_page_link_present(), 'Cart page link is not presented'
+            assert page.is_cart_page_link_clickable(), 'Cart page link is not clickable'
         
 
 
