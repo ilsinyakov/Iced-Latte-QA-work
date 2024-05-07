@@ -121,7 +121,7 @@ class TestPruductPage:
             'Product reviews count is not equal on main and product pages'
 
     @title('Test header links. User is logged-in')
-    @pytest.mark.skip()
+    # @pytest.mark.skip()
     def test_header_links_quest(self, browser):
         with step('Login User'):            
             login_user(browser, link)
