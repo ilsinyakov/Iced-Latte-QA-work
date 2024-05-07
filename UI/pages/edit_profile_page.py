@@ -1,5 +1,5 @@
 from .base_page import BasePage
-from .locators import EditProfilePageLocators
+from .locators import EditProfilePageLocators, HeaderLocators
 
 
 class EditProfilePage(BasePage):
@@ -23,7 +23,7 @@ class EditProfilePage(BasePage):
         save_change_button.click()
 
     def go_to_main_page(self):
-        main_page_link = self.browser.find_element(*EditProfilePageLocators.MAIN_PAGE_LINK)
+        main_page_link = self.browser.find_element(*HeaderLocators.MAIN_PAGE_LINK)
         main_page_link.click()
     
     def is_error_message_first_name_present(self, error_message):

@@ -3,17 +3,13 @@ from selenium.webdriver.common.by import By
 
 class BasePageLocators:
     ADD_TO_CART_BUTTON = (By.XPATH, '//li[2]/div/div[2]/div/button')
-    ADD_TO_CART_BUTTON_2 = (By.XPATH, '//li[3]/div/div[2]/div/button')
-    CART_LINK = (By.CSS_SELECTOR, '[href="/cart"]')
-    CART_ICON = (By.XPATH, '//header/div/a[3]/button/div[2]/span')  # same on every pages
-    LOGIN_LINK = (By.CSS_SELECTOR, '[href="/auth/login"]')
+    ADD_TO_CART_BUTTON_2 = (By.XPATH, '//li[3]/div/div[2]/div/button')    
     PRODUCT_LINK = (By.CSS_SELECTOR, 'ul li:nth-child(2) [href]')
     PRODUCT_NAME = (By.XPATH, '//li[2]/div/a/div[2]/h2')
     PRODUCT_PRICE = (By.XPATH, '//li[2]/div/div[2]/p')
     PRODUCT_RATING = (By.XPATH, '//li[2]/div/a/div[2]/div/span/span[1]')
     PRODUCT_REVIEWS = (By.XPATH, '//li[2]/div/a/div[2]/div/span/span[2]')
-    PRODUCT_WEIGHT = (By.XPATH, '//li[2]/div/a/div[2]/div/span[2]')
-    PROFILE_LINK = (By.CSS_SELECTOR, '[href="/profile"]')
+    PRODUCT_WEIGHT = (By.XPATH, '//li[2]/div/a/div[2]/div/span[2]')    
     SORT_DROPDOWN = (By.XPATH, "//*[contains(text(), 'Sort by:')]")
 
 
@@ -37,8 +33,7 @@ class EditProfilePageLocators:
     EMAIL_FIELD = (By.ID, 'email')
     FIRST_NAME_FIELD = (By.ID, 'firstName')
     LAST_NAME_FIELD = (By.ID, 'lastName')
-    SAVE_CHANGE_BUTTON = (By.CSS_SELECTOR, '[type="submit"]')
-    MAIN_PAGE_LINK = (By.CSS_SELECTOR, '[href="/"]')
+    SAVE_CHANGE_BUTTON = (By.CSS_SELECTOR, '[type="submit"]')    
     #  SUCCESS_MESSAGE = (By.ID, 'success')
     EMPTY_FIRST_NAME_MESSAGE = (By.XPATH, "//*[contains(text(), 'name is required')]")
     NONLATIN_FIRST_NAME_MESSAGE = (By.XPATH, "//*[contains(text(), 'Invalid name format. Use extended Latin letters, spaces, and specified symbols')]")
@@ -50,18 +45,25 @@ class EditProfilePageLocators:
     #  SERVER_ERROR_MESSAGE = (By.CSS_SELECTOR, '.mt-4.text-negative')
 
 
+class HeaderLocators:
+    CART_LINK = (By.CSS_SELECTOR, '[href="/cart"]')
+    CART_ICON = (By.XPATH, '//header/div/a[3]/button/div[2]/span')
+    FAVORITES_PAGE_LINK = (By.CSS_SELECTOR, '[href="/favourites"]')
+    LOGIN_LINK = (By.CSS_SELECTOR, '[href="/auth/login"]')
+    MAIN_PAGE_LINK = (By.CSS_SELECTOR, '[href="/"]')
+    PROFILE_LINK = (By.CSS_SELECTOR, '[href="/profile"]')
+
+
 class LoginPageLocators:
-    REGISTER_BUTTON = (By.XPATH, '/html/body/main/div/div[2]/div[2]/a[2]/button')
-    # REGISTER_BUTTON = (By.XPATH, '//button[@type="button" and text()="Register"]')
     EMAIL_FIELD = (By.ID, 'email')
-    PASSWORD_FIELD = (By.ID, 'password')
     LOGIN_BUTTON = (By.CSS_SELECTOR, '[type="submit"]')
+    PASSWORD_FIELD = (By.ID, 'password')
+    REGISTER_BUTTON = (By.XPATH, '/html/body/main/div/div[2]/div[2]/a[2]/button')
+    # REGISTER_BUTTON = (By.XPATH, '//button[@type="button" and text()="Register"]')    
 
 
 class ProductPageLocators:
-    ADD_TO_CART_BUTTON = (By.ID, 'add-btn')
-    FAVORITES_LINK = (By.CSS_SELECTOR, '[href="/favourites"]')
-    MAIN_PAGE_LINK = (By.CSS_SELECTOR, '[href="/"]')
+    ADD_TO_CART_BUTTON = (By.ID, 'add-btn')        
     PRODUCT_NAME = (By.XPATH, '(//h2)[1]')
     PRODUCT_WEIGHT = (By.CLASS_NAME, 'text-placeholder')
     PRODUCT_RATING = (By.XPATH, '//h2/following-sibling::div/span[1]')

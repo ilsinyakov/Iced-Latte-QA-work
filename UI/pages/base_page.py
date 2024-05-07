@@ -5,7 +5,7 @@ from selenium.common.exceptions import NoSuchElementException, \
                                        ElementNotInteractableException
 from selenium.webdriver.support.ui import WebDriverWait
 
-from .locators import BasePageLocators
+from .locators import BasePageLocators, HeaderLocators
 
 class BasePage:    
 
@@ -46,11 +46,11 @@ class BasePage:
         return product_weight[0]
 
     def go_to_cart_page(self):
-        link = self.browser.find_element(*BasePageLocators.CART_LINK)
+        link = self.browser.find_element(*HeaderLocators.CART_LINK)
         link.click()
 
     def go_to_login_page(self):
-        link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
+        link = self.browser.find_element(*HeaderLocators.LOGIN_LINK)
         link.click()
 
     def go_to_product_page(self):
@@ -58,12 +58,12 @@ class BasePage:
         link.click()
 
     def go_to_profile_page(self):
-        link = self.browser.find_element(*BasePageLocators.PROFILE_LINK)
+        link = self.browser.find_element(*HeaderLocators.PROFILE_LINK)
         link.click()
     
     # check that amount on cart icon changed after adding product to cart
     def is_change_cart_icon(self, amount):
-        cart_icon = self.browser.find_element(*BasePageLocators.CART_ICON)
+        cart_icon = self.browser.find_element(*HeaderLocators.CART_ICON)
         if cart_icon.text == amount:
             return True
         else: 
@@ -72,8 +72,9 @@ class BasePage:
     # check that the element is clickable
     def is_element_clickable(self, how, what):
         try:
-            self.browser.find_element(how, what)
-        except ElementClickInterceptedException or ElementNotInteractableException:
+            element = self.browser.find_element(how, what)
+            element.click()
+        except (ElementClickInterceptedException, ElementNotInteractableException):
             return False
         return True    
 
@@ -91,5 +92,5 @@ class BasePage:
 
     # check that login link is present on the page
     def should_be_login_link(self):
-        assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"    
+        assert self.is_element_present(*HeaderLocators.LOGIN_LINK), "Login link is not presented"    
     

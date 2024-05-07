@@ -1,5 +1,5 @@
 from .base_page import BasePage
-from .locators import CartPageLocators, BasePageLocators
+from .locators import CartPageLocators, HeaderLocators
 
 import re
 
@@ -53,7 +53,7 @@ class CartPage(BasePage):
     
     # check that amount on cart icon changed after click "Plus" or "Minus"
     def is_change_cart_icon(self, amount):
-        cart_icon = self.browser.find_element(*BasePageLocators.CART_ICON)
+        cart_icon = self.browser.find_element(*HeaderLocators.CART_ICON)
         if cart_icon.text == amount:
             return True
         else: 

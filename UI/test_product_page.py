@@ -13,6 +13,9 @@ from .configs import link
 # @allure.tag("")
 @severity(severity_level.CRITICAL)
 class TestPruductPage:
+
+    # ----------- GUEST ------------
+
     @title("Test main page product's data is equal product page")
     def test_product_data(self, browser):
         with step('Open main page'):            
@@ -64,5 +67,17 @@ class TestPruductPage:
         with step ('Assert main page link is presented and clickable'):
             assert is_main_page_link_present(), 'Main page link is not presented'
             assert is_main_page_link_clickable(), 'Main page link is not clickable'
+        with step ('Assert favorites page link is presented and clickable'):
+            assert is_favorites_page_link_present(), 'Favorites page link is not presented'
+            assert is_favorites_page_link_clickable(), 'Favorites page link is not clickable'
+        with step ('Assert login page link is presented and clickable'):
+            assert is_login_page_link_present(), 'Login page link is not presented'
+            assert is_login_page_link_clickable(), 'Login page link is not clickable'
+        with step ('Assert shopping cart page link is presented and clickable'):
+            assert is_cart_page_link_present(), 'Cart page link is not presented'
+            assert is_cart_page_link_clickable(), 'Cart page link is not clickable'
         
 
+
+
+    # ----------- USER ------------
