@@ -16,7 +16,7 @@ class TestPruductPage:
 
     # ----------- GUEST ------------
 
-    @title("Test main page product's data is equal product page. User is not logged-in")
+    @title("Test main page product data is equal product page. User is not logged-in")
     @pytest.mark.skip()
     def test_product_data_quest(self, browser):
         with step('Open main page'):            
@@ -81,7 +81,7 @@ class TestPruductPage:
         
     # ----------- USER ------------
 
-    @title("Test main page product's data is equal product page. User is logged-in")
+    @title("Test main page product data is equal product page. User is logged-in")
     # @pytest.mark.skip()
     def test_product_data_user(self, browser):
         with step('Login User'):            
@@ -122,11 +122,12 @@ class TestPruductPage:
 
     @title('Test header links. User is logged-in')
     # @pytest.mark.skip()
-    def test_header_links_quest(self, browser):
+    def test_header_links_user(self, browser):
         with step('Login User'):            
             login_user(browser, link)
             sleep(2) # waiting is mandatory (do not remove)
         with step('Go to product page'):
+            page = BasePage(browser, link)
             page.go_to_product_page()
             sleep(2) # waiting is mandatory (do not remove)
             page = ProductPage(browser, browser.current_url)
