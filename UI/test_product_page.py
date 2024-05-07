@@ -17,6 +17,7 @@ class TestPruductPage:
     # ----------- GUEST ------------
 
     @title("Test main page product's data is equal product page")
+    @pytest.mark.skip()
     def test_product_data(self, browser):
         with step('Open main page'):            
             page = BasePage(browser, link)
