@@ -53,4 +53,10 @@ class ProductPage(BasePage):
     
     def is_main_page_link_clickable(self):
         return self.is_element_clickable(*HeaderLocators.MAIN_PAGE_LINK)
+
+    def is_profile_page_link_present(self):
+        return self.is_element_present(*HeaderLocators.PROFILE_LINK)
+    
+    def is_profile_page_link_clickable(self):
+        return self.is_element_clickable(*HeaderLocators.PROFILE_LINK)
     
