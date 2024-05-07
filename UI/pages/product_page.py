@@ -31,26 +31,26 @@ class ProductPage(BasePage):
         return product_weight[0]
     
     def is_cart_page_link_present(self):
-        self.is_element_present(*HeaderLocators.CART_LINK)
+        return self.is_element_present(*HeaderLocators.CART_LINK)
 
     def is_cart_page_link_clickable(self):
-        self.is_element_clickable(*HeaderLocators.CART_LINK)    
+        return self.is_element_clickable(*HeaderLocators.CART_LINK)    
 
     def is_favorites_page_link_present(self):
-        self.is_element_present(*HeaderLocators.FAVORITES_PAGE_LINK)
+        return self.is_element_present(*HeaderLocators.FAVORITES_PAGE_LINK)
 
     def is_favorites_page_link_clickable(self):
-        self.is_element_clickable(*HeaderLocators.FAVORITES_PAGE_LINK)
+        return self.is_element_clickable(*HeaderLocators.FAVORITES_PAGE_LINK)
 
     def is_login_page_link_present(self):
-        self.is_element_present(*HeaderLocators.LOGIN_LINK)
+        return self.is_element_present(*HeaderLocators.LOGIN_LINK)
 
     def is_login_page_link_clickable(self):
-        self.is_element_clickable(*HeaderLocators.LOGIN_LINK)
+        return self.is_element_clickable(*HeaderLocators.LOGIN_LINK)
     
     def is_main_page_link_present(self):
-        self.is_element_present(*HeaderLocators.MAIN_PAGE_LINK)
+        return self.is_element_present(*HeaderLocators.MAIN_PAGE_LINK)
     
     def is_main_page_link_clickable(self):
-        self.is_element_clickable(*HeaderLocators.MAIN_PAGE_LINK)
+        return self.is_element_clickable(*HeaderLocators.MAIN_PAGE_LINK)
     
