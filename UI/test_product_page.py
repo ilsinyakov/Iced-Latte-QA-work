@@ -98,6 +98,11 @@ class TestPruductPage:
             sleep(2)  # waiting is mandatory (do not remove)
             assert page.is_change_cart_icon('2'), 'Cart icon is not change'
             assert page.is_change_amount('2'), 'Amount is not change'
+        with step('Click on Minus Button'):
+            page.click_minus_button()
+            sleep(2)  # waiting is mandatory (do not remove)
+            assert page.is_change_cart_icon('1'), 'Cart icon is not change'
+            assert page.is_change_amount('1'), 'Amount is not change'
         
     # ----------- USER ------------
 
