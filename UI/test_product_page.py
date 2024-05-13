@@ -78,11 +78,31 @@ class TestPruductPage:
         with step('Assert shopping cart page link is presented and clickable'):
             assert page.is_cart_page_link_present(), 'Cart page link is not presented'
             assert page.is_cart_page_link_clickable(), 'Cart page link is not clickable'
+    
+    @title('Add product to cart and change quantity')
+    # @pytest.mark.skip()
+    def test_add_to_cart(self, browser):
+        with step('Open main page'):            
+            page = BasePage(browser, link)
+            page.open()
+            sleep(2) # waiting is mandatory (do not remove)
+        with step('Go to product page'):
+            page.go_to_product_page()
+            sleep(2) # waiting is mandatory (do not remove)
+            page = ProductPage(browser, browser.current_url)
+        with step('Add product to cart'):
+            page.add_product_to_cart()
+            assert is_change_cart_icon('1'), 'Cart icon is not change'
+        with step('Click on Plus Button'):            
+            page.click_plus_button()
+            sleep(2)  # waiting is mandatory (do not remove)
+            assert page.is_change_cart_icon('2'), 'Cart icon is not change'
+            assert page.is_change_amount('2'), 'Amount is not change'
         
     # ----------- USER ------------
 
     @title("Test main page product data is equal product page. User is logged-in")
-    # @pytest.mark.skip()
+    @pytest.mark.skip()
     def test_product_data_user(self, browser):
         with step('Login User'):            
             login_user(browser, link)
@@ -121,7 +141,7 @@ class TestPruductPage:
             'Product reviews count is not equal on main and product pages'
 
     @title('Test header links. User is logged-in')
-    # @pytest.mark.skip()
+    @pytest.mark.skip()
     def test_header_links_user(self, browser):
         with step('Login User'):            
             login_user(browser, link)
@@ -143,4 +163,4 @@ class TestPruductPage:
         with step('Assert shopping cart page link is presented and clickable'):
             assert page.is_cart_page_link_present(), 'Cart page link is not presented'
             assert page.is_cart_page_link_clickable(), 'Cart page link is not clickable'
-            
+

@@ -5,6 +5,14 @@ from .locators import ProductPageLocators, HeaderLocators
 
 
 class ProductPage(BasePage):
+    def add_product_to_cart(self):
+        add_to_cart_button = self.browser.find_element(*ProductPageLocators.ADD_TO_CART_BUTTON)
+        add_to_cart_button.click()
+    
+    def click_plus_button(self):
+        plus_button = self.browser.find_element(*ProductPageLocators.PLUS_BUTTON)
+        plus_button.click()
+
     def get_product_name(self):
         return self.browser.find_element(*ProductPageLocators.PRODUCT_NAME).text
     
@@ -35,6 +43,14 @@ class ProductPage(BasePage):
 
     def is_cart_page_link_clickable(self):
         return self.is_element_clickable(*HeaderLocators.CART_LINK)    
+    
+    # check that amount changed after click "Plus" or "Minus"
+    def is_change_amount(self, amount):
+        amount_element = self.browser.find_element(*ProductPageLocators.AMOUNT)
+        if amount_element.text == amount:
+            return True
+        else: 
+            return False
 
     def is_favorites_page_link_present(self):
         return self.is_element_present(*HeaderLocators.FAVORITES_PAGE_LINK)
