@@ -143,3 +143,4 @@ class TestPruductPage:
         with step('Assert shopping cart page link is presented and clickable'):
             assert page.is_cart_page_link_present(), 'Cart page link is not presented'
             assert page.is_cart_page_link_clickable(), 'Cart page link is not clickable'
+            
