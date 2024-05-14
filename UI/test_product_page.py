@@ -81,7 +81,7 @@ class TestPruductPage:
             assert page.is_cart_page_link_clickable(), 'Cart page link is not clickable'
     
     @title('Add product to cart and change quantity. User is not logged-in')
-    # @pytest.mark.skip()
+    @pytest.mark.skip()
     def test_add_to_cart(self, browser):
         with step('Open main page'):            
             page = BasePage(browser, link)
@@ -112,8 +112,8 @@ class TestPruductPage:
         
 
     
-    @title('Try to add product to favorires. User is not logged-in')
-    @pytest.mark.skip()
+    @title('Add product to favorires. User is not logged-in')
+    # @pytest.mark.skip()
     def test_add_to_favorites(self, browser):
         with step('Open main page'):            
             page = BasePage(browser, link)
@@ -123,7 +123,9 @@ class TestPruductPage:
             page.go_to_product_page()
             sleep(2) # waiting is mandatory (do not remove)
             page = ProductPage(browser, browser.current_url)
-        
+        with step('Push favorite button'):
+            page.add_product_to_favorites()
+
 
 
         

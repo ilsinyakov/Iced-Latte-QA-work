@@ -9,6 +9,9 @@ class ProductPage(BasePage):
         add_to_cart_button = self.browser.find_element(*ProductPageLocators.ADD_TO_CART_BUTTON)
         add_to_cart_button.click()
     
+    def add_product_to_favorites(self):
+        add_to_favorites_button = self.browser.find_element(*ProductPageLocators.ADD_TO_FAVORITES_BUTTON)
+    
     def click_minus_button(self):
         minus_button = self.browser.find_element(*ProductPageLocators.MINUS_BUTTON) 
         minus_button.click()        
