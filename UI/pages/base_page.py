@@ -88,7 +88,23 @@ class BasePage:
             self.browser.find_element(how, what)
         except NoSuchElementException:
             return False
-        return True    
+        return True
+
+    # check that black heart image is present on the header
+    def is_header_heart_black(self):
+        heart_image = self.browser.find_element(*HeaderLocators.HEART_IMAGE)        
+        if heart_image.get_attribute('src') == 'https://iced-latte.uk/_next/static/media/heart_black.ab80f79d.svg':
+            return True
+        else:
+            return False    
+
+    # check that blue heart image is present on the header
+    def is_header_heart_blue(self):
+        heart_image = self.browser.find_element(*HeaderLocators.HEART_IMAGE)        
+        if heart_image.get_attribute('src') == 'https://iced-latte.uk/_next/static/media/heart_purple.0117f013.svg':
+            return True
+        else:
+            return False    
     
     # open page
     def open(self):

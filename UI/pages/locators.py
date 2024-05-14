@@ -47,7 +47,7 @@ class EditProfilePageLocators:
 
 class FavoritesPageLocators:
     PRODUCT_NAME = (By.XPATH, '(//*[starts-with(@href,"/product/")]/following-sibling::div/p)[1]')
-
+    PRODUCT_LINK = (By.XPATH, '//*[starts-with(@href,"/product/")]')
 
 class HeaderLocators:
     CART_LINK = (By.CSS_SELECTOR, '[href="/cart"]')
@@ -70,14 +70,16 @@ class LoginPageLocators:
 class ProductPageLocators:
     AMOUNT = (By.XPATH, '//*[@id="min-btn"]/following-sibling::span')
     ADD_TO_CART_BUTTON = (By.ID, 'add-btn')
-    ADD_TO_FAVORITES_BUTTON = (By.XPATH, '//*[@alt="heart unliked"]/ancestor::button')   
-    HEART_IMAGE = (By.CSS_SELECTOR, '[alt="heart liked"]')
+    ADD_TO_FAVORITES_BUTTON = (By.XPATH, '//*[@alt="heart unliked"]/ancestor::button')
+    REMOVE_FROM_FAVORITES_BUTTON = (By.XPATH, '//*[@alt="heart liked"]/ancestor::button')
+    RED_HEART_IMAGE = (By.CSS_SELECTOR, '[alt="heart liked"]')
     MINUS_BUTTON = (By.ID, 'min-btn')
     PLUS_BUTTON = (By.ID, 'plus-btn')    
     PRODUCT_NAME = (By.XPATH, '(//h2)[1]')    
     PRODUCT_RATING = (By.XPATH, '//h2/following-sibling::div/span[1]')
     PRODUCT_REVIEWS = (By.XPATH, '//h2/following-sibling::div/span[2]')
     PRODUCT_WEIGHT = (By.XPATH, '//h2/following-sibling::div/span[3]')
+    TRANSPARENT_HEART_IMAGE = (By.CSS_SELECTOR, '[alt="heart unliked"]')
 
 
 class ProfilePageLocators:

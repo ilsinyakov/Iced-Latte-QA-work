@@ -64,20 +64,20 @@ class ProductPage(BasePage):
         return self.is_element_present(*HeaderLocators.FAVORITES_PAGE_LINK)
 
     def is_favorites_page_link_clickable(self):
-        return self.is_element_clickable(*HeaderLocators.FAVORITES_PAGE_LINK)
+        return self.is_element_clickable(*HeaderLocators.FAVORITES_PAGE_LINK)   
 
-    def is_header_heart_blue(self):
-        heart_image = self.browser.find_element(*HeaderLocators.HEART_IMAGE)
-        # check that blue heart image is present on the header
-        if heart_image.get_attribute('src') == 'https://iced-latte.uk/_next/static/media/heart_purple.0117f013.svg':
+    def is_heart_red(self):
+        heart_image = self.browser.find_element(*ProductPageLocators.RED_HEART_IMAGE)
+        # check that red heart image is present on favorite button
+        if heart_image.get_attribute('src') == 'https://iced-latte.uk/_next/static/media/active_heart.06676f62.svg':
             return True
         else:
             return False
-
-    def is_heart_red(self):
-        heart_image = self.browser.find_element(*ProductPageLocators.HEART_IMAGE)
-        # check that red heart image is present on favorite button
-        if heart_image.get_attribute('src') == 'https://iced-latte.uk/_next/static/media/active_heart.06676f62.svg':
+    
+    def is_heart_transparent(self):
+        heart_image = self.browser.find_element(*ProductPageLocators.TRANSPARENT_HEART_IMAGE)
+        # check that transparent heart image is present on favorite button
+        if heart_image.get_attribute('src') == 'https://iced-latte.uk/_next/static/media/not_active_heart.49e56974.svg':
             return True
         else:
             return False
@@ -99,4 +99,8 @@ class ProductPage(BasePage):
     
     def is_profile_page_link_clickable(self):
         return self.is_element_clickable(*HeaderLocators.PROFILE_LINK)
+
+    def remove_product_from_favorites(self):
+        remove_from_favorites_button = self.browser.find_element(*ProductPageLocators.REMOVE_FROM_FAVORITES_BUTTON)
+        remove_from_favorites_button.click()
     
