@@ -47,7 +47,7 @@ class EditProfilePageLocators:
 
 class HeaderLocators:
     CART_LINK = (By.CSS_SELECTOR, '[href="/cart"]')
-    CART_ICON = (By.XPATH, '//header/div/a[3]/button/div[2]/span')
+    CART_ICON = (By.XPATH, '//*[@href="/cart"]/descendant::span')
     FAVORITES_PAGE_LINK = (By.CSS_SELECTOR, '[href="/favourites"]')
     LOGIN_LINK = (By.CSS_SELECTOR, '[href="/auth/login"]')
     MAIN_PAGE_LINK = (By.CSS_SELECTOR, '[href="/"]')
