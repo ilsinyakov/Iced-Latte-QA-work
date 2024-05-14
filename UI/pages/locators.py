@@ -71,7 +71,7 @@ class ProductPageLocators:
     AMOUNT = (By.XPATH, '//*[@id="min-btn"]/following-sibling::span')
     ADD_TO_CART_BUTTON = (By.ID, 'add-btn')
     ADD_TO_FAVORITES_BUTTON = (By.XPATH, '//*[@alt="heart unliked"]/ancestor::button')   
-    HEART_IMAGE = (By.CSS_SEELCTOR, '[alt="heart liked"]')
+    HEART_IMAGE = (By.CSS_SELECTOR, '[alt="heart liked"]')
     MINUS_BUTTON = (By.ID, 'min-btn')
     PLUS_BUTTON = (By.ID, 'plus-btn')    
     PRODUCT_NAME = (By.XPATH, '(//h2)[1]')    
