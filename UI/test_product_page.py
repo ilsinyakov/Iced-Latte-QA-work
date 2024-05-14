@@ -90,6 +90,7 @@ class TestPruductPage:
             page.go_to_product_page()
             sleep(2) # waiting is mandatory (do not remove)
             page = ProductPage(browser, browser.current_url)
+            product_page_product_name = page.get_product_name()
         with step('Add product to cart'):
             page.add_product_to_cart()
             assert is_change_cart_icon('1'), 'Cart icon is not change'
@@ -103,9 +104,15 @@ class TestPruductPage:
             sleep(2)  # waiting is mandatory (do not remove)
             assert page.is_change_cart_icon('1'), 'Cart icon is not change'
             assert page.is_change_amount('1'), 'Amount is not change'
+        with step('Check product in the cart'):
+            page.go_to_cart_page()
+            page = CartPage(browser, browser.current_url)
+            assert page.is_product_in_cart(product_page_product_name), 'There is not product in the cart'
+        
+
     
     @title('Try to add product to favorires. User is not logged-in')
-    # @pytest.mark.skip()
+    @pytest.mark.skip()
     def test_add_to_favorites(self, browser):
         with step('Open main page'):            
             page = BasePage(browser, link)

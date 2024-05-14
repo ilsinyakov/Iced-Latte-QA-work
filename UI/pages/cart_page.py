@@ -60,9 +60,9 @@ class CartPage(BasePage):
             return False
     
     # check that product name on main page equal product name on cart page
-    def is_product_in_cart(self, main_page_product_name):
+    def is_product_in_cart(self, product_name):
         cart_page_product_name = self.browser.find_element(*CartPageLocators.PRODUCT_NAME)
-        if cart_page_product_name.text == main_page_product_name:
+        if cart_page_product_name.text == product_name:
             return True
         else:
             return False
