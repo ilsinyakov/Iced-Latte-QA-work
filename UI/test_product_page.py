@@ -122,6 +122,7 @@ class TestPruductPage:
             page.go_to_product_page()
             sleep(2) # waiting is mandatory (do not remove)
             page = ProductPage(browser, browser.current_url)
+            product_page_product_name = page.get_product_name()
         with step('Add product to favorires'):
             page.add_product_to_favorites()
             assert page.is_heart_red()
