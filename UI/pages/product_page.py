@@ -66,7 +66,7 @@ class ProductPage(BasePage):
     def is_favorites_page_link_clickable(self):
         return self.is_element_clickable(*HeaderLocators.FAVORITES_PAGE_LINK)
 
-    def is_header_heart_blue():
+    def is_header_heart_blue(self):
         heart_image = self.browser.find_element(*HeaderLocators.HEART_IMAGE)
         # check that blue heart image is present on the header
         if heart_image.get_attribute('src') == 'https://iced-latte.uk/_next/static/media/heart_purple.0117f013.svg':
@@ -74,7 +74,7 @@ class ProductPage(BasePage):
         else:
             return False
 
-    def is_heart_red():
+    def is_heart_red(self):
         heart_image = self.browser.find_element(*ProductPageLocators.HEART_IMAGE)
         # check that red heart image is present on favorite button
         if heart_image.get_attribute('src') == 'https://iced-latte.uk/_next/static/media/active_heart.06676f62.svg':
