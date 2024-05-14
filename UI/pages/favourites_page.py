@@ -2,7 +2,7 @@ from .base_page import BasePage
 from .locators import FavoritesPageLocators, HeaderLocators
 
 class FavoritesPage(BasePage):
-    def go_to_product_page():
+    def go_to_product_page(self):
         link = self.browser.find_element(*FavoritesPageLocators.PRODUCT_LINK)
         link.click()
 
