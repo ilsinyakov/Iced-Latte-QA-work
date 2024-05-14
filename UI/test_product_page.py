@@ -125,10 +125,12 @@ class TestPruductPage:
             product_page_product_name = page.get_product_name()
         with step('Add product to favorires'):
             page.add_product_to_favorites()
+            sleep(3)
             assert page.is_heart_red()
             assert page.is_header_heart_blue()
         with step('Check product in the favorites list'):
             page.go_to_favorites_page()
+            sleep(3)
             page = FavoritesPage(browser, browser.current_url)
             assert page.is_product_in_favorites(product_page_product_name)
 
