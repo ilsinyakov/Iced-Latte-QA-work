@@ -45,10 +45,15 @@ class EditProfilePageLocators:
     #  SERVER_ERROR_MESSAGE = (By.CSS_SELECTOR, '.mt-4.text-negative')
 
 
+class FavoritesPageLocators:
+    PRODUCT_NAME = (By.XPATH, '(//*[starts-with(@href,"/product/")]/following-sibling::div/p)[1]')
+
+
 class HeaderLocators:
     CART_LINK = (By.CSS_SELECTOR, '[href="/cart"]')
     CART_ICON = (By.XPATH, '//*[@href="/cart"]/descendant::span')
     FAVORITES_PAGE_LINK = (By.CSS_SELECTOR, '[href="/favourites"]')
+    HEART_IMAGE = (By.CSS_SELECTOR, '[alt="heart"]')
     LOGIN_LINK = (By.CSS_SELECTOR, '[href="/auth/login"]')
     MAIN_PAGE_LINK = (By.CSS_SELECTOR, '[href="/"]')
     PROFILE_LINK = (By.CSS_SELECTOR, '[href="/profile"]')
@@ -66,8 +71,9 @@ class ProductPageLocators:
     AMOUNT = (By.XPATH, '//*[@id="min-btn"]/following-sibling::span')
     ADD_TO_CART_BUTTON = (By.ID, 'add-btn')
     ADD_TO_FAVORITES_BUTTON = (By.XPATH, '//*[@alt="heart unliked"]/ancestor::button')   
-    PLUS_BUTTON = (By.ID, 'plus-btn')
+    HEART_IMAGE = (By.CSS_SEELCTOR, '[alt="heart liked"]')
     MINUS_BUTTON = (By.ID, 'min-btn')
+    PLUS_BUTTON = (By.ID, 'plus-btn')    
     PRODUCT_NAME = (By.XPATH, '(//h2)[1]')    
     PRODUCT_RATING = (By.XPATH, '//h2/following-sibling::div/span[1]')
     PRODUCT_REVIEWS = (By.XPATH, '//h2/following-sibling::div/span[2]')

@@ -48,6 +48,10 @@ class BasePage:
     def go_to_cart_page(self):
         link = self.browser.find_element(*HeaderLocators.CART_LINK)
         link.click()
+    
+    def go_to_favorites_page(self):
+        link = self.browser.find_element(*HeaderLocators.FAVORITES_PAGE_LINK)
+        link.click()
 
     def go_to_login_page(self):
         link = self.browser.find_element(*HeaderLocators.LOGIN_LINK)

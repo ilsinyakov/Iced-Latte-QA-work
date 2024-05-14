@@ -1,3 +1,4 @@
+from UI.pages.favourites_page import FavoritesPage
 import pytest
 from allure import step, title, severity, story, severity_level
 from time import sleep
@@ -109,9 +110,7 @@ class TestPruductPage:
             page.go_to_cart_page()
             page = CartPage(browser, browser.current_url)
             assert page.is_product_in_cart(product_page_product_name), 'There is not product in the cart'
-        
 
-    
     @title('Add product to favorires. User is not logged-in')
     # @pytest.mark.skip()
     def test_add_to_favorites(self, browser):
@@ -123,10 +122,14 @@ class TestPruductPage:
             page.go_to_product_page()
             sleep(2) # waiting is mandatory (do not remove)
             page = ProductPage(browser, browser.current_url)
-        with step('Push favorite button'):
+        with step('Add product to favorires'):
             page.add_product_to_favorites()
-
-
+            assert page.is_heart_red()
+            assert page.is_header_heart_blue()
+        with step('Check product in the favorites list'):
+            page.go_to_favorites_page()
+            page = FavoritesPage(browser, browser.current_url)
+            assert page.is_product_in_favorites(product_page_product_name)
 
         
     # ----------- USER ------------

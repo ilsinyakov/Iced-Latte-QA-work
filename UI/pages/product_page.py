@@ -11,6 +11,7 @@ class ProductPage(BasePage):
     
     def add_product_to_favorites(self):
         add_to_favorites_button = self.browser.find_element(*ProductPageLocators.ADD_TO_FAVORITES_BUTTON)
+        add_to_favorites_button.click()
     
     def click_minus_button(self):
         minus_button = self.browser.find_element(*ProductPageLocators.MINUS_BUTTON) 
@@ -64,6 +65,22 @@ class ProductPage(BasePage):
 
     def is_favorites_page_link_clickable(self):
         return self.is_element_clickable(*HeaderLocators.FAVORITES_PAGE_LINK)
+
+    def is_header_heart_blue():
+        heart_image = self.browser.find_element(*HeaderLocators.HEART_IMAGE)
+        # check that blue heart image is present on the header
+        if heart_image.get_attribute('src') == 'https://iced-latte.uk/_next/static/media/heart_purple.0117f013.svg':
+            return True
+        else:
+            return False
+
+    def is_heart_red():
+        heart_image = self.browser.find_element(*ProductPageLocators.HEART_IMAGE)
+        # check that red heart image is present on favorite button
+        if heart_image.get_attribute('src') == 'https://iced-latte.uk/_next/static/media/active_heart.06676f62.svg':
+            return True
+        else:
+            return False
 
     def is_login_page_link_present(self):
         return self.is_element_present(*HeaderLocators.LOGIN_LINK)
