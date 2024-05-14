@@ -93,7 +93,7 @@ class TestPruductPage:
             product_page_product_name = page.get_product_name()
         with step('Add product to cart'):
             page.add_product_to_cart()
-            assert is_change_cart_icon('1'), 'Cart icon is not change'
+            assert page.is_change_cart_icon('1'), 'Cart icon is not change'
         with step('Click on Plus Button'):            
             page.click_plus_button()
             sleep(2)  # waiting is mandatory (do not remove)
