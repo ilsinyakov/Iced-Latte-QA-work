@@ -79,7 +79,7 @@ class TestPruductPage:
             assert page.is_cart_page_link_present(), 'Cart page link is not presented'
             assert page.is_cart_page_link_clickable(), 'Cart page link is not clickable'
     
-    @title('Add product to cart and change quantity')
+    @title('Add product to cart and change quantity. User is not logged-in')
     # @pytest.mark.skip()
     def test_add_to_cart(self, browser):
         with step('Open main page'):            
@@ -103,6 +103,21 @@ class TestPruductPage:
             sleep(2)  # waiting is mandatory (do not remove)
             assert page.is_change_cart_icon('1'), 'Cart icon is not change'
             assert page.is_change_amount('1'), 'Amount is not change'
+    
+    @title('Try to add product to favorires. User is not logged-in')
+    # @pytest.mark.skip()
+    def test_add_to_favorites(self, browser):
+        with step('Open main page'):            
+            page = BasePage(browser, link)
+            page.open()
+            sleep(2) # waiting is mandatory (do not remove)
+        with step('Go to product page'):
+            page.go_to_product_page()
+            sleep(2) # waiting is mandatory (do not remove)
+            page = ProductPage(browser, browser.current_url)
+        
+
+
         
     # ----------- USER ------------
 

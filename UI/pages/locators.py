@@ -66,6 +66,7 @@ class ProductPageLocators:
     AMOUNT = (By.XPATH, '//*[@id="min-btn"]/following-sibling::span')
     ADD_TO_CART_BUTTON = (By.ID, 'add-btn')        
     PLUS_BUTTON = (By.ID, 'plus-btn')
+    MINUS_BUTTON = (By.ID, 'min-btn')
     PRODUCT_NAME = (By.XPATH, '(//h2)[1]')    
     PRODUCT_RATING = (By.XPATH, '//h2/following-sibling::div/span[1]')
     PRODUCT_REVIEWS = (By.XPATH, '//h2/following-sibling::div/span[2]')
