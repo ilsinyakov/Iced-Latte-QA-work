@@ -4,6 +4,7 @@ from time import sleep
 
 from .pages.base_page import BasePage
 from .pages.product_page import ProductPage
+from .pages.cart_page import CartPage
 from .set_of_steps import login_user
 from .configs import link
 
