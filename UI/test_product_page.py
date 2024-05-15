@@ -1,4 +1,4 @@
-from UI.pages.favourites_page import FavoritesPage
+from UI.pages.favorites_page import FavoritesPage
 import pytest
 from allure import step, title, severity, story, severity_level
 from time import sleep
