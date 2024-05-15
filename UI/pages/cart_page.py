@@ -34,7 +34,7 @@ class CartPage(BasePage):
         return product_weight[0]
     
     def get_subtotal(self):
-        return self.browser.find_element(*CartPageLocators.SUBTOTAL).text
+        return self.browser.find_element(*CartPageLocators.SUBTOTAL).text    
 
     def go_to_main_page(self):
         button = self.browser.find_element(*CartPageLocators.CONTINUE_SHOPPING_BUTTON)
