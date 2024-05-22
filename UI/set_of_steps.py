@@ -34,14 +34,18 @@ def remove_products_from_cart_and_fovorites(browser, link):
     with step('Go to cart page'):
         page = BasePage(browser, link)
         page.go_to_cart_page()
+        sleep(3)
     with step('Remove all products from the cart'):
         page = CartPage(browser, browser.current_url)
         page.remove_products()
+        sleep(3)
     with step('Go to favorites page'):
-        page.go_to_favorites_page()
+        page.go_to_favorites_page()        
         page = FavoritesPage(browser, browser.current_url)
+        sleep(3)
     with step('Remove all products from the favorites'):
         page.remove_favorites_products()
         page.go_to_main_page()
+        sleep(3)
     
     
