@@ -7,6 +7,7 @@ from .pages.profile_page import ProfilePage
 from .configs import email, password
 
 from allure import step
+from time import sleep
 
 
 def login_user(browser, link):
