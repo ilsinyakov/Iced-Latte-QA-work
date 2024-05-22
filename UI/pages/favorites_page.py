@@ -13,7 +13,7 @@ class FavoritesPage(BasePage):
         else: 
             return False
     
-    def remove_favorites_products():
+    def remove_favorites_products(self):
         buttons = self.browser.find_elements(*FavoritesPageLocators.UNLIKE_BUTTONS)
         for button in buttons:
             button.click()
