@@ -6,7 +6,7 @@ from time import sleep
 from .pages.base_page import BasePage
 from .pages.product_page import ProductPage
 from .pages.cart_page import CartPage
-from .set_of_steps import login_user
+from .set_of_steps import login_user, remove_products_from_cart_and_fovorites
 from .configs import link
 
 
@@ -210,3 +210,33 @@ class TestPruductPage:
             assert page.is_cart_page_link_present(), 'Cart page link is not presented'
             assert page.is_cart_page_link_clickable(), 'Cart page link is not clickable'
 
+    @title('Add product to cart and change quantity. User is logged-in')
+    # @pytest.mark.skip()
+    def test_add_to_cart(self, browser):    
+        with step('Login user'):            
+            login_user(browser, link)            
+        with step('Remove products from cart and fovorites'):
+            remove_products_from_cart_and_fovorites(browser, link)
+        with step('Go to product page'):
+            page = BasePage(browser, link)
+            page.go_to_product_page()
+            sleep(2) # waiting is mandatory (do not remove)
+            page = ProductPage(browser, browser.current_url)
+            product_page_product_name = page.get_product_name()
+        with step('Add product to cart'):
+            page.add_product_to_cart()
+            assert page.is_change_cart_icon('1'), 'Cart icon is not change'
+        with step('Click on Plus Button'):            
+            page.click_plus_button()
+            sleep(2)  # waiting is mandatory (do not remove)
+            assert page.is_change_cart_icon('2'), 'Cart icon is not change'
+            assert page.is_change_amount('2'), 'Amount is not change'
+        with step('Click on Minus Button'):
+            page.click_minus_button()
+            sleep(2)  # waiting is mandatory (do not remove)
+            assert page.is_change_cart_icon('1'), 'Cart icon is not change'
+            assert page.is_change_amount('1'), 'Amount is not change'
+        with step('Check product in the cart'):
+            page.go_to_cart_page()
+            page = CartPage(browser, browser.current_url)
+            assert page.is_product_in_cart(product_page_product_name), 'There is not product in the cart'
