@@ -1,12 +1,12 @@
-from UI.pages.favorites_page import FavoritesPage
 import pytest
 from allure import step, title, severity, story, severity_level
 from time import sleep
 
 from .pages.base_page import BasePage
+from .pages.favorites_page import FavoritesPage
 from .pages.product_page import ProductPage
 from .pages.cart_page import CartPage
-from .set_of_steps import login_user, remove_products_from_cart_and_fovorites
+from .set_of_steps import login_user, remove_products_from_cart_and_favorites
 from .configs import link
 
 
@@ -216,7 +216,7 @@ class TestPruductPage:
         with step('Login user'):            
             login_user(browser, link)            
         with step('Remove products from cart and fovorites'):
-            remove_products_from_cart_and_fovorites(browser, link)
+            remove_products_from_cart_and_favorites(browser, link)
         with step('Go to product page'):
             page = BasePage(browser, link)
             page.go_to_product_page()

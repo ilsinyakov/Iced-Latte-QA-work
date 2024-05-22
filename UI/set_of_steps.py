@@ -31,7 +31,7 @@ def go_to_edit_profile_page(browser, link):
         page = ProfilePage(browser, browser.current_url)
         page.go_to_edit_page()
 
-def remove_products_from_cart_and_fovorites(browser, link):
+def remove_products_from_cart_and_favorites(browser, link):
     with step('Go to cart page'):
         page = BasePage(browser, link)
         page.go_to_cart_page()
