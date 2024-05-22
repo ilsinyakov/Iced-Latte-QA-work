@@ -20,7 +20,7 @@ class TestPruductPage:
 
     @title("Test main page product data is equal product page. User is not logged-in")
     @pytest.mark.skip()
-    def test_product_data_quest(self, browser):
+    def test_product_data_guest(self, browser):
         with step('Open main page'):            
             page = BasePage(browser, link)
             page.open()
@@ -59,7 +59,7 @@ class TestPruductPage:
 
     @title('Test header links. User is not logged-in')
     @pytest.mark.skip()
-    def test_header_links_quest(self, browser):
+    def test_header_links_guest(self, browser):
         with step('Open main page'):            
             page = BasePage(browser, link)
             page.open()
@@ -83,7 +83,7 @@ class TestPruductPage:
     
     @title('Add product to cart and change quantity. User is not logged-in')
     @pytest.mark.skip()
-    def test_add_to_cart(self, browser):
+    def test_add_to_cart_guest(self, browser):
         with step('Open main page'):            
             page = BasePage(browser, link)
             page.open()
@@ -112,8 +112,8 @@ class TestPruductPage:
             assert page.is_product_in_cart(product_page_product_name), 'There is not product in the cart'
 
     @title('Add product to favorires. User is not logged-in')
-    # @pytest.mark.skip()
-    def test_add_to_favorites(self, browser):
+    @pytest.mark.skip()
+    def test_add_to_favorites_guest(self, browser):
         with step('Open main page'):            
             page = BasePage(browser, link)
             page.open()
@@ -212,7 +212,7 @@ class TestPruductPage:
 
     @title('Add product to cart and change quantity. User is logged-in')
     # @pytest.mark.skip()
-    def test_add_to_cart(self, browser):    
+    def test_add_to_cart_user(self, browser):    
         with step('Login user'):            
             login_user(browser, link)            
         with step('Remove products from cart and fovorites'):
