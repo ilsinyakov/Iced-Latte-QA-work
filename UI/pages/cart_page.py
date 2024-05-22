@@ -1,4 +1,8 @@
 from time import sleep
+
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as ec
+
 from .base_page import BasePage
 from .locators import CartPageLocators, HeaderLocators
 
@@ -71,5 +75,9 @@ class CartPage(BasePage):
     def remove_products(self):
         buttons = self.browser.find_elements(*CartPageLocators.REMOVE_BUTTON)                
         while len(buttons) > 0:            
-            buttons[0].click()            
+            buttons[0].click()
+            # sleep(2)
+            WebDriverWait(browser, 10).until(
+                ec.presence_of_element_located(CartPageLocators.REMOVE_BUTTON)
+            )
             buttons = self.browser.find_elements(*CartPageLocators.REMOVE_BUTTON)            
