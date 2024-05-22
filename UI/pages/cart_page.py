@@ -1,3 +1,4 @@
+from time import sleep
 from .base_page import BasePage
 from .locators import CartPageLocators, HeaderLocators
 
@@ -71,3 +72,4 @@ class CartPage(BasePage):
         buttons = self.browser.find_elements(*CartPageLocators.REMOVE_BUTTON)
         for button in buttons:
             button.click()
+            sleep(2)
