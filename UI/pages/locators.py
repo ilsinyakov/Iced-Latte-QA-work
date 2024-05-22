@@ -48,6 +48,7 @@ class EditProfilePageLocators:
 class FavoritesPageLocators:
     PRODUCT_NAME = (By.XPATH, '(//*[starts-with(@href,"/product/")]/following-sibling::div/p)[1]')
     PRODUCT_LINK = (By.XPATH, '//*[starts-with(@href,"/product/")]')
+    UNLIKE_BUTTONS = (By.XPATH, '//img[@alt="heart liked"]/parent::button')
 
 class HeaderLocators:
     CART_LINK = (By.CSS_SELECTOR, '[href="/cart"]')

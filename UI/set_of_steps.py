@@ -42,5 +42,6 @@ def remove_products_from_cart_and_fovorites(browser, link):
         page = FavoritesPage(browser, browser.current_url)
     with step('Remove all products from the favorites'):
         page.remove_favorites_products()
+        page.go_to_main_page()
     
     
