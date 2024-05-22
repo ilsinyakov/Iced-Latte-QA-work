@@ -76,8 +76,5 @@ class CartPage(BasePage):
         buttons = self.browser.find_elements(*CartPageLocators.REMOVE_BUTTON)                
         while len(buttons) > 0:            
             buttons[0].click()
-            # sleep(2)
-            WebDriverWait(self.browser, 10).until(
-                ec.presence_of_all_elements_located(CartPageLocators.REMOVE_BUTTON)
-            )            
+            sleep(2)                        
             buttons = self.browser.find_elements(*CartPageLocators.REMOVE_BUTTON)            
