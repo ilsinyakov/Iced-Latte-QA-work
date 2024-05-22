@@ -69,12 +69,8 @@ class CartPage(BasePage):
             return False
 
     def remove_products(self):
-        buttons = self.browser.find_elements(*CartPageLocators.REMOVE_BUTTON)
-        print(len(buttons))        
-        # for i in range(len(buttons)):        
-        while len(buttons) > 0:
-            print(len(buttons))
+        buttons = self.browser.find_elements(*CartPageLocators.REMOVE_BUTTON)                
+        while len(buttons) > 0:            
             buttons[0].click()
             sleep(2)
-            buttons = self.browser.find_elements(*CartPageLocators.REMOVE_BUTTON)
-            sleep(2)
+            buttons = self.browser.find_elements(*CartPageLocators.REMOVE_BUTTON)            
