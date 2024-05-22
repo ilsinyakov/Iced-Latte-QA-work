@@ -17,3 +17,4 @@ class FavoritesPage(BasePage):
         buttons = self.browser.find_elements(*FavoritesPageLocators.UNLIKE_BUTTONS)
         for button in buttons:
             button.click()
+            sleep(2)
