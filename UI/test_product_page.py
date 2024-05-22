@@ -215,7 +215,7 @@ class TestPruductPage:
     def test_add_to_cart_user(self, browser):    
         with step('Login user'):            
             login_user(browser, link)            
-        with step('Remove products from cart and fovorites'):
+        with step('Remove products from cart and favorites'):
             remove_products_from_cart_and_favorites(browser, link)
         with step('Go to product page'):
             page = BasePage(browser, link)
