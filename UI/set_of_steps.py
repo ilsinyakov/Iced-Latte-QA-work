@@ -19,7 +19,7 @@ def login_user(browser, link):
     with step('Login existing user'):
         login_page = LoginPage(browser, browser.current_url)
         login_page.login_existing_user(email, password)
-        sleep(3)
+        sleep(2)
 
 
 def go_to_edit_profile_page(browser, link):    
