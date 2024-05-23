@@ -102,12 +102,20 @@ class BasePage:
         else:
             return False    
 
-    # check that blue heart image is present on the header
-    def is_header_heart_blue(self):
-        heart_image = self.browser.find_element(*HeaderLocators.HEART_IMAGE)        
-        if heart_image.get_attribute('src') == 'https://iced-latte.uk/_next/static/media/heart_purple.0117f013.svg':
+    # check that amount on favorites page icon changed
+    def is_change_favorites_page_icon(self, amount):
+        favorites_page_icon = self.browser.find_element(*HeaderLocators.FAVORITES_PAGE_ICON)        
+        if favorites_page_icon.text == amount:
             return True
-        else:
+        else: 
+            return False
+
+    # check that amount on cart icon changed after click "Plus" or "Minus"
+    def is_change_cart_icon(self, amount):
+        cart_icon = self.browser.find_element(*HeaderLocators.CART_ICON)
+        if cart_icon.text == amount:
+            return True
+        else: 
             return False    
     
     # open page

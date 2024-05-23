@@ -54,15 +54,7 @@ class CartPage(BasePage):
         if amount_element.text == amount:
             return True
         else: 
-            return False
-    
-    # check that amount on cart icon changed after click "Plus" or "Minus"
-    def is_change_cart_icon(self, amount):
-        cart_icon = self.browser.find_element(*HeaderLocators.CART_ICON)
-        if cart_icon.text == amount:
-            return True
-        else: 
-            return False
+            return False   
     
     # check that product name on main page equal product name on cart page
     def is_product_in_cart(self, product_name):
