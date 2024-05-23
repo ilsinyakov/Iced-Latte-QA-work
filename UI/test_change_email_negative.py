@@ -25,7 +25,7 @@ def test_user_cant_change_email(browser, new_email):
         page.save_change()        
     with step('Go to Main Page'):        
         page.go_to_main_page()
-        sleep(2)
+        sleep(2) # waiting is mandatory (do not remove)
     with step('Go to Profile Page'):
         page = BasePage(browser, link)        
         page.go_to_profile_page()                
