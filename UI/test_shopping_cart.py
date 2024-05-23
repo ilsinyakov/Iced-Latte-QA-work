@@ -1,6 +1,6 @@
 from .pages.cart_page import CartPage
 from .pages.base_page import BasePage
-from .set_of_steps import login_user
+from .set_of_steps import login_user, remove_products_from_cart_and_favorites
 from .configs import link
 
 from allure import step, title, severity, story, severity_level
