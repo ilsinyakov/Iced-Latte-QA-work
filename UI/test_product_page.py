@@ -253,14 +253,12 @@ class TestPruductPage:
             page = ProductPage(browser, browser.current_url)
             product_page_product_name = page.get_product_name()
         with step('Add product to favorires'):
-            page.add_product_to_favorites()
-            sleep(3)
+            page.add_product_to_favorites()            
             assert page.is_heart_red(), 'Heart button is not red'
             assert page.is_change_favorites_counter('1'), \
                           'Header favorites counter does not changes'
         with step('Check product in the favorites list'):
-            page.go_to_favorites_page()
-            sleep(3)
+            page.go_to_favorites_page()            
             page = FavoritesPage(browser, browser.current_url)
             assert page.is_product_in_favorites(product_page_product_name), \
                                     'There is not product in favorites list'
@@ -269,7 +267,6 @@ class TestPruductPage:
             sleep(2) # waiting is mandatory (do not remove)
             page = ProductPage(browser, browser.current_url)
         with step('Remove product from favorites'):
-            page.remove_product_from_favorites()
-            sleep(3)
+            page.remove_product_from_favorites()            
             assert page.is_heart_transparent(), 'Heart button is not transparent'
             assert page.is_favorites_page_icon_has_not_counter(), 'Header favorites counter has not disappeared'            
