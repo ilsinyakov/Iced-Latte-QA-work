@@ -211,7 +211,7 @@ class TestPruductPage:
             assert page.is_cart_page_link_clickable(), 'Cart page link is not clickable'
 
     @title('Add product to cart and change quantity. User is logged-in')
-    # @pytest.mark.skip()
+    @pytest.mark.skip()
     def test_add_to_cart_user(self, browser):    
         with step('Login user'):            
             login_user(browser, link)            
@@ -240,3 +240,34 @@ class TestPruductPage:
             page.go_to_cart_page()
             page = CartPage(browser, browser.current_url)
             assert page.is_product_in_cart(product_page_product_name), 'There is not product in the cart'
+    
+    @title('Add product to favorires. User is logged-in')
+    # @pytest.mark.skip()
+    def test_add_to_favorites_guest(self, browser):
+        with step('Login user'):            
+            login_user(browser, link)
+        with step('Go to product page'):
+            page.go_to_product_page()
+            sleep(2) # waiting is mandatory (do not remove)
+            page = ProductPage(browser, browser.current_url)
+            product_page_product_name = page.get_product_name()
+        with step('Add product to favorires'):
+            page.add_product_to_favorites()
+            sleep(3)
+            assert page.is_heart_red(), 'Heart button is not red'
+            assert page.is_header_heart_blue(), 'Header favorites link is not blue'
+        with step('Check product in the favorites list'):
+            page.go_to_favorites_page()
+            sleep(3)
+            page = FavoritesPage(browser, browser.current_url)
+            assert page.is_product_in_favorites(product_page_product_name), \
+                                    'There is not product in favorites list'
+        with step('Return to product page'):
+            page.go_to_product_page()            
+            sleep(2) # waiting is mandatory (do not remove)
+            page = ProductPage(browser, browser.current_url)
+        with step('Remove product from favorites'):
+            page.remove_product_from_favorites()
+            sleep(3)
+            assert page.is_heart_transparent(), 'Heart button is not transparent'
+            assert page.is_header_heart_black(), 'Header favorites link is not black'
