@@ -106,7 +106,7 @@ class BasePage:
     # check that black heart image is present on the header
     def is_header_heart_black(self):
         heart_image = self.browser.find_element(*HeaderLocators.HEART_IMAGE)        
-        if heart_image.get_attribute('src') == 'https://iced-latte.uk/_next/static/media/heart_black.ab80f79d.svg':
+        if heart_image.get_attribute('src') == 'https://iced-latte.uk/_next/static/media/heart_icon.61cd645e.svg':
             return True
         else:
             return False        
