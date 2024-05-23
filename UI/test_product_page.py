@@ -19,7 +19,7 @@ class TestPruductPage:
     # ----------- GUEST ------------
 
     @title("Test main page product data is equal product page. User is not logged-in")
-    @pytest.mark.skip()
+    # @pytest.mark.skip()
     def test_product_data_guest(self, browser):
         with step('Open main page'):            
             page = BasePage(browser, link)
@@ -46,12 +46,11 @@ class TestPruductPage:
         with step('Check product weight'):
             product_page_product_weight = page.get_product_weight()
             assert product_page_product_weight == main_page_product_weight, \
-            'Product weight is not equal on main and product pages'
-        # ### . vs , ###
-        # with step('Check product rating'):
-        #     product_page_product_rating = page.get_product_rating()
-        #     assert product_page_product_rating == main_page_product_rating, \
-        #     'Product rating is not equal on main and product pages'
+            'Product weight is not equal on main and product pages'        
+        with step('Check product rating'):
+            product_page_product_rating = page.get_product_rating()
+            assert product_page_product_rating == main_page_product_rating, \
+            'Product rating is not equal on main and product pages'
         with step('Check product reviews count'):
             product_page_product_reviews = page.get_product_reviews()
             assert product_page_product_reviews == main_page_product_reviews, \
@@ -148,7 +147,7 @@ class TestPruductPage:
     # ----------- USER ------------
 
     @title("Test main page product data is equal product page. User is logged-in")
-    @pytest.mark.skip()
+    # @pytest.mark.skip()
     def test_product_data_user(self, browser):
         with step('Login User'):            
             login_user(browser, link)
@@ -175,12 +174,11 @@ class TestPruductPage:
         with step('Check product weight'):
             product_page_product_weight = page.get_product_weight()
             assert product_page_product_weight == main_page_product_weight, \
-            'Product weight is not equal on main and product pages'
-        # ### . vs , ###
-        # with step('Check product rating'):
-        #     product_page_product_rating = page.get_product_rating()
-        #     assert product_page_product_rating == main_page_product_rating, \
-        #     'Product rating is not equal on main and product pages'
+            'Product weight is not equal on main and product pages'        
+        with step('Check product rating'):
+            product_page_product_rating = page.get_product_rating()
+            assert product_page_product_rating == main_page_product_rating, \
+            'Product rating is not equal on main and product pages'
         with step('Check product reviews count'):
             product_page_product_reviews = page.get_product_reviews()
             assert product_page_product_reviews == main_page_product_reviews, \
@@ -242,7 +240,7 @@ class TestPruductPage:
             assert page.is_product_in_cart(product_page_product_name), 'There is not product in the cart'
     
     @title('Add product to favorires. User is logged-in')
-    # @pytest.mark.skip()
+    @pytest.mark.skip()
     def test_add_to_favorites_user(self, browser):
         with step('Login user'):            
             login_user(browser, link)
