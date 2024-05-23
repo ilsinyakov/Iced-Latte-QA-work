@@ -151,7 +151,9 @@ class TestPruductPage:
     def test_product_data_user(self, browser):
         with step('Login User'):            
             login_user(browser, link)
-            sleep(2) # waiting is mandatory (do not remove)        
+            sleep(2) # waiting is mandatory (do not remove)
+        with step('Remove products from cart and favorites'):
+            remove_products_from_cart_and_favorites(browser, link)        
         with step('Get product data from main page'):
             page = BasePage(browser, link)
             main_page_product_name = page.get_product_name()
