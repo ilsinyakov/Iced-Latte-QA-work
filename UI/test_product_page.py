@@ -243,10 +243,11 @@ class TestPruductPage:
     
     @title('Add product to favorires. User is logged-in')
     # @pytest.mark.skip()
-    def test_add_to_favorites_guest(self, browser):
+    def test_add_to_favorites_user(self, browser):
         with step('Login user'):            
             login_user(browser, link)
         with step('Go to product page'):
+            page = BasePage(browser, link)
             page.go_to_product_page()
             sleep(2) # waiting is mandatory (do not remove)
             page = ProductPage(browser, browser.current_url)
