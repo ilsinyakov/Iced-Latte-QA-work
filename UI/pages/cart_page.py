@@ -10,6 +10,10 @@ import re
 
 
 class CartPage(BasePage):
+    def click_continue_shopping_button(self):
+        button = self.browser.find_element(*CartPageLocators.CONTINUE_SHOPPING_BUTTON)
+        button.click()
+
     def click_minus_button(self):
         button = self.browser.find_element(*CartPageLocators.MINUS_BUTTON)
         button.click()
@@ -39,11 +43,7 @@ class CartPage(BasePage):
         return product_weight[0]
     
     def get_subtotal(self):
-        return self.browser.find_element(*CartPageLocators.SUBTOTAL).text    
-
-    def click_continue_shopping_button(self):
-        button = self.browser.find_element(*CartPageLocators.CONTINUE_SHOPPING_BUTTON)
-        button.click()
+        return self.browser.find_element(*CartPageLocators.SUBTOTAL).text        
 
     def is_cart_empty(self):
         self.is_element_present(*CartPageLocators.EMPTY_CART_MESSAGE)
