@@ -52,10 +52,10 @@ class FavoritesPageLocators:
 
 class HeaderLocators:
     CART_LINK = (By.CSS_SELECTOR, '[href="/cart"]')
-    CART_ICON = (By.XPATH, '//*[@href="/cart"]/descendant::span')
+    CART_COUNTER = (By.XPATH, '//*[@href="/cart"]/descendant::span')
     FAVORITES_PAGE_LINK = (By.CSS_SELECTOR, '[href="/favourites"]')
-    FAVORITES_PAGE_ICON = (By.XPATH, '//*[@href="/favourites"]/descendant::span')
-    HEART_IMAGE = (By.CSS_SELECTOR, '[alt="heart"]')
+    FAVORITES_COUNTER = (By.XPATH, '//*[@href="/favourites"]/descendant::span')
+    # HEART_IMAGE = (By.CSS_SELECTOR, '[alt="heart"]')
     LOGIN_LINK = (By.CSS_SELECTOR, '[href="/auth/login"]')
     MAIN_PAGE_LINK = (By.CSS_SELECTOR, '[href="/"]')
     PROFILE_LINK = (By.CSS_SELECTOR, '[href="/profile"]')

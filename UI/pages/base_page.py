@@ -71,17 +71,17 @@ class BasePage:
     
     # check that amount on cart icon changed after adding product to cart 
     # and click "Plus" or "Minus"
-    def is_change_cart_icon(self, amount):
-        cart_icon = self.browser.find_element(*HeaderLocators.CART_ICON)
-        if cart_icon.text == amount:
+    def is_change_cart_counter(self, amount):
+        cart_counter = self.browser.find_element(*HeaderLocators.CART_COUNTER)
+        if cart_counter.text == amount:
             return True
         else: 
             return False
 
     # check that amount on favorites page icon changed
-    def is_change_favorites_page_icon(self, amount):
-        favorites_page_icon = self.browser.find_element(*HeaderLocators.FAVORITES_PAGE_ICON)        
-        if favorites_page_icon.text == amount:
+    def is_change_favorites_counter(self, amount):
+        favorites_counter = self.browser.find_element(*HeaderLocators.FAVORITES_COUNTER)        
+        if favorites_counter.text == amount:
             return True
         else: 
             return False    
@@ -103,13 +103,16 @@ class BasePage:
             return False
         return True
 
-    # check that black heart image is present on the header
-    def is_header_heart_black(self):
-        heart_image = self.browser.find_element(*HeaderLocators.HEART_IMAGE)        
-        if heart_image.get_attribute('src') == 'https://iced-latte.uk/_next/static/media/heart_icon.61cd645e.svg':
-            return True
-        else:
-            return False        
+    def is_favorites_page_icon_has_not_counter(self):
+        return not is_element_present(*HeaderLocators.FAVORITES_COUNTER)
+    
+    # # check that black heart image is present on the header
+    # def is_header_heart_black(self):
+    #     heart_image = self.browser.find_element(*HeaderLocators.HEART_IMAGE)        
+    #     if heart_image.get_attribute('src') == 'https://iced-latte.uk/_next/static/media/heart_icon.61cd645e.svg':
+    #         return True
+    #     else:
+    #         return False        
     
     # open page
     def open(self):

@@ -95,16 +95,16 @@ class TestPruductPage:
             product_page_product_name = page.get_product_name()
         with step('Add product to cart'):
             page.add_product_to_cart()
-            assert page.is_change_cart_icon('1'), 'Cart icon is not change'
+            assert page.is_change_cart_counter('1'), 'Cart counter is not change'
         with step('Click on Plus Button'):            
             page.click_plus_button()
             sleep(2)  # waiting is mandatory (do not remove)
-            assert page.is_change_cart_icon('2'), 'Cart icon is not change'
+            assert page.is_change_cart_counter('2'), 'Cart counter is not change'
             assert page.is_change_amount('2'), 'Amount is not change'
         with step('Click on Minus Button'):
             page.click_minus_button()
             sleep(2)  # waiting is mandatory (do not remove)
-            assert page.is_change_cart_icon('1'), 'Cart icon is not change'
+            assert page.is_change_cart_counter('1'), 'Cart counter is not change'
             assert page.is_change_amount('1'), 'Amount is not change'
         with step('Check product in the cart'):
             page.go_to_cart_page()
@@ -225,16 +225,16 @@ class TestPruductPage:
             product_page_product_name = page.get_product_name()
         with step('Add product to cart'):
             page.add_product_to_cart()
-            assert page.is_change_cart_icon('1'), 'Cart icon is not change'
+            assert page.is_change_cart_counter('1'), 'Cart counter is not change'
         with step('Click on Plus Button'):            
             page.click_plus_button()
             sleep(2)  # waiting is mandatory (do not remove)
-            assert page.is_change_cart_icon('2'), 'Cart icon is not change'
+            assert page.is_change_cart_counter('2'), 'Cart counter is not change'
             assert page.is_change_amount('2'), 'Amount is not change'
         with step('Click on Minus Button'):
             page.click_minus_button()
             sleep(2)  # waiting is mandatory (do not remove)
-            assert page.is_change_cart_icon('1'), 'Cart icon is not change'
+            assert page.is_change_cart_counter('1'), 'Cart counter is not change'
             assert page.is_change_amount('1'), 'Amount is not change'
         with step('Check product in the cart'):
             page.go_to_cart_page()
@@ -256,8 +256,8 @@ class TestPruductPage:
             page.add_product_to_favorites()
             sleep(3)
             assert page.is_heart_red(), 'Heart button is not red'
-            assert page.is_change_favorites_page_icon('1'), \
-                          'Header favorites page icon does not changes'
+            assert page.is_change_favorites_counter('1'), \
+                          'Header favorites counter does not changes'
         with step('Check product in the favorites list'):
             page.go_to_favorites_page()
             sleep(3)
@@ -272,4 +272,4 @@ class TestPruductPage:
             page.remove_product_from_favorites()
             sleep(3)
             assert page.is_heart_transparent(), 'Heart button is not transparent'
-            assert page.is_header_heart_black(), 'Header favorites link is not black'
+            assert page.is_favorites_page_icon_has_not_counter(), 'Header favorites counter has not disappeared'            

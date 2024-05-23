@@ -42,7 +42,7 @@ class TestCart:
         with step('Add Product to Cart'):
             page.add_product_to_cart()
             sleep(2)  # waiting is mandatory (do not remove)
-            assert page.is_change_cart_icon('1'), 'Cart icon is not change'
+            assert page.is_change_cart_counter('1'), 'Cart counter is not change'
         with step('Go to Cart Page'):
             page.go_to_cart_page()
         with step('Assert added product is in the cart'):
@@ -56,12 +56,12 @@ class TestCart:
         with step('Click on Plus Button'):            
             page.click_plus_button()
             sleep(2)  # waiting is mandatory (do not remove)
-            assert page.is_change_cart_icon('2'), 'Cart icon is not change'
+            assert page.is_change_cart_counter('2'), 'Cart counter is not change'
             assert page.is_change_amount('2'), 'Amount is not change'
         with step('Click on Minus Button'):
             page.click_minus_button()
             sleep(2)  # waiting is mandatory (do not remove)
-            assert page.is_change_cart_icon('1'), 'Cart icon is not change'
+            assert page.is_change_cart_counter('1'), 'Cart counter is not change'
             assert page.is_change_amount('1'), 'Amount is not change'                
         with step('Remove Product from the Cart'):
             page.remove_products()            
@@ -76,11 +76,11 @@ class TestCart:
         with step('Add Product 1 to Cart'):
             page.add_product_to_cart()
             sleep(2)  # waiting is mandatory (do not remove)
-            assert page.is_change_cart_icon('1'), 'Cart icon is not change'
+            assert page.is_change_cart_counter('1'), 'Cart counter is not change'
         with step('Add Product 2 to Cart'):
             page.add_product_2_to_cart()
             sleep(2)  # waiting is mandatory (do not remove)
-            assert page.is_change_cart_icon('2'), 'Cart icon is not change'
+            assert page.is_change_cart_counter('2'), 'Cart counter is not change'
         with step('Go to Cart Page'):
             page.go_to_cart_page()
             page = CartPage(browser, browser.current_url)            
@@ -135,7 +135,7 @@ class TestCart:
         with step('Add Product to Cart'):
             page.add_product_to_cart()   
             sleep(2)  # waiting is mandatory (do not remove)
-            assert page.is_change_cart_icon('1'), 'Cart icon is not change'
+            assert page.is_change_cart_counter('1'), 'Cart counter is not change'
         with step('Go to Cart Page'):
             page.go_to_cart_page()
         with step('Assert added product is in the cart'):
@@ -149,12 +149,12 @@ class TestCart:
         with step('Click on Plus Button'):            
             page.click_plus_button()
             sleep(2)  # waiting is mandatory (do not remove)
-            assert page.is_change_cart_icon('2'), 'Cart icon is not change'
+            assert page.is_change_cart_counter('2'), 'Cart counter is not change'
             assert page.is_change_amount('2'), 'Amount is not change'
         with step('Click on Minus Button'):
             page.click_minus_button()            
             sleep(2)  # waiting is mandatory (do not remove)
-            assert page.is_change_cart_icon('1'), 'Cart icon is not change'
+            assert page.is_change_cart_counter('1'), 'Cart counter is not change'
             assert page.is_change_amount('1'), 'Amount is not change'        
         with step('Remove Product from the Cart'):
             page.remove_products()            
@@ -169,11 +169,11 @@ class TestCart:
             page = BasePage(browser, link)
             page.add_product_to_cart()   
             sleep(2)  # waiting is mandatory (do not remove)
-            assert page.is_change_cart_icon('1'), 'Cart icon is not change'
+            assert page.is_change_cart_counter('1'), 'Cart counter is not change'
         with step('Add Product 2 to Cart'):
             page.add_product_2_to_cart()            
             sleep(2)  # waiting is mandatory (do not remove)
-            assert page.is_change_cart_icon('2'), 'Cart icon is not change'
+            assert page.is_change_cart_counter('2'), 'Cart counter is not change'
         with step('Go to Cart Page'):
             page.go_to_cart_page()
             page = CartPage(browser, browser.current_url)            
