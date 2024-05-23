@@ -16,7 +16,7 @@ class BasePageLocators:
 class CartPageLocators:
     AMOUNT = (By.XPATH, '/html/body/main/div/div[1]/div[1]/div[2]/div/div[1]/span')
     REMOVE_BUTTON = (By.ID, 'remove-all-btn')
-    CONTINUE_SHOPPING_BUTTON = (By.CSS_SELECTOR, 'button[type="button"]')
+    CONTINUE_SHOPPING_BUTTON = (By.ID, 'continue-btn')
     EMPTY_CART_MESSAGE = (By.XPATH, "//*[contains(text(), 'Your cart is empty')]")
     MINUS_BUTTON = (By.XPATH, '(//button[@id="min-btn"])[1]')
     MINUS_2_BUTTON = (By.XPATH, '(//button[@id="min-btn"])[2]')
