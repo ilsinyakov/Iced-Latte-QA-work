@@ -161,8 +161,7 @@ class TestCart:
             page.remove_products()            
             assert page.is_cart_empty, 'Cart is not empty'
     
-    @title("Test the Cost in the Shopping Cart. User is logged in")
-    @pytest.mark.xfail(reason='The total price per line function is not implemented')
+    @title("Test the Cost in the Shopping Cart. User is logged in")    
     def test_user_cart_cost(self, browser):
         with step('Login User'):
             login_user(browser, link)
