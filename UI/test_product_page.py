@@ -256,7 +256,8 @@ class TestPruductPage:
             page.add_product_to_favorites()
             sleep(3)
             assert page.is_heart_red(), 'Heart button is not red'
-            assert page.is_header_heart_blue(), 'Header favorites link is not blue'
+            assert page.is_change_favorites_page_icon('1'), \
+                          'Header favorites page icon does not changes'
         with step('Check product in the favorites list'):
             page.go_to_favorites_page()
             sleep(3)
