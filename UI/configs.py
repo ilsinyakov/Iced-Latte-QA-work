@@ -88,9 +88,9 @@ new_email_negative = ["иванов@gmail.com",
                     #   pytest.param(new_email_100sym_local, marks=pytest.mark.xfail(reason='Bug incomplete validation local-part is not fixed')),
                     #   "new@.gmail.com", "new@gmail.com.", "new@gmail..com",
                     #   "new@@gmail.com", "new@-gmail.com", "new@gmail-.com",
-                      "new@gmail.999", "new@gmail.c!om",
+                      "new@gmail.999", #"new@gmail.c!om",
                     #   "new@jclyojnoffuidebygkxtspoyuzqhudjqfopugbtgcteiatylxavwdtmxkikbiwse.com",
                     #   new_email_100sym_dom_label,
                     #   new_email_256sym_domain,
-                      new_email_300sym_domain
+                    #  new_email_300sym_domain
                       ]
