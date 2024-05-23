@@ -26,6 +26,7 @@ def test_user_cant_change_email(browser, new_email):
     #     page.go_to_main_page()
     with step('Go to Profile Page'):
         # page = BasePage(browser, link)
+        page.switch_to.default_content()
         page.go_to_profile_page()        
     with step('Assert New Negative Email is not Present in Profile'):
         page = ProfilePage(browser, browser.current_url)
