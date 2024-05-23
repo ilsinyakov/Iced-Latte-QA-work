@@ -57,8 +57,7 @@ class BasePage:
         link = self.browser.find_element(*HeaderLocators.LOGIN_LINK)
         link.click()
 
-    def go_to_main_page(self):
-        self.browser.switch_to.default_content()
+    def go_to_main_page(self):        
         main_page_link = self.browser.find_element(*HeaderLocators.MAIN_PAGE_LINK)
         main_page_link.click()
 
@@ -66,8 +65,7 @@ class BasePage:
         link = self.browser.find_element(*BasePageLocators.PRODUCT_LINK)
         link.click()
 
-    def go_to_profile_page(self):
-        self.browser.switch_to.default_content()
+    def go_to_profile_page(self):        
         link = self.browser.find_element(*HeaderLocators.PROFILE_LINK)
         link.click()
     
