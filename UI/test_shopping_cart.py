@@ -26,8 +26,8 @@ class TestCart:
         with step('Assert Cart is Empty'):
             page = CartPage(browser, browser.current_url)            
             assert page.is_cart_empty, 'Cart is not empty'
-        with step('Go to Main Page from Empty Cart'):
-            page.go_to_main_page()            
+        with step('Click Continue Shopping Button on Empty Cart'):
+            page.click_continue_shopping_button()
             assert browser.current_url == link, 'Continue Shopping Button do not work'
     
     @title("Test Full Shopping Cart. User is not logged in")        
@@ -119,8 +119,8 @@ class TestCart:
         with step('Assert Cart is Empty'):
             page = CartPage(browser, browser.current_url)            
             assert page.is_cart_empty, 'Cart is not empty'
-        with step('Go to Main Page from Empty Cart'):
-            page.go_to_main_page()            
+        with step('Click Continue Shopping Button on Empty Cart'):
+            page.click_continue_shopping_button()
             assert browser.current_url == link, 'Continue Shopping Button do not work'
     
     @title("Test Full Shopping Cart. User is logged in")    
