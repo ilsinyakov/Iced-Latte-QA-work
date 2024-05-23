@@ -17,14 +17,16 @@ from time import sleep
 @pytest.mark.parametrize('new_email', new_email_negative)
 def test_user_cant_change_email(browser, new_email):
     with step('Go to Edit Profile Page'):        
-        go_to_edit_profile_page(browser, link)        
+        go_to_edit_profile_page(browser, link)
+        sleep(2)
     with step('Enter new Negative Email'):
         page = EditProfilePage(browser, browser.current_url)
         page.change_email(new_email)
     with step('Click "Save Changes" Button'):
         page.save_change()        
     with step('Go to Main Page'):        
-        page.go_to_main_page()        
+        page.go_to_main_page()
+        sleep(2)
     with step('Go to Profile Page'):
         page = BasePage(browser, link)        
         page.go_to_profile_page()                
