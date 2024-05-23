@@ -28,7 +28,7 @@ class TestCart:
             assert page.is_cart_empty, 'Cart is not empty'
         with step('Click Continue Shopping Button on Empty Cart'):
             page.click_continue_shopping_button()
-            sleep(2)
+            sleep(2) # waiting is mandatory (do not remove)
             assert browser.current_url == link, 'Continue Shopping Button do not work'
     
     @title("Test Full Shopping Cart. User is not logged in")        
@@ -122,7 +122,7 @@ class TestCart:
             assert page.is_cart_empty, 'Cart is not empty'
         with step('Click Continue Shopping Button on Empty Cart'):
             page.click_continue_shopping_button()
-            sleep(2)
+            sleep(2) # waiting is mandatory (do not remove)
             assert browser.current_url == link, 'Continue Shopping Button do not work'
     
     @title("Test Full Shopping Cart. User is logged in")    
