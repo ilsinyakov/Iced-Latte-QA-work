@@ -1,12 +1,8 @@
+import re
 from time import sleep
 
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as ec
-
 from .base_page import BasePage
-from .locators import CartPageLocators, HeaderLocators
-
-import re
+from .locators import CartPageLocators
 
 
 class CartPage(BasePage):
@@ -68,5 +64,5 @@ class CartPage(BasePage):
         buttons = self.browser.find_elements(*CartPageLocators.REMOVE_BUTTON)                
         while len(buttons) > 0:            
             buttons[0].click()
-            sleep(2) # waiting is mandatory (do not remove)
+            sleep(2)  # waiting is mandatory (do not remove)
             buttons = self.browser.find_elements(*CartPageLocators.REMOVE_BUTTON)            

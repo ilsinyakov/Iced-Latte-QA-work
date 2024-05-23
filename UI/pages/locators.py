@@ -50,6 +50,7 @@ class FavoritesPageLocators:
     PRODUCT_LINK = (By.XPATH, '//*[starts-with(@href,"/product/")]')
     UNLIKE_BUTTONS = (By.XPATH, '//img[@alt="heart liked"]/parent::button')
 
+
 class HeaderLocators:
     CART_LINK = (By.CSS_SELECTOR, '[href="/cart"]')
     CART_COUNTER = (By.XPATH, '//*[@href="/cart"]/descendant::span')

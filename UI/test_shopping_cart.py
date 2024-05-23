@@ -1,11 +1,10 @@
+from allure import step, title, severity, story, severity_level
+from time import sleep
+
 from .pages.cart_page import CartPage
 from .pages.base_page import BasePage
 from .set_of_steps import login_user, remove_products_from_cart_and_favorites
 from .configs import link
-
-from allure import step, title, severity, story, severity_level
-import pytest
-from time import sleep
 
 
 @story("Cart Page")
@@ -28,7 +27,7 @@ class TestCart:
             assert page.is_cart_empty, 'Cart is not empty'
         with step('Click Continue Shopping Button on Empty Cart'):
             page.click_continue_shopping_button()
-            sleep(2) # waiting is mandatory (do not remove)
+            sleep(2)  # waiting is mandatory (do not remove)
             assert browser.current_url == link, 'Continue Shopping Button do not work'
     
     @title("Test Full Shopping Cart. User is not logged in")        
@@ -122,7 +121,7 @@ class TestCart:
             assert page.is_cart_empty, 'Cart is not empty'
         with step('Click Continue Shopping Button on Empty Cart'):
             page.click_continue_shopping_button()
-            sleep(2) # waiting is mandatory (do not remove)
+            sleep(2)  # waiting is mandatory (do not remove)
             assert browser.current_url == link, 'Continue Shopping Button do not work'
     
     @title("Test Full Shopping Cart. User is logged in")    

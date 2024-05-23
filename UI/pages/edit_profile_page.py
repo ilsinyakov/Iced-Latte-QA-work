@@ -1,5 +1,5 @@
 from .base_page import BasePage
-from .locators import EditProfilePageLocators, HeaderLocators
+from .locators import EditProfilePageLocators
 
 
 class EditProfilePage(BasePage):
@@ -61,6 +61,7 @@ class EditProfilePage(BasePage):
             return True
         else:
             return False
+
 
 '''    def is_success_message_present(self, success_message):
         message_element = self.browser.find_element(*EditProfilePageLocators.SUCCESS_MESSAGE)

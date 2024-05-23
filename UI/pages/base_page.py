@@ -3,11 +3,11 @@ import re
 from selenium.common.exceptions import NoSuchElementException, \
                                        ElementClickInterceptedException, \
                                        ElementNotInteractableException
-from selenium.webdriver.support.ui import WebDriverWait
 
 from .locators import BasePageLocators, HeaderLocators
 
-class BasePage:    
+
+class BasePage:
 
     def __init__(self, browser, url, timeout=4):
         self.browser = browser

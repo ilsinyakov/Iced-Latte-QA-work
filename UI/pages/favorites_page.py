@@ -1,6 +1,7 @@
 from time import sleep
 from .base_page import BasePage
-from .locators import FavoritesPageLocators, HeaderLocators
+from .locators import FavoritesPageLocators
+
 
 class FavoritesPage(BasePage):
     def go_to_product_page(self):
@@ -18,4 +19,4 @@ class FavoritesPage(BasePage):
         buttons = self.browser.find_elements(*FavoritesPageLocators.UNLIKE_BUTTONS)
         for button in buttons:
             button.click()
-            sleep(2) # waiting is mandatory (do not remove)
+            sleep(2)  # waiting is mandatory (do not remove)
