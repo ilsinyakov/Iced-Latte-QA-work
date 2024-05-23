@@ -69,13 +69,22 @@ class BasePage:
         link = self.browser.find_element(*HeaderLocators.PROFILE_LINK)
         link.click()
     
-    # check that amount on cart icon changed after adding product to cart
+    # check that amount on cart icon changed after adding product to cart 
+    # and click "Plus" or "Minus"
     def is_change_cart_icon(self, amount):
         cart_icon = self.browser.find_element(*HeaderLocators.CART_ICON)
         if cart_icon.text == amount:
             return True
         else: 
             return False
+
+    # check that amount on favorites page icon changed
+    def is_change_favorites_page_icon(self, amount):
+        favorites_page_icon = self.browser.find_element(*HeaderLocators.FAVORITES_PAGE_ICON)        
+        if favorites_page_icon.text == amount:
+            return True
+        else: 
+            return False    
 
     # check that the element is clickable
     def is_element_clickable(self, how, what):
@@ -100,23 +109,7 @@ class BasePage:
         if heart_image.get_attribute('src') == 'https://iced-latte.uk/_next/static/media/heart_black.ab80f79d.svg':
             return True
         else:
-            return False    
-
-    # check that amount on favorites page icon changed
-    def is_change_favorites_page_icon(self, amount):
-        favorites_page_icon = self.browser.find_element(*HeaderLocators.FAVORITES_PAGE_ICON)        
-        if favorites_page_icon.text == amount:
-            return True
-        else: 
-            return False
-
-    # check that amount on cart icon changed after click "Plus" or "Minus"
-    def is_change_cart_icon(self, amount):
-        cart_icon = self.browser.find_element(*HeaderLocators.CART_ICON)
-        if cart_icon.text == amount:
-            return True
-        else: 
-            return False    
+            return False        
     
     # open page
     def open(self):
