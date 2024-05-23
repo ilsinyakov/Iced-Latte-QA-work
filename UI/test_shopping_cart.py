@@ -67,8 +67,7 @@ class TestCart:
             page.remove_products()            
             assert page.is_cart_empty, 'Cart is not empty'
     
-    @title("Test the Cost in the Shopping Cart. User is not logged in")
-    @pytest.mark.xfail(reason='Bug not counting subtotal is not fixed')
+    @title("Test the Cost in the Shopping Cart. User is not logged in")    
     def test_guest_cart_cost(self, browser):
         with step('Open Main Page'):
             page = BasePage(browser, link)
@@ -111,7 +110,9 @@ class TestCart:
     def test_user_empty_cart(self, browser):        
         with step('Login User'):
             browser.delete_all_cookies()
-            login_user(browser, link)            
+            login_user(browser, link)
+        with step('Remove products from cart and favorites'):
+            remove_products_from_cart_and_favorites(browser, link)            
         with step('Go to Cart Page'):
             page = BasePage(browser, link)
             page.go_to_cart_page()
@@ -130,7 +131,7 @@ class TestCart:
             page = BasePage(browser, link)
             sleep(2)  # waiting is mandatory (do not remove)
             main_page_product_name = page.get_product_name()
-            main_page_product_price = float(page.get_product_price()[1:])
+            main_page_product_price = page.get_product_price()
             main_page_product_weight = page.get_product_weight()
         with step('Add Product to Cart'):
             page.add_product_to_cart()   
