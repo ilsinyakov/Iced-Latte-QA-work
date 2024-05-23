@@ -17,6 +17,7 @@ import pytest
 def test_user_cant_change_email(browser, new_email):
     with step('Go to Edit Profile Page'):        
         go_to_edit_profile_page(browser, link)
+        sleep(2)
     with step('Enter new Negative Email'):
         page = EditProfilePage(browser, browser.current_url)
     #     page.change_email(new_email)
@@ -24,9 +25,11 @@ def test_user_cant_change_email(browser, new_email):
     #     page.save_change()        
     with step('Go to Main Page'):        
         page.go_to_main_page()
+        sleep(2)
     with step('Go to Profile Page'):
         page = BasePage(browser, link)        
         page.go_to_profile_page()        
+        sleep(2)
     with step('Assert New Negative Email is not Present in Profile'):
         page = ProfilePage(browser, browser.current_url)
         assert not page.is_new_email_present(new_email), 'New Negative Email is Present in Profile'
