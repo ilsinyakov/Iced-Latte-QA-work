@@ -30,7 +30,7 @@ class TestCart:
             page.go_to_main_page()            
             assert browser.current_url == link, 'Continue Shopping Button do not work'
     
-    @title("Test Full Shopping Cart. User is not logged in")    
+    @title("Test Full Shopping Cart. User is not logged in")        
     def test_guest_full_cart(self, browser):        
         with step('Open Main Page'):
             page = BasePage(browser, link)
@@ -67,7 +67,7 @@ class TestCart:
             page.remove_products()            
             assert page.is_cart_empty, 'Cart is not empty'
     
-    @title("Test the Cost in the Shopping Cart. User is not logged in")    
+    @title("Test the Cost in the Shopping Cart. User is not logged in")        
     def test_guest_cart_cost(self, browser):
         with step('Open Main Page'):
             page = BasePage(browser, link)
