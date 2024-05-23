@@ -22,8 +22,8 @@ def test_user_cant_change_email(browser, new_email):
     with step('Enter new Negative Email'):
         page = EditProfilePage(browser, browser.current_url)
     #     page.change_email(new_email)
-    # with step('Click "Save Changes" Button'):
-    #     page.save_change()        
+    with step('Click "Save Changes" Button'):
+        page.save_change()        
     with step('Go to Main Page'):        
         page.go_to_main_page()
         sleep(2)
