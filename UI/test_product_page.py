@@ -125,7 +125,8 @@ class TestPruductPage:
         with step('Add product to favorires'):
             page.add_product_to_favorites()            
             assert page.is_heart_red(), 'Heart button is not red'
-            assert page.is_header_heart_blue(), 'Header favorites link is not blue'
+            assert page.is_change_favorites_counter('1'), \
+                          'Header favorites counter does not changes'
         with step('Check product in the favorites list'):
             page.go_to_favorites_page()            
             page = FavoritesPage(browser, browser.current_url)
@@ -138,7 +139,7 @@ class TestPruductPage:
         with step('Remove product from favorites'):
             page.remove_product_from_favorites()            
             assert page.is_heart_transparent(), 'Heart button is not transparent'
-            assert page.is_header_heart_black(), 'Header favorites link is not black'
+            assert page.is_favorites_page_icon_has_not_counter(), 'Header favorites counter has not disappeared'            
 
         
     # ----------- USER ------------
