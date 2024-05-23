@@ -6,6 +6,7 @@ from .configs import link, new_email_negative
 
 from allure import step, title, severity, story, severity_level
 import pytest
+from time import sleep
 
 
 @title("Test Change Email Negative")
