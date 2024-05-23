@@ -104,7 +104,7 @@ class BasePage:
         return True
 
     def is_favorites_page_icon_has_not_counter(self):
-        return not is_element_present(*HeaderLocators.FAVORITES_COUNTER)
+        return not self.is_element_present(*HeaderLocators.FAVORITES_COUNTER)
     
     # # check that black heart image is present on the header
     # def is_header_heart_black(self):
