@@ -10,7 +10,7 @@ class ProfilePage(BasePage):
         button.click()
 
     def is_new_email_present(self, new_email):
-        email_field = WebDriverWait(self.browser, 5).until(
+        email_field = WebDriverWait(self.browser, 3).until(
             ec.presence_of_element_located(ProfilePageLocators.EMAIL_FIELD)
             )
         if email_field.text == f'Email:\n{new_email}':
