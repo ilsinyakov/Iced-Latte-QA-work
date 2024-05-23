@@ -16,10 +16,7 @@ class ProfilePage(BasePage):
         if email_field.text == f'Email:\n{new_email}':
             return True
         else:
-            return False
-
-            element = WebDriverWait(driver, 20).until(
-    EC.presence_of_element_located((By.ID, "myElementId"))
+            return False           
 
     def is_new_first_name_present(self, new_first_name):
         first_name_field = self.browser.find_element(*ProfilePageLocators.FIRST_NAME_FIELD)
