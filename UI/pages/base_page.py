@@ -66,6 +66,7 @@ class BasePage:
         link.click()
 
     def go_to_profile_page(self):
+        browser.switch_to.default_content()
         link = self.browser.find_element(*HeaderLocators.PROFILE_LINK)
         link.click()
     
