@@ -22,10 +22,10 @@ def test_user_cant_change_email(browser, new_email):
         page.change_email(new_email)
     with step('Click "Save Changes" Button'):
         page.save_change()        
-    with step('Go to Main Page'):        
-        page.go_to_main_page()
+    # with step('Go to Main Page'):        
+    #     page.go_to_main_page()
     with step('Go to Profile Page'):
-        page = BasePage(browser, browser.current_url)
+        # page = BasePage(browser, link)
         page.go_to_profile_page()        
     with step('Assert New Negative Email is not Present in Profile'):
         page = ProfilePage(browser, browser.current_url)
