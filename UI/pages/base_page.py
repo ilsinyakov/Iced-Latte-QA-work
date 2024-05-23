@@ -58,6 +58,7 @@ class BasePage:
         link.click()
 
     def go_to_main_page(self):
+        self.browser.switch_to.default_content()
         main_page_link = self.browser.find_element(*HeaderLocators.MAIN_PAGE_LINK)
         main_page_link.click()
 
