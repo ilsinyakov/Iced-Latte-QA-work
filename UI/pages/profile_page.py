@@ -1,3 +1,5 @@
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as ec
 from .base_page import BasePage
 from .locators import ProfilePageLocators
 
@@ -8,11 +10,16 @@ class ProfilePage(BasePage):
         button.click()
 
     def is_new_email_present(self, new_email):
-        email_field = self.browser.find_element(*ProfilePageLocators.EMAIL_FIELD)
+        email_field = WebDriverWait(self.browser, 5).until(
+            ec.presence_of_element_located(ProfilePageLocators.EMAIL_FIELD)
+            )
         if email_field.text == f'Email:\n{new_email}':
             return True
         else:
             return False
+
+            element = WebDriverWait(driver, 20).until(
+    EC.presence_of_element_located((By.ID, "myElementId"))
 
     def is_new_first_name_present(self, new_first_name):
         first_name_field = self.browser.find_element(*ProfilePageLocators.FIRST_NAME_FIELD)
