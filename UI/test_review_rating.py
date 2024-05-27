@@ -25,5 +25,6 @@ class TestReviewRating:
             page = ProductPage(browser, browser.current_url)
         with step('Push "Add a review button"'):
             page.add_review()
+            sleep(2)  # waiting is mandatory (do not remove)
             assert browser.current_url == 'https://iced-latte.uk/auth/login', \
                 'The guest was not redirected to the login page'
