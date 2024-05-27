@@ -98,6 +98,10 @@ class ProductPage(BasePage):
             ec.presence_of_element_located(ProductPageLocators.REVIEW_AUTHOR)
         )
         return review_author.text
+    
+    def get_review_amount():
+        # That amount: "Based on X reviews"
+        
 
     def get_review_symbols_counter(self):
         counter = self.browser.find_element(*ProductPageLocators.REVIEW_SYMBOLS_COUNTER).text        

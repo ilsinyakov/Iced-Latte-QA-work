@@ -52,4 +52,4 @@ class TestReviewRating:
             assert new_rating == (old_rating * old_star_amount + 2) / (old_star_amount + 1), \
                 'New rating is not correct'
             assert new_star_amount == old_star_amount + 1, 'New star amount is not correct'
-            
+            assert new_star_amount == page.get_review_amount(), 'Review amount is not correct'
