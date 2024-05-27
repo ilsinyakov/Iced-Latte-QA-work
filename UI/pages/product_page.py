@@ -168,4 +168,5 @@ class ProductPage(BasePage):
     
     def submit_review(self):
         submit_review_button = self.browser.find_element(*ProductPageLocators.SUBMIT_REVIEW_BUTTON)
+        submit_review_button.click()
         
