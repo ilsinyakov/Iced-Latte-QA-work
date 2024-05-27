@@ -85,6 +85,11 @@ class ProductPageLocators:
     PRODUCT_RATING = (By.XPATH, '//h2/following-sibling::div/span[1]')
     PRODUCT_REVIEWS = (By.XPATH, '//h2/following-sibling::div/span[2]')
     PRODUCT_WEIGHT = (By.XPATH, '//h2/following-sibling::div/span[3]')
+    STAR_5 = (By.XPATH, '//*[@for="checkbox-5"]/following-sibling::span')
+    STAR_4 = (By.XPATH, '//*[@for="checkbox-4"]/following-sibling::span')
+    STAR_3 = (By.XPATH, '//*[@for="checkbox-3"]/following-sibling::span')
+    STAR_2 = (By.XPATH, '//*[@for="checkbox-2"]/following-sibling::span')
+    STAR_1 = (By.XPATH, '//*[@for="checkbox-1"]/following-sibling::span')
     TRANSPARENT_HEART_IMAGE = (By.CSS_SELECTOR, '[alt="heart unliked"]')
 
 

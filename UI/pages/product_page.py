@@ -29,6 +29,37 @@ class ProductPage(BasePage):
         delete_review_button = self.browser.find_element(*ProductPageLocators.DELETE_REVIEW_BUTTON)
         delete_review_button.click()
 
+    def get_actual_rating(self):
+        star_5_element = self.browser.find_element(*ProductPageLocators.STAR_5)
+        star_4_element = self.browser.find_element(*ProductPageLocators.STAR_4)
+        star_3_element = self.browser.find_element(*ProductPageLocators.STAR_3)
+        star_2_element = self.browser.find_element(*ProductPageLocators.STAR_2)
+        star_1_element = self.browser.find_element(*ProductPageLocators.STAR_1)
+
+        star_5_amount = int(star_5_element.text[0])
+        star_4_amount = int(star_4_element.text[0])
+        star_3_amount = int(star_3_element.text[0])
+        star_2_amount = int(star_2_element.text[0])
+        star_1_amount = int(star_1_element.text[0])
+
+        star_sum = sum(
+            star_5_amount * 5,
+            star_4_amount * 4,
+            star_3_amount * 3,
+            star_2_amount * 2,
+            star_1_amount * 1
+        ) 
+        star_amount = sum(
+            star_5_amount,
+            star_4_amount,
+            star_3_amount,
+            star_2_amount,
+            star_1_amount
+        )
+        actual_rating = star_sum / star_amount
+
+        return actual_rating, star_amount
+
     def get_product_name(self):
         return self.browser.find_element(*ProductPageLocators.PRODUCT_NAME).text
     

@@ -35,4 +35,7 @@ class TestReviewRating:
             login_user(browser, link)
         with step('Delete old review'):
             delete_old_review(browser, link)
-        with step 
+        with step('Get actual rating'):
+            page = ProductPage(browser, browser.current_url)
+            actual_rating, star_amount = page.get_actual_rating()
+            
