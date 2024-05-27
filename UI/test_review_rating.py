@@ -43,6 +43,8 @@ class TestReviewRating:
             page.click_add_review()
             page.set_rating()
             review_text = "It's a very good coffee"
-            page.add_review(review_text)
+            page.fill_review(review_text)
             counter = page.get_review_symbols_counter()
             assert counter == len(review_text), 'Counter does not work'
+            page.submit_review()
+            

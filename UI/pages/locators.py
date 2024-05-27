@@ -86,6 +86,7 @@ class ProductPageLocators:
     PRODUCT_RATING = (By.XPATH, '//h2/following-sibling::div/span[1]')
     PRODUCT_REVIEWS = (By.XPATH, '//h2/following-sibling::div/span[2]')
     PRODUCT_WEIGHT = (By.XPATH, '//h2/following-sibling::div/span[3]')
+    REVIEW_AUTHOR = (By.XPATH, '//div[@id="reviewsDropdown"]/following-sibling::div/div/span')
     REVIEW_FIELD = (By.ID, 'review-textarea')
     REVIEW_SYMBOLS_COUNTER = (By.XPATH, '//textarea/following-sibling::div')
     STAR_5 = (By.XPATH, '//*[@for="checkbox-5"]/following-sibling::span')
@@ -94,6 +95,7 @@ class ProductPageLocators:
     STAR_2 = (By.XPATH, '//*[@for="checkbox-2"]/following-sibling::span')
     STAR_1 = (By.XPATH, '//*[@for="checkbox-1"]/following-sibling::span')
     STAR_BUTTON_2 = (By.XPATH, '(//div[text()="Rating"]/following-sibling::div/div/div)[2]')
+    SUBMIT_REVIEW_BUTTON = (By.ID, 'submit-review-btn')
     TRANSPARENT_HEART_IMAGE = (By.CSS_SELECTOR, '[alt="heart unliked"]')
 
 

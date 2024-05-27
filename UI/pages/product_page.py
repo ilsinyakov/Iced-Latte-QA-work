@@ -13,7 +13,7 @@ class ProductPage(BasePage):
         add_to_favorites_button = self.browser.find_element(*ProductPageLocators.ADD_TO_FAVORITES_BUTTON)
         add_to_favorites_button.click()
     
-    def add_review(self, review_text):
+    def fill_review(self, review_text):
         review_field = self.browser.find_element(*ProductPageLocators.REVIEW_FIELD)
         review_field.send_keys(review_text)
     
@@ -28,6 +28,9 @@ class ProductPage(BasePage):
     def click_plus_button(self):
         plus_button = self.browser.find_element(*ProductPageLocators.PLUS_BUTTON)
         plus_button.click()
+
+    def submit_review(self):
+        submit_review_button = self.browser.find_element(*ProductPageLocators.SUBMIT_REVIEW_BUTTON)
 
     def delete_review(self):
         delete_review_button = self.browser.find_elements(*ProductPageLocators.DELETE_REVIEW_BUTTON)
@@ -91,8 +94,7 @@ class ProductPage(BasePage):
         return product_weight[0]
 
     def get_review_symbols_counter(self):
-        counter = self.browser.find_element(*ProductPageLocators.REVIEW_SYMBOLS_COUNTER).text
-        print(counter)
+        counter = self.browser.find_element(*ProductPageLocators.REVIEW_SYMBOLS_COUNTER).text        
         return int(counter[:-5])
 
     
