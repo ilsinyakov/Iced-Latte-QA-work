@@ -163,6 +163,7 @@ class ProductPage(BasePage):
         remove_from_favorites_button.click()
 
     def set_rating(self):
+        # set 2 star rating
         star_button_2 = self.browser.find_element(*ProductPageLocators.STAR_BUTTON_2)
         star_button_2.click()  
     
