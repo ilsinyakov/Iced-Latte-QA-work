@@ -1,5 +1,8 @@
 import re
 
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as ec
+
 from .base_page import BasePage
 from .locators import ProductPageLocators, HeaderLocators
 
@@ -91,7 +94,10 @@ class ProductPage(BasePage):
         return product_weight[0]
     
     def get_review_author(self):
-        return self.browser.find_element(*ProductPageLocators.REVIEW_AUTHOR).text
+        review_author = WebDriverWait(self.browser, 4).until(
+            presence_of_element_located(ProductPageLocators.REVIEW_AUTHOR)
+        )
+        return review_author.text
 
     def get_review_symbols_counter(self):
         counter = self.browser.find_element(*ProductPageLocators.REVIEW_SYMBOLS_COUNTER).text        
