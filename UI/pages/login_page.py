@@ -19,7 +19,7 @@ class LoginPage(BasePage):
         is_True = True
         try:
             WebDriverWait(self.browser, 4).until(
-                text_to_be_present_in_element(LoginPageLocators.WELCOME_BACK, 'Welcome back')
+                ec.text_to_be_present_in_element(LoginPageLocators.WELCOME_BACK, 'Welcome back')
             )            
         except TimeoutException:
             is_True = False
