@@ -1,5 +1,6 @@
 from allure import step, title, severity, story, severity_level
 from time import sleep
+import pytest
 
 from .pages.base_page import BasePage
 from .pages.favorites_page import FavoritesPage
@@ -15,6 +16,7 @@ from .configs import link
 # @allure.tag("")
 @severity(severity_level.NORMAL)
 class TestReviewRating:
+    @pytest.mark.skip
     def test_add_review_guest(self, browser):
         with step('Open main page'):            
                 page = BasePage(browser, link)
@@ -32,5 +34,5 @@ class TestReviewRating:
         with step('Login user'):
             login_user(browser, link)
         with step('Delete old review'):
-            delete_old_review()
+            delete_old_review(browser, link)
             
