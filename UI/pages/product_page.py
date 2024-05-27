@@ -43,19 +43,19 @@ class ProductPage(BasePage):
         star_2_amount = int(star_2_element.text[0])
         star_1_amount = int(star_1_element.text[0])
 
-        star_sum = sum(
-            star_5_amount * 5,
-            star_4_amount * 4,
-            star_3_amount * 3,
-            star_2_amount * 2,
-            star_1_amount * 1
+        star_sum = (
+            star_5_amount * 5
+            + star_4_amount * 4
+            + star_3_amount * 3
+            + star_2_amount * 2
+            + star_1_amount * 1
         ) 
-        star_amount = sum(
-            star_5_amount,
-            star_4_amount,
-            star_3_amount,
-            star_2_amount,
-            star_1_amount
+        star_amount = (
+            star_5_amount
+            + star_4_amount
+            + star_3_amount
+            + star_2_amount
+            + star_1_amount
         )
         actual_rating = star_sum / star_amount
 
