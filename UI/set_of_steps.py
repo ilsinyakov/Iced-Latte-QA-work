@@ -34,7 +34,7 @@ def go_to_edit_profile_page(browser, link):
 
 
 def delete_review(browser, link):
-    
+    pass
 
 
 def remove_products_from_cart_and_favorites(browser, link):
