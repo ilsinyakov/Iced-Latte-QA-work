@@ -26,10 +26,11 @@ class TestReviewRating:
             page.go_to_product_page()
             sleep(2)  # waiting is mandatory (do not remove)
             page = ProductPage(browser, browser.current_url)
-        with step('Push "Add a review button"'):
-            page.add_review()
+        with step('Click "Add a review" button'):
+            page.click_add_review()
             page = LoginPage(browser, browser.current_url)            
-            assert page.is_login_page(), 'The guest was not redirected to the login page'        
+            assert page.is_login_page(), 'The guest was not redirected to the login page'     
+
     def test_add_and_delete_review_user(self, browser):
         with step('Login user'):
             login_user(browser, link)
@@ -38,4 +39,7 @@ class TestReviewRating:
         with step('Get actual rating'):
             page = ProductPage(browser, browser.current_url)
             actual_rating, star_amount = page.get_actual_rating()
-            print(actual_rating, star_amount)
+        with step('Add review and rating'):
+            page.click_add_review()
+            page.set_rating
+

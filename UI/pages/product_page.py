@@ -13,7 +13,7 @@ class ProductPage(BasePage):
         add_to_favorites_button = self.browser.find_element(*ProductPageLocators.ADD_TO_FAVORITES_BUTTON)
         add_to_favorites_button.click()
     
-    def add_review(self):
+    def click_add_review(self):
         add_review_button = self.browser.find_element(*ProductPageLocators.ADD_REVIEW_BUTTON)
         add_review_button.click()
     
