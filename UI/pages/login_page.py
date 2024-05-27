@@ -28,7 +28,6 @@ class LoginPage(BasePage):
         else:
             return False
 
-
     def login_existing_user(self, email, password):
         email_field = self.browser.find_element(*LoginPageLocators.EMAIL_FIELD)
         password_field = self.browser.find_element(*LoginPageLocators.PASSWORD_FIELD)

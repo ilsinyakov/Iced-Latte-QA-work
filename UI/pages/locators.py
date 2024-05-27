@@ -76,6 +76,7 @@ class ProductPageLocators:
     AMOUNT = (By.XPATH, '//*[@id="min-btn"]/following-sibling::span')
     ADD_TO_CART_BUTTON = (By.ID, 'add-btn')
     ADD_TO_FAVORITES_BUTTON = (By.XPATH, '//*[@alt="heart unliked"]/ancestor::button')
+    DELETE_REVIEW_BUTTON = (By.ID, 'delete-review-btn')
     REMOVE_FROM_FAVORITES_BUTTON = (By.XPATH, '//*[@alt="heart liked"]/ancestor::button')
     RED_HEART_IMAGE = (By.CSS_SELECTOR, '[alt="heart liked"]')
     MINUS_BUTTON = (By.ID, 'min-btn')

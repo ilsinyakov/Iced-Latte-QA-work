@@ -6,7 +6,7 @@ from .pages.favorites_page import FavoritesPage
 from .pages.product_page import ProductPage
 from .pages.cart_page import CartPage
 from .pages.login_page import LoginPage
-from .set_of_steps import login_user, remove_products_from_cart_and_favorites
+from .set_of_steps import login_user, delete_old_review
 from .configs import link
 
 
@@ -28,4 +28,9 @@ class TestReviewRating:
             page.add_review()
             page = LoginPage(browser, browser.current_url)            
             assert page.is_login_page(), 'The guest was not redirected to the login page'        
+    def test_add_delete_review_user(self, browser):
+        with step('Login user'):
+            login_user(browser, link)
+        with step('Delete old review'):
+            delete_old_review()
             

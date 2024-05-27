@@ -6,6 +6,7 @@ from .pages.cart_page import CartPage
 from .pages.favorites_page import FavoritesPage
 from .pages.login_page import LoginPage
 from .pages.profile_page import ProfilePage
+from .pages.product_page import ProductPage
 
 from .configs import email, password
 
@@ -33,8 +34,11 @@ def go_to_edit_profile_page(browser, link):
         page.go_to_edit_page()
 
 
-def delete_review(browser, link):
-    pass
+def delete_old_review(browser, link):
+    page = BasePage(browser, link)
+    page.go_to_product_page()
+    page = ProductPage(browser, browser.current_url)
+    page.delete_review()
 
 
 def remove_products_from_cart_and_favorites(browser, link):

@@ -25,6 +25,10 @@ class ProductPage(BasePage):
         plus_button = self.browser.find_element(*ProductPageLocators.PLUS_BUTTON)
         plus_button.click()
 
+    def delete_review(self):
+        delete_review_button = self.browser.find_element(*ProductPageLocators.DELETE_REVIEW_BUTTON)
+        delete_review_button.click()
+
     def get_product_name(self):
         return self.browser.find_element(*ProductPageLocators.PRODUCT_NAME).text
     
