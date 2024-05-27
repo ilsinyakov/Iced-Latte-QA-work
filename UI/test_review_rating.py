@@ -38,4 +38,4 @@ class TestReviewRating:
         with step('Get actual rating'):
             page = ProductPage(browser, browser.current_url)
             actual_rating, star_amount = page.get_actual_rating()
-            
+            print(actual_rating, star_amount)
