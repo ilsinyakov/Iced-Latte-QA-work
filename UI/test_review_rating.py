@@ -31,7 +31,7 @@ class TestReviewRating:
             page = LoginPage(browser, browser.current_url)            
             assert page.is_login_page(), 'The guest was not redirected to the login page'     
 
-    def test_add_and_delete_review_user(self, browser):
+    def test_add_review_user(self, browser):
         with step('Login user'):
             login_user(browser, link)
         with step('Delete old review'):
@@ -41,5 +41,8 @@ class TestReviewRating:
             actual_rating, star_amount = page.get_actual_rating()
         with step('Add review and rating'):
             page.click_add_review()
-            page.set_rating
-
+            page.set_rating()
+            review_text = "It's a very good coffee"
+            page.add_review(review_text)
+            counter = page.get_review_symbols_counter()
+            assert counter == len(review_text), 'Counter does not work'

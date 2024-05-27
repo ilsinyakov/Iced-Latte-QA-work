@@ -13,6 +13,10 @@ class ProductPage(BasePage):
         add_to_favorites_button = self.browser.find_element(*ProductPageLocators.ADD_TO_FAVORITES_BUTTON)
         add_to_favorites_button.click()
     
+    def add_review(self, review_text):
+        review_field = self.browser.find_element(*ProductPageLocators.REVIEW_FIELD)
+        review_field.send_keys(review_text)
+    
     def click_add_review(self):
         add_review_button = self.browser.find_element(*ProductPageLocators.ADD_REVIEW_BUTTON)
         add_review_button.click()
@@ -85,6 +89,11 @@ class ProductPage(BasePage):
         pattern = re.compile(r'\b\d+\b')
         product_weight = pattern.findall(product_weight_element)
         return product_weight[0]
+
+    def get_review_symbols_counter(self):
+        counter = self.browser.find_element(*ProductPageLocators.REVIEW_SYMBOLS_COUNTER).text
+        return counter[0]
+
     
     def is_cart_page_link_present(self):
         return self.is_element_present(*HeaderLocators.CART_LINK)
@@ -143,4 +152,8 @@ class ProductPage(BasePage):
     def remove_product_from_favorites(self):
         remove_from_favorites_button = self.browser.find_element(*ProductPageLocators.REMOVE_FROM_FAVORITES_BUTTON)
         remove_from_favorites_button.click()
-    
+
+    def set_rating(self):
+        star_button_2 = self.browser.find_element(*ProductPageLocators.STAR_BUTTON_2)
+        star_button_2.click()  
+        
