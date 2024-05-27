@@ -30,9 +30,9 @@ class TestReviewRating:
             page.add_review()
             page = LoginPage(browser, browser.current_url)            
             assert page.is_login_page(), 'The guest was not redirected to the login page'        
-    def test_add_delete_review_user(self, browser):
+    def test_add_and_delete_review_user(self, browser):
         with step('Login user'):
             login_user(browser, link)
         with step('Delete old review'):
             delete_old_review(browser, link)
-            
+        with step 

@@ -35,10 +35,12 @@ def go_to_edit_profile_page(browser, link):
 
 
 def delete_old_review(browser, link):
-    page = BasePage(browser, link)
-    page.go_to_product_page()
-    page = ProductPage(browser, browser.current_url)
-    page.delete_review()
+    with step('Go to product page'):
+        page = BasePage(browser, link)
+        page.go_to_product_page()
+    with step('Delete old review'):
+        page = ProductPage(browser, browser.current_url)
+        page.delete_review()
 
 
 def remove_products_from_cart_and_favorites(browser, link):
