@@ -4,7 +4,8 @@ from selenium.webdriver.common.by import By
 class BasePageLocators:
     ADD_TO_CART_BUTTON = (By.XPATH, '//li[2]/div/div[2]/div/button')
     ADD_TO_CART_BUTTON_2 = (By.XPATH, '//li[3]/div/div[2]/div/button')    
-    PRODUCT_LINK = (By.CSS_SELECTOR, 'ul li:nth-child(2) [href]')
+    # PRODUCT_LINK = (By.CSS_SELECTOR, 'ul li:nth-child(2) [href]')
+    PRODUCT_LINK = (By.CSS_SELECTOR, 'ul li:nth-child(3) [href]')
     PRODUCT_NAME = (By.XPATH, '//li[2]/div/a/div[2]/h2')
     PRODUCT_PRICE = (By.XPATH, '//li[2]/div/div[2]/p')
     PRODUCT_RATING = (By.XPATH, '//li[2]/div/a/div[2]/div/span/span[1]')
