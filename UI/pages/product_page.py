@@ -26,8 +26,9 @@ class ProductPage(BasePage):
         plus_button.click()
 
     def delete_review(self):
-        delete_review_button = self.browser.find_element(*ProductPageLocators.DELETE_REVIEW_BUTTON)
-        delete_review_button.click()
+        delete_review_button = self.browser.find_elements(*ProductPageLocators.DELETE_REVIEW_BUTTON)
+        for del_btn in delete_review_button:
+            del_btn.click()
 
     def get_actual_rating(self):
         star_5_element = self.browser.find_element(*ProductPageLocators.STAR_5)
