@@ -8,7 +8,7 @@ from .pages.product_page import ProductPage
 from .pages.cart_page import CartPage
 from .pages.login_page import LoginPage
 from .set_of_steps import login_user, delete_old_review
-from .configs import link
+from .configs import link, first_name
 
 
 @story("Review, Rating")
@@ -47,4 +47,5 @@ class TestReviewRating:
             counter = page.get_review_symbols_counter()
             assert counter == len(review_text), 'Counter does not work'
             page.submit_review()
-            
+            assert page.get_review_author() == first_name, f'Review author {first_name} is not present'
+

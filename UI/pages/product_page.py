@@ -27,10 +27,7 @@ class ProductPage(BasePage):
     
     def click_plus_button(self):
         plus_button = self.browser.find_element(*ProductPageLocators.PLUS_BUTTON)
-        plus_button.click()
-
-    def submit_review(self):
-        submit_review_button = self.browser.find_element(*ProductPageLocators.SUBMIT_REVIEW_BUTTON)
+        plus_button.click()    
 
     def delete_review(self):
         delete_review_button = self.browser.find_elements(*ProductPageLocators.DELETE_REVIEW_BUTTON)
@@ -92,6 +89,9 @@ class ProductPage(BasePage):
         pattern = re.compile(r'\b\d+\b')
         product_weight = pattern.findall(product_weight_element)
         return product_weight[0]
+    
+    def get_review_author(self):
+        return self.browser.find_element(*ProductPageLocators.REVIEW_AUTHOR).text
 
     def get_review_symbols_counter(self):
         counter = self.browser.find_element(*ProductPageLocators.REVIEW_SYMBOLS_COUNTER).text        
@@ -159,4 +159,7 @@ class ProductPage(BasePage):
     def set_rating(self):
         star_button_2 = self.browser.find_element(*ProductPageLocators.STAR_BUTTON_2)
         star_button_2.click()  
+    
+    def submit_review(self):
+        submit_review_button = self.browser.find_element(*ProductPageLocators.SUBMIT_REVIEW_BUTTON)
         
