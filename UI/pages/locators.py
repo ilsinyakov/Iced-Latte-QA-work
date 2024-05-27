@@ -66,8 +66,9 @@ class LoginPageLocators:
     EMAIL_FIELD = (By.ID, 'email')
     LOGIN_BUTTON = (By.CSS_SELECTOR, '[type="submit"]')
     PASSWORD_FIELD = (By.ID, 'password')
-    REGISTER_BUTTON = (By.XPATH, '/html/body/main/div/div[2]/div[2]/a[2]/button')
+    REGISTER_BUTTON = (By.XPATH, '/html/body/main/div/div[2]/div[2]/a[2]/button')    
     # REGISTER_BUTTON = (By.XPATH, '//button[@type="button" and text()="Register"]')    
+    WELCOME_BACK = (By.XPATH, '//header/div/div/div/div[1]/h2')
 
 
 class ProductPageLocators:

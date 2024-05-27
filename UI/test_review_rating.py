@@ -5,6 +5,7 @@ from .pages.base_page import BasePage
 from .pages.favorites_page import FavoritesPage
 from .pages.product_page import ProductPage
 from .pages.cart_page import CartPage
+from .pages.login_page import LoginPage
 from .set_of_steps import login_user, remove_products_from_cart_and_favorites
 from .configs import link
 
@@ -25,6 +26,8 @@ class TestReviewRating:
             page = ProductPage(browser, browser.current_url)
         with step('Push "Add a review button"'):
             page.add_review()
-            sleep(2)  # waiting is mandatory (do not remove)
-            assert browser.current_url == 'https://iced-latte.uk/auth/login', \
+            page = LoginPage(browser, browser.current_url)            
+            assert is_login_page(), 'The guest was not redirected to the login page'
+            
+            browser.current_url == 'https://iced-latte.uk/auth/login', \
                 'The guest was not redirected to the login page'
