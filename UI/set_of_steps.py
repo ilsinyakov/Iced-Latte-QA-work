@@ -33,6 +33,10 @@ def go_to_edit_profile_page(browser, link):
         page.go_to_edit_page()
 
 
+def delete_review(browser, link):
+    
+
+
 def remove_products_from_cart_and_favorites(browser, link):
     with step('Go to cart page'):
         page = BasePage(browser, link)

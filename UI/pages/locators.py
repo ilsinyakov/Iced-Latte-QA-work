@@ -71,6 +71,7 @@ class LoginPageLocators:
 
 
 class ProductPageLocators:
+    ADD_REVIEW_BUTTON = 
     AMOUNT = (By.XPATH, '//*[@id="min-btn"]/following-sibling::span')
     ADD_TO_CART_BUTTON = (By.ID, 'add-btn')
     ADD_TO_FAVORITES_BUTTON = (By.XPATH, '//*[@alt="heart unliked"]/ancestor::button')
