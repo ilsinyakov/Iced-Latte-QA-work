@@ -27,7 +27,5 @@ class TestReviewRating:
         with step('Push "Add a review button"'):
             page.add_review()
             page = LoginPage(browser, browser.current_url)            
-            assert is_login_page(), 'The guest was not redirected to the login page'
+            assert page.is_login_page(), 'The guest was not redirected to the login page'        
             
-            browser.current_url == 'https://iced-latte.uk/auth/login', \
-                'The guest was not redirected to the login page'
