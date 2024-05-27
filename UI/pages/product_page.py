@@ -95,7 +95,7 @@ class ProductPage(BasePage):
     
     def get_review_author(self):
         review_author = WebDriverWait(self.browser, 4).until(
-            presence_of_element_located(ProductPageLocators.REVIEW_AUTHOR)
+            ec.presence_of_element_located(ProductPageLocators.REVIEW_AUTHOR)
         )
         return review_author.text
 
