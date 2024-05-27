@@ -93,7 +93,7 @@ class ProductPage(BasePage):
     def get_review_symbols_counter(self):
         counter = self.browser.find_element(*ProductPageLocators.REVIEW_SYMBOLS_COUNTER).text
         print(counter)
-        return counter[0]
+        return counter[:-5]
 
     
     def is_cart_page_link_present(self):
