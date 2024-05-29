@@ -102,7 +102,10 @@ class ProductPage(BasePage):
     
     def get_reviews_amount():
         # This amount: "Based on X reviews"
-        reviews_amount = self.browser.find_element(*ProductPageLocators.REVIEWS_AMOUNT).text
+        reviews_amount_element = self.browser.find_element(*ProductPageLocators.REVIEWS_AMOUNT).text
+        pattern = re.compile(r'\b\d+\b')
+        reviews_amount = pattern.findall(reviews_amount_element)
+        return reviews_amount[0]
 
 
         
