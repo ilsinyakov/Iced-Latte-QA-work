@@ -105,15 +105,11 @@ class ProductPage(BasePage):
         reviews_amount_element = self.browser.find_element(*ProductPageLocators.REVIEWS_AMOUNT).text
         pattern = re.compile(r'\b\d+\b')
         reviews_amount = pattern.findall(reviews_amount_element)
-        return reviews_amount[0]
-
-
+        return int(reviews_amount[0])
         
-
     def get_review_symbols_counter(self):
         counter = self.browser.find_element(*ProductPageLocators.REVIEW_SYMBOLS_COUNTER).text        
         return int(counter[:-5])
-
     
     def is_cart_page_link_present(self):
         return self.is_element_present(*HeaderLocators.CART_LINK)
