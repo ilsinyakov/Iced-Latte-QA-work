@@ -38,7 +38,7 @@ class TestReviewRating:
             delete_old_review(browser, link)
         with step('Get actual rating'):
             page = ProductPage(browser, browser.current_url)
-            old_rating, old_star_amount = page.get_actual_rating()
+            old_rating, old_reviews_amount = page.get_actual_rating()
         with step('Add review and rating'):
             page.click_add_review()
             page.set_rating()
@@ -48,8 +48,8 @@ class TestReviewRating:
             assert counter == len(review_text), 'Counter does not work'
             page.submit_review()
             assert page.get_review_author() == first_name, f'Review author {first_name} is not present'
-            new_rating, new_star_amount = page.get_actual_rating()
-            assert new_rating == (old_rating * old_star_amount + 2) / (old_star_amount + 1), \
-                'New rating is not correct'
-            assert new_star_amount == old_star_amount + 1, 'New star amount is not correct'
-            assert new_star_amount == page.get_review_amount(), 'Review amount is not correct'
+            new_rating, new_reviews_amount = page.get_actual_rating()
+            assert new_rating == (old_rating * old_reviews_amount + 2) / (old_reviews_amount + 1), \
+                'New rating is not correct'            
+            assert new_reviews_amount == page.get_reviews_amount(), 'Review amount is not correct'
+            

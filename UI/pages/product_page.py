@@ -38,35 +38,36 @@ class ProductPage(BasePage):
             del_btn.click()
 
     def get_actual_rating(self):
+        # get the number of reviews corresponding to each rating
         star_5_element = self.browser.find_element(*ProductPageLocators.STAR_5)
         star_4_element = self.browser.find_element(*ProductPageLocators.STAR_4)
         star_3_element = self.browser.find_element(*ProductPageLocators.STAR_3)
         star_2_element = self.browser.find_element(*ProductPageLocators.STAR_2)
         star_1_element = self.browser.find_element(*ProductPageLocators.STAR_1)
 
-        star_5_amount = int(star_5_element.text[0])
-        star_4_amount = int(star_4_element.text[0])
-        star_3_amount = int(star_3_element.text[0])
-        star_2_amount = int(star_2_element.text[0])
-        star_1_amount = int(star_1_element.text[0])
+        star_5_review_amount = int(star_5_element.text[:-8])
+        star_4_review_amount = int(star_4_element.text[:-8])
+        star_3_review_amount = int(star_3_element.text[:-8])
+        star_2_review_amount = int(star_2_element.text[:-8])
+        star_1_review_amount = int(star_1_element.text[:-8])
 
         star_sum = (
-            star_5_amount * 5
-            + star_4_amount * 4
-            + star_3_amount * 3
-            + star_2_amount * 2
-            + star_1_amount * 1
+            star_5_review_amount * 5
+            + star_4_review_amount * 4
+            + star_3_review_amount * 3
+            + star_2_review_amount * 2
+            + star_1_review_amount * 1
         ) 
-        star_amount = (
-            star_5_amount
-            + star_4_amount
-            + star_3_amount
-            + star_2_amount
-            + star_1_amount
+        review_amount = (
+            star_5_review_amount
+            + star_4_review_amount
+            + star_3_review_amount
+            + star_2_review_amount
+            + star_1_review_amount
         )
-        actual_rating = star_sum / star_amount
+        actual_rating = star_sum / review_amount
 
-        return actual_rating, star_amount
+        return actual_rating, review_amount
 
     def get_product_name(self):
         return self.browser.find_element(*ProductPageLocators.PRODUCT_NAME).text
@@ -99,8 +100,11 @@ class ProductPage(BasePage):
         )
         return review_author.text
     
-    def get_review_amount():
-        # That amount: "Based on X reviews"
+    def get_reviews_amount():
+        # This amount: "Based on X reviews"
+        reviews_amount = self.browser.find_element(*ProductPageLocators.REVIEWS_AMOUNT).text
+
+
         
 
     def get_review_symbols_counter(self):
