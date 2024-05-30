@@ -65,7 +65,7 @@ class ProductPage(BasePage):
             + star_2_review_amount
             + star_1_review_amount
         )
-        actual_rating = star_sum / review_amount
+        actual_rating = round(star_sum / review_amount, 1)
 
         return actual_rating, review_amount
 
