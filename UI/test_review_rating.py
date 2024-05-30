@@ -59,6 +59,7 @@ class TestReviewRating:
             product_page.delete_review()
             new_rating, new_reviews_amount = product_page.get_actual_rating()
             assert new_rating == old_rating, 'New rating is not correct'
-            assert new_reviews_amount == product_page.get_reviews_amount(), \
+            assert new_reviews_amount == product_page.get_reviews_amount() \
+                   and new_reviews_amount == old_reviews_amount, \
                 'Review amount is not correct'
     
