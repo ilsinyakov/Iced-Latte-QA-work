@@ -14,12 +14,8 @@ class ProductPage(BasePage):
     
     def add_product_to_favorites(self):
         add_to_favorites_button = self.browser.find_element(*ProductPageLocators.ADD_TO_FAVORITES_BUTTON)
-        add_to_favorites_button.click()
-    
-    def fill_review(self, review_text):
-        review_field = self.browser.find_element(*ProductPageLocators.REVIEW_FIELD)
-        review_field.send_keys(review_text)
-    
+        add_to_favorites_button.click() 
+        
     def click_add_review(self):
         add_review_button = self.browser.find_element(*ProductPageLocators.ADD_REVIEW_BUTTON)
         add_review_button.click()
@@ -36,6 +32,13 @@ class ProductPage(BasePage):
         delete_review_button = self.browser.find_elements(*ProductPageLocators.DELETE_REVIEW_BUTTON)
         for del_btn in delete_review_button:
             del_btn.click()
+            WebDriverWait(self.browser, 4).until_not(
+                presence_of_element_located(ProductPageLocators.REVIEW_AUTHOR)
+            )
+    
+    def fill_review(self, review_text):
+        review_field = self.browser.find_element(*ProductPageLocators.REVIEW_FIELD)
+        review_field.send_keys(review_text)
 
     def get_actual_rating(self):
         # get the number of reviews corresponding to each rating
