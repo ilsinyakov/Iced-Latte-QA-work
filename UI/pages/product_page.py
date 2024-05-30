@@ -33,7 +33,7 @@ class ProductPage(BasePage):
         for del_btn in delete_review_button:
             del_btn.click()
             WebDriverWait(self.browser, 4).until_not(
-                presence_of_element_located(ProductPageLocators.REVIEW_AUTHOR)
+                ec.presence_of_element_located(ProductPageLocators.REVIEW_AUTHOR)
             )
     
     def fill_review(self, review_text):
