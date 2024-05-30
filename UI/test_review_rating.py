@@ -9,7 +9,7 @@ from .pages.cart_page import CartPage
 from .pages.login_page import LoginPage
 from .set_of_steps import login_user, delete_old_review
 from .configs import link, first_name
-from ..data.text_review import parameterize_text_review_positive
+from data.text_review import parameterize_text_review_positive
 
 
 @story("Review, Rating")
