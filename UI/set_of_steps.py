@@ -37,7 +37,7 @@ def go_to_edit_profile_page(browser, link):
 def delete_old_review(browser, link):
     with step('Go to product page'):
         main_page = BasePage(browser, link)
-        main_page.sort_by_price()
+        main_page.sort_by('price', 'high')
         page.go_to_product_page()
     with step('Delete old review'):
         page = ProductPage(browser, browser.current_url)
