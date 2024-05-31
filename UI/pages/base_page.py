@@ -117,6 +117,9 @@ class BasePage:
         assert self.is_element_present(*HeaderLocators.LOGIN_LINK), "Login link is not presented"    
     
     def sort_by(self, criterion: Literal['price', 'rating'], direction: Literal['high', 'low']):
+        sort_dropdown = self.browser.find_element(*BasePageLocators.SORT_DROPDOWN)
+        sort_dropdown.click()
+
         if criterion == 'price' and direction == 'high':
             sort_button = self.browser.find_element(*BasePageLocators.SORT_PRICE_HIGH)
         elif criterion == 'price' and direction == 'low':
@@ -128,4 +131,6 @@ class BasePage:
         else:
             raise ValueError('Sort criterion must be "price" or "rating" \
                             and sort direction must be "high" or "low"')
+        
+        sort_button.click()
         
