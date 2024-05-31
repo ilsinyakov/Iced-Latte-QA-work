@@ -67,4 +67,4 @@ class TestReviewRating:
     
     @pytest.mark.parametrize('review_text', parameterize_text_review_positive)
     def test_add_review_parametrize(self, browser, review_text):
-        print(review_text)
+        print(review_text[0])
