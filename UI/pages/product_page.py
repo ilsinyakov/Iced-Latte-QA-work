@@ -44,6 +44,7 @@ class ProductPage(BasePage):
         # check is no rating product
         product_rating_text = self.browser.find_element(*ProductPageLocators.PRODUCT_RATING).text
         if product_rating_text == 'No rating':
+            print('No Rating')
             return 0, 0
         else:
             # get the number of reviews corresponding to each rating
@@ -74,7 +75,7 @@ class ProductPage(BasePage):
                 + star_1_review_amount
             )
             actual_rating = round(star_sum / review_amount, 1)
-
+            print('actual_rating, review_amount', actual_rating, review_amount)
             return actual_rating, review_amount
 
     def get_product_name(self):
