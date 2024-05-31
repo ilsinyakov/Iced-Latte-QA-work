@@ -38,10 +38,10 @@ def delete_old_review(browser, link):
     with step('Go to product page'):
         main_page = BasePage(browser, link)
         main_page.sort_by('price', 'high')
-        page.go_to_product_page()
+        main_page.go_to_product_page()
     with step('Delete old review'):
-        page = ProductPage(browser, browser.current_url)
-        page.delete_review()
+        product_page = ProductPage(browser, browser.current_url)
+        product_page.delete_review()
 
 
 def remove_products_from_cart_and_favorites(browser, link):
