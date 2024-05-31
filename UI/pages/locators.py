@@ -11,7 +11,8 @@ class BasePageLocators:
     PRODUCT_RATING = (By.XPATH, '//li[2]/div/a/div[2]/div/span/span[1]')
     PRODUCT_REVIEWS = (By.XPATH, '//li[2]/div/a/div[2]/div/span/span[2]')
     PRODUCT_WEIGHT = (By.XPATH, '//li[2]/div/a/div[2]/div/span[2]')    
-    SORT_DROPDOWN = (By.XPATH, "//*[contains(text(), 'Sort by:')]")
+    SORT_DROPDOWN = (By.XPATH, '//*[contains(text(), "Sort by:")]')
+    SORT_PRICE_HIGH = (By.XPATH, '//span[contains(text(),"Price: High to Low")'])
 
 
 class CartPageLocators:
