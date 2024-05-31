@@ -41,36 +41,41 @@ class ProductPage(BasePage):
         review_field.send_keys(review_text)
 
     def get_actual_rating(self):
-        # get the number of reviews corresponding to each rating
-        star_5_element = self.browser.find_element(*ProductPageLocators.STAR_5)
-        star_4_element = self.browser.find_element(*ProductPageLocators.STAR_4)
-        star_3_element = self.browser.find_element(*ProductPageLocators.STAR_3)
-        star_2_element = self.browser.find_element(*ProductPageLocators.STAR_2)
-        star_1_element = self.browser.find_element(*ProductPageLocators.STAR_1)
+        # check is no rating product
+        product_rating_text = self.browser.find_element(*ProductPageLocators.PRODUCT_RATING).text
+        if product_rating_text == 'No rating':
+            return 0, 0
+        else:
+            # get the number of reviews corresponding to each rating
+            star_5_element = self.browser.find_element(*ProductPageLocators.STAR_5)
+            star_4_element = self.browser.find_element(*ProductPageLocators.STAR_4)
+            star_3_element = self.browser.find_element(*ProductPageLocators.STAR_3)
+            star_2_element = self.browser.find_element(*ProductPageLocators.STAR_2)
+            star_1_element = self.browser.find_element(*ProductPageLocators.STAR_1)
 
-        star_5_review_amount = int(star_5_element.text[:-8])
-        star_4_review_amount = int(star_4_element.text[:-8])
-        star_3_review_amount = int(star_3_element.text[:-8])
-        star_2_review_amount = int(star_2_element.text[:-8])
-        star_1_review_amount = int(star_1_element.text[:-8])
+            star_5_review_amount = int(star_5_element.text[:-8])
+            star_4_review_amount = int(star_4_element.text[:-8])
+            star_3_review_amount = int(star_3_element.text[:-8])
+            star_2_review_amount = int(star_2_element.text[:-8])
+            star_1_review_amount = int(star_1_element.text[:-8])
 
-        star_sum = (
-            star_5_review_amount * 5
-            + star_4_review_amount * 4
-            + star_3_review_amount * 3
-            + star_2_review_amount * 2
-            + star_1_review_amount * 1
-        ) 
-        review_amount = (
-            star_5_review_amount
-            + star_4_review_amount
-            + star_3_review_amount
-            + star_2_review_amount
-            + star_1_review_amount
-        )
-        actual_rating = round(star_sum / review_amount, 1)
+            star_sum = (
+                star_5_review_amount * 5
+                + star_4_review_amount * 4
+                + star_3_review_amount * 3
+                + star_2_review_amount * 2
+                + star_1_review_amount * 1
+            ) 
+            review_amount = (
+                star_5_review_amount
+                + star_4_review_amount
+                + star_3_review_amount
+                + star_2_review_amount
+                + star_1_review_amount
+            )
+            actual_rating = round(star_sum / review_amount, 1)
 
-        return actual_rating, review_amount
+            return actual_rating, review_amount
 
     def get_product_name(self):
         return self.browser.find_element(*ProductPageLocators.PRODUCT_NAME).text
