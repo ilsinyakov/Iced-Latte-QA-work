@@ -32,7 +32,7 @@ class TestReviewRating:
             login_page = LoginPage(browser, browser.current_url)            
             assert login_page.is_login_page(), 'The guest was not redirected to the login page'     
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_add_and_delete_review_user(self, browser):
         with step('Login user'):
             login_user(browser, link)
@@ -65,7 +65,22 @@ class TestReviewRating:
                    and new_reviews_amount == old_reviews_amount, \
                 'Review amount is not correct'
     
-    @pytest.mark.skip
+    # pytest.mark.skip
     @pytest.mark.parametrize('review_text', parameterize_text_review_positive)    
     def test_add_review_parametrize(self, browser, review_text):
-        print(review_text[0])
+        with step('Login user'):
+            login_user(browser, link)
+        with step('Delete old review'):
+            delete_old_review(browser, link)
+        with step('Add review and rating'):
+            product_page = ProductPage(browser, browser.current_url)
+            product_page.click_add_review()
+            product_page.set_rating()            
+            product_page.fill_review(review_text[0])
+            counter = product_page.get_review_symbols_counter()
+            assert counter == len(review_text), 'Counter does not work'
+            product_page.submit_review()
+            assert product_page.get_review_author() == first_name, \
+                f'Review author {first_name} is not present'       
+        with step('Delete review'):
+            product_page.delete_review()
