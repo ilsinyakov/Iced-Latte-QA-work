@@ -65,7 +65,7 @@ class TestReviewRating:
                    and new_reviews_amount == old_reviews_amount, \
                 'Review amount is not correct'
     
-    pytest.mark.skip
+    @pytest.mark.skip
     @pytest.mark.parametrize('review_text', parameterize_text_review_positive)    
     def test_add_review_parametrize(self, browser, review_text):
         with step('Login user'):
