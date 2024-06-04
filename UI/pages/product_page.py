@@ -191,7 +191,7 @@ class ProductPage(BasePage):
         like_button = self.browser.find_element(*ProductPageLocators.LIKE_BUTTON)            
         like_button.click()
         WebDriverWait(self.browser, 4).until(
-            like_counter_before != self.browser.find_element(*ProductPageLocators.LIKE_COUNTER).text
+            (like_counter_before != self.browser.find_element(*ProductPageLocators.LIKE_COUNTER).text)
         )
 
     def remove_product_from_favorites(self):
