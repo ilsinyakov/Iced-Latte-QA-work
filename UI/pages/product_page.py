@@ -37,8 +37,14 @@ class ProductPage(BasePage):
             )
     
     def dislike_review(self):
+        dislike_counter_before = self.browser.find_element(*ProductPageLocators.DISLIKE_COUNTER).text
         dislike_button = self.browser.find_element(*ProductPageLocators.DISLIKE_BUTTON)    
         dislike_button.click()
+        driver = self.browser
+        WebDriverWait(self.browser, 4).until(
+            lambda driver: driver.find_element(*ProductPageLocators.DISLIKE_COUNTER).text 
+                            != dislike_counter_before
+        )
 
     def fill_review(self, review_text):
         review_field = self.browser.find_element(*ProductPageLocators.REVIEW_FIELD)
@@ -189,11 +195,7 @@ class ProductPage(BasePage):
     def like_review(self):
         like_counter_before = self.browser.find_element(*ProductPageLocators.LIKE_COUNTER).text
         like_button = self.browser.find_element(*ProductPageLocators.LIKE_BUTTON)            
-        like_button.click()
-
-        def is_change_counter(browser):
-            like_counter_after = browser.find_element(*ProductPageLocators.LIKE_COUNTER).text
-            return like_counter_before != like_counter_after
+        like_button.click()        
         driver = self.browser
         WebDriverWait(self.browser, 4).until(
             lambda driver: driver.find_element(*ProductPageLocators.LIKE_COUNTER).text != like_counter_before
