@@ -187,10 +187,11 @@ class ProductPage(BasePage):
         return self.is_element_clickable(*HeaderLocators.PROFILE_LINK)
     
     def like_review(self):
-        like_button = self.browser.find_element(*ProductPageLocators.LIKE_BUTTON)    
+        like_counter_before = self.browser.find_element(*ProductPageLocators.LIKE_COUNTER).text
+        like_button = self.browser.find_element(*ProductPageLocators.LIKE_BUTTON)            
         like_button.click()
         WebDriverWait(self.browser, 4).until(
-            ec.element_selection_state_to_be(like_button, False)
+            like_counter_before != self.browser.find_element(*ProductPageLocators.LIKE_COUNTER).text
         )
 
     def remove_product_from_favorites(self):
