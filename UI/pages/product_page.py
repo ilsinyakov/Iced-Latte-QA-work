@@ -36,6 +36,10 @@ class ProductPage(BasePage):
                 ec.presence_of_element_located(ProductPageLocators.REVIEW_AUTHOR)
             )
     
+    def dislike_review(self):
+        dislike_button = self.browser.find_element(*ProductPageLocators.DISLIKE_BUTTON)    
+        dislike_button.click()
+
     def fill_review(self, review_text):
         review_field = self.browser.find_element(*ProductPageLocators.REVIEW_FIELD)
         review_field.send_keys(review_text)
@@ -77,6 +81,10 @@ class ProductPage(BasePage):
             actual_rating = round(star_sum / review_amount, 1)
             print('actual_rating, review_amount', actual_rating, review_amount)
             return actual_rating, review_amount
+
+    def get_dislike_counter():
+        dislike_counter = self.browser.find_element(*ProductPageLocators.DISLIKE_COUNTER)
+        return int(dislike_counter.text)
 
     def get_like_counter(self):
         like_counter = self.browser.find_element(*ProductPageLocators.LIKE_COUNTER)

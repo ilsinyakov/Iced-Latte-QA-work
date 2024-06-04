@@ -97,7 +97,18 @@ class TestReviewRating:
             product_page = ProductPage(browser, browser.current_url)
             product_page.delete_review()
         with step('Like review'):
-            product_page.get_like_counter()
+            like_counter_before = product_page.get_like_counter()
             product_page.like_review()
-
-        
+            like_counter_after = product_page.get_like_counter()
+            assert like_counter_before == like_counter_after - 1, \
+                'Like counter does not work'
+        with step('Dislike review'):            
+            dislike_counter_before = product_page.get_dislike_counter()
+            product_page.dislike_review()
+            dislike_counter_after = product_page.get_dislike_counter()
+            assert dislike_counter_before == dislike_counter_after - 1, \
+                'Dislike counter does not work'
+            like_counter_after_dislike = product_page.get_like_counter()
+            assert like_counter_after_dislike == like_counter_after - 1, \
+                'Like counter has not decreased after dislike'
+            
