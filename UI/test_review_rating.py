@@ -90,7 +90,7 @@ class TestReviewRating:
             login_user(browser, link)
         with step('Sort product by rating'):
             main_page = BasePage(browser, link)
-            main_page.sort_by(rating, high)
+            main_page.sort_by('rating', 'high')
         with step('Go to product page'):
             main_page.go_to_product_page()
         with step('Delete old review'):
