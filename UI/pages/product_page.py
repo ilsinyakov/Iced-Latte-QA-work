@@ -196,7 +196,7 @@ class ProductPage(BasePage):
             return like_counter_before != like_counter_after
 
         WebDriverWait(self.browser, 4).until(
-            is_change_counter()
+            is_change_counter
         )
 
     def remove_product_from_favorites(self):
