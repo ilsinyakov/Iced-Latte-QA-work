@@ -82,7 +82,7 @@ class ProductPage(BasePage):
             print('actual_rating, review_amount', actual_rating, review_amount)
             return actual_rating, review_amount
 
-    def get_dislike_counter():
+    def get_dislike_counter(self):
         dislike_counter = self.browser.find_element(*ProductPageLocators.DISLIKE_COUNTER)
         return int(dislike_counter.text)
 
