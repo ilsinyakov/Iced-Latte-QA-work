@@ -119,5 +119,5 @@ class TestReviewRating:
         with step('Delete dislike review'):
             product_page.dislike_review()
             dislike_counter_after_delete = product_page.get_dislike_counter()
-            assert dislike_counter_after_delete = dislike_counter_after - 1
+            assert dislike_counter_after_delete == dislike_counter_after - 1
         
