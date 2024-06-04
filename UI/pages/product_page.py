@@ -78,6 +78,10 @@ class ProductPage(BasePage):
             print('actual_rating, review_amount', actual_rating, review_amount)
             return actual_rating, review_amount
 
+    def get_like_counter(self):
+        like_counter = self.browser.find_element(*ProductPageLocators.LIKE_COUNTER)
+        return int(like_counter.text)
+
     def get_product_name(self):
         return self.browser.find_element(*ProductPageLocators.PRODUCT_NAME).text
     
@@ -173,6 +177,10 @@ class ProductPage(BasePage):
     
     def is_profile_page_link_clickable(self):
         return self.is_element_clickable(*HeaderLocators.PROFILE_LINK)
+    
+    def like_review(self):
+        like_button = self.browser.find_element(*ProductPageLocators.LIKE_BUTTON)    
+        like_button.click()
 
     def remove_product_from_favorites(self):
         remove_from_favorites_button = self.browser.find_element(*ProductPageLocators.REMOVE_FROM_FAVORITES_BUTTON)

@@ -88,4 +88,16 @@ class TestReviewRating:
     def test_like_dislike_reviews(self, browser):
         with step('Login user'):
             login_user(browser, link)
+        with step('Sort product by rating'):
+            main_page = BasePage(browser, link)
+            main_page.sort_by(rating, high)
+        with step('Go to product page'):
+            main_page.go_to_product_page()
+        with step('Delete old review'):
+            product_page = ProductPage(browser, browser.current_url)
+            product_page.delete_review()
+        with step('Like review'):
+            product_page.get_like_counter()
+            product_page.like_review()
+
         
