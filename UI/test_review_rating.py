@@ -85,5 +85,7 @@ class TestReviewRating:
         with step('Delete review'):
             product_page.delete_review()
 
-    def test_like_dislike_review(self, browser):
+    def test_like_dislike_reviews(self, browser):
+        with step('Login user'):
+            login_user(browser, link)
         
