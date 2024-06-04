@@ -96,6 +96,11 @@ class TestReviewRating:
         with step('Delete old review'):
             product_page = ProductPage(browser, browser.current_url)
             product_page.delete_review()
+        with step('Delete old like or dislike'):
+            product_page.like_review()
+            product_page.like_review()
+            product_page.dislike_review()
+            product_page.dislike_review()
         with step('Like review'):
             like_counter_before = product_page.get_like_counter()
             product_page.like_review()
