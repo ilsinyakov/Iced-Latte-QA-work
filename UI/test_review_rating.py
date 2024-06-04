@@ -85,7 +85,7 @@ class TestReviewRating:
         with step('Delete review'):
             product_page.delete_review()
 
-    def test_like_dislike_reviews(self, browser):
+    def test_like_dislike_someones_review(self, browser):
         with step('Login user'):
             login_user(browser, link)
         with step('Sort product by rating'):
@@ -126,4 +126,5 @@ class TestReviewRating:
             product_page.like_review()
             like_counter_after = product_page.get_like_counter()
             assert like_counter_after == like_counter_before
-        
+    
+    def test_like_dislike_self_review(self, browser):
