@@ -134,6 +134,7 @@ class TestReviewRating:
         with step('Delete old review'):
             delete_old_review(browser, link)
         with step('Add review and rating'):
+            product_page = ProductPage(browser, browser.current_url)
             product_page.click_add_review()
             product_page.set_rating()
             review_text = "It's a very good coffee"
