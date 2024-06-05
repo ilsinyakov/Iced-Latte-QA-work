@@ -98,19 +98,19 @@ class TestReviewRating:
             product_page = ProductPage(browser, browser.current_url)
             product_page.delete_review()
         with step('Delete old like or dislike'):
-            product_page.like_review()
-            product_page.like_review()
-            product_page.dislike_review()
-            product_page.dislike_review()
+            product_page.like_someone_review()
+            product_page.like_someone_review()
+            product_page.dislike_someone_review()
+            product_page.dislike_someone_review()
         with step('Like review'):
             like_counter_before = product_page.get_like_counter()
-            product_page.like_review()
+            product_page.like_someone_review()
             like_counter_after = product_page.get_like_counter()
             assert like_counter_before == like_counter_after - 1, \
                 'Like counter does not work'        
         with step('Dislike review'):            
             dislike_counter_before = product_page.get_dislike_counter()
-            product_page.dislike_review()
+            product_page.dislike_someone_review()
             dislike_counter_after = product_page.get_dislike_counter()
             assert dislike_counter_before == dislike_counter_after - 1, \
                 'Dislike counter does not work'
@@ -118,13 +118,13 @@ class TestReviewRating:
             assert like_counter_after_dislike == like_counter_after - 1, \
                 'Like counter has not decreased after dislike'
         with step('Delete dislike review'):
-            product_page.dislike_review()
+            product_page.dislike_someone_review()
             dislike_counter_after_delete = product_page.get_dislike_counter()
             assert dislike_counter_after_delete == dislike_counter_after - 1
         with step('Delete like review'):
             like_counter_before = product_page.get_like_counter()
-            product_page.like_review()
-            product_page.like_review()
+            product_page.like_someone_review()
+            product_page.like_someone_review()
             like_counter_after = product_page.get_like_counter()
             assert like_counter_after == like_counter_before
     
@@ -139,21 +139,16 @@ class TestReviewRating:
             product_page.set_rating()
             review_text = "It's a very good coffee"
             product_page.fill_review(review_text)
-            product_page.submit_review()
-        with step('Delete old like or dislike'):
-            product_page.like_review()
-            product_page.like_review()
-            product_page.dislike_review()
-            product_page.dislike_review()
+            product_page.submit_review()        
         with step('Like review'):
             like_counter_before = product_page.get_like_counter()
-            product_page.like_review()
+            product_page.like_someone_review()
             like_counter_after = product_page.get_like_counter()
             assert like_counter_before == like_counter_after - 1, \
                 'Like counter does not work'        
         with step('Dislike review'):            
             dislike_counter_before = product_page.get_dislike_counter()
-            product_page.dislike_review()
+            product_page.dislike_someone_review()
             dislike_counter_after = product_page.get_dislike_counter()
             assert dislike_counter_before == dislike_counter_after - 1, \
                 'Dislike counter does not work'
@@ -161,12 +156,12 @@ class TestReviewRating:
             assert like_counter_after_dislike == like_counter_after - 1, \
                 'Like counter has not decreased after dislike'
         with step('Delete dislike review'):
-            product_page.dislike_review()
+            product_page.dislike_someone_review()
             dislike_counter_after_delete = product_page.get_dislike_counter()
             assert dislike_counter_after_delete == dislike_counter_after - 1
         with step('Delete like review'):
             like_counter_before = product_page.get_like_counter()
-            product_page.like_review()
-            product_page.like_review()
+            product_page.like_someone_review()
+            product_page.like_someone_review()
             like_counter_after = product_page.get_like_counter()
             assert like_counter_after == like_counter_before
