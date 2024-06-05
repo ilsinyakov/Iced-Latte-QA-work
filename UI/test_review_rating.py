@@ -102,30 +102,30 @@ class TestReviewRating:
             product_page.like_someone_review()
             product_page.dislike_someone_review()
             product_page.dislike_someone_review()
-        with step('Like review'):
-            like_counter_before = product_page.get_like_counter()
+        with step('Like someone review'):
+            like_counter_before = product_page.get_like_someone_counter()
             product_page.like_someone_review()
-            like_counter_after = product_page.get_like_counter()
+            like_counter_after = product_page.get_like_someone_counter()
             assert like_counter_before == like_counter_after - 1, \
                 'Like counter does not work'        
-        with step('Dislike review'):            
-            dislike_counter_before = product_page.get_dislike_counter()
+        with step('Dislike someone review'):            
+            dislike_counter_before = product_page.get_dislike_someone_counter()
             product_page.dislike_someone_review()
-            dislike_counter_after = product_page.get_dislike_counter()
+            dislike_counter_after = product_page.get_dislike_someone_counter()
             assert dislike_counter_before == dislike_counter_after - 1, \
                 'Dislike counter does not work'
-            like_counter_after_dislike = product_page.get_like_counter()
+            like_counter_after_dislike = product_page.get_like_someone_counter()
             assert like_counter_after_dislike == like_counter_after - 1, \
                 'Like counter has not decreased after dislike'
-        with step('Delete dislike review'):
+        with step('Delete dislike someone review'):
             product_page.dislike_someone_review()
-            dislike_counter_after_delete = product_page.get_dislike_counter()
+            dislike_counter_after_delete = product_page.get_dislike_someone_counter()
             assert dislike_counter_after_delete == dislike_counter_after - 1
         with step('Delete like review'):
-            like_counter_before = product_page.get_like_counter()
+            like_counter_before = product_page.get_like_someone_counter()
             product_page.like_someone_review()
             product_page.like_someone_review()
-            like_counter_after = product_page.get_like_counter()
+            like_counter_after = product_page.get_like_someone_counter()
             assert like_counter_after == like_counter_before
     
     def test_like_dislike_own_review(self, browser):
@@ -140,28 +140,28 @@ class TestReviewRating:
             review_text = "It's a very good coffee"
             product_page.fill_review(review_text)
             product_page.submit_review()        
-        with step('Like review'):
-            like_counter_before = product_page.get_like_counter()
-            product_page.like_someone_review()
-            like_counter_after = product_page.get_like_counter()
+        with step('Like own review'):
+            like_counter_before = product_page.get_like_own_counter()
+            product_page.like_own_review()
+            like_counter_after = product_page.get_like_someone_counter()
             assert like_counter_before == like_counter_after - 1, \
                 'Like counter does not work'        
         with step('Dislike review'):            
-            dislike_counter_before = product_page.get_dislike_counter()
+            dislike_counter_before = product_page.get_dislike_someone_counter()
             product_page.dislike_someone_review()
-            dislike_counter_after = product_page.get_dislike_counter()
+            dislike_counter_after = product_page.get_dislike_someone_counter()
             assert dislike_counter_before == dislike_counter_after - 1, \
                 'Dislike counter does not work'
-            like_counter_after_dislike = product_page.get_like_counter()
+            like_counter_after_dislike = product_page.get_like_someone_counter()
             assert like_counter_after_dislike == like_counter_after - 1, \
                 'Like counter has not decreased after dislike'
         with step('Delete dislike review'):
             product_page.dislike_someone_review()
-            dislike_counter_after_delete = product_page.get_dislike_counter()
+            dislike_counter_after_delete = product_page.get_dislike_someone_counter()
             assert dislike_counter_after_delete == dislike_counter_after - 1
         with step('Delete like review'):
-            like_counter_before = product_page.get_like_counter()
+            like_counter_before = product_page.get_like_someone_counter()
             product_page.like_someone_review()
             product_page.like_someone_review()
-            like_counter_after = product_page.get_like_counter()
+            like_counter_after = product_page.get_like_someone_counter()
             assert like_counter_after == like_counter_before

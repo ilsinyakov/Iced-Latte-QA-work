@@ -82,7 +82,9 @@ class ProductPageLocators:
     ADD_TO_CART_BUTTON = (By.ID, 'add-btn')
     ADD_TO_FAVORITES_BUTTON = (By.XPATH, '//*[@alt="heart unliked"]/ancestor::button')
     DELETE_REVIEW_BUTTON = (By.ID, 'delete-review-btn')
+    LIKE_OWN_BUTTON = 
     LIKE_SOMEONE_BUTTON = (By.CSS_SELECTOR, 'li:nth-child(1) [id^="like-btn"]')
+    LIKE_OWN_COUNTER = (By.CSS_SELECTOR, '#delete-review-btn + div [id^="like-btn"] span')
     LIKE_SOMEONE_COUNTER = (By.CSS_SELECTOR, 'li:nth-child(1) [id^="like-btn"] span')
     DISLIKE_SOMEONE_BUTTON = (By.CSS_SELECTOR, 'li:nth-child(1) [id^="dislike-btn"]')
     DISLIKE_SOMEONE_COUNTER = (By.CSS_SELECTOR, 'li:nth-child(1) [id^="dislike-btn"] span')
