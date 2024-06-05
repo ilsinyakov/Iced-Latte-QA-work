@@ -11,6 +11,16 @@ from .pages.product_page import ProductPage
 from .configs import email, password
 
 
+def delete_old_review(browser, link):
+    with step('Go to product page'):
+        main_page = BasePage(browser, link)
+        main_page.sort_by('price', 'high')
+        main_page.go_to_product_page()
+    with step('Delete old review'):
+        product_page = ProductPage(browser, browser.current_url)
+        product_page.delete_review()
+
+
 def login_user(browser, link):
     with step('Open main page'):
         page = BasePage(browser, link)
@@ -32,16 +42,6 @@ def go_to_edit_profile_page(browser, link):
     with step('Click "Edit" button'):
         page = ProfilePage(browser, browser.current_url)
         page.go_to_edit_page()
-
-
-def delete_old_review(browser, link):
-    with step('Go to product page'):
-        main_page = BasePage(browser, link)
-        main_page.sort_by('price', 'high')
-        main_page.go_to_product_page()
-    with step('Delete old review'):
-        product_page = ProductPage(browser, browser.current_url)
-        product_page.delete_review()
 
 
 def remove_products_from_cart_and_favorites(browser, link):
