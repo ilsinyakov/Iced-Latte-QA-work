@@ -139,6 +139,7 @@ class TestReviewRating:
             product_page.set_rating()
             review_text = "It's a very good coffee"
             product_page.fill_review(review_text)
+            product_page.submit_review()
         with step('Delete old like or dislike'):
             product_page.like_review()
             product_page.like_review()
