@@ -35,7 +35,17 @@ class ProductPage(BasePage):
             WebDriverWait(self.browser, 4).until_not(
                 ec.presence_of_element_located(ProductPageLocators.REVIEW_AUTHOR)
             )
-    
+
+    def dislike_own_review(self):
+        dislike_counter_before = self.browser.find_element(*ProductPageLocators.DISLIKE_OWN_COUNTER).text
+        dislike_button = self.browser.find_element(*ProductPageLocators.DISLIKE_OWN_BUTTON)    
+        dislike_button.click()
+        driver = self.browser
+        WebDriverWait(self.browser, 4).until(
+            lambda driver: driver.find_element(*ProductPageLocators.DISLIKE_OWN_COUNTER).text 
+                            != dislike_counter_before
+        )
+
     def dislike_someone_review(self):
         dislike_counter_before = self.browser.find_element(*ProductPageLocators.DISLIKE_SOMEONE_COUNTER).text
         dislike_button = self.browser.find_element(*ProductPageLocators.DISLIKE_SOMEONE_BUTTON)    
@@ -87,6 +97,10 @@ class ProductPage(BasePage):
             actual_rating = round(star_sum / review_amount, 1)
             print('actual_rating, review_amount', actual_rating, review_amount)
             return actual_rating, review_amount
+
+    def get_dislike_own_counter(self):
+        dislike_counter = self.browser.find_element(*ProductPageLocators.DISLIKE_OWN_COUNTER)
+        return int(dislike_counter.text)
 
     def get_dislike_someone_counter(self):
         dislike_counter = self.browser.find_element(*ProductPageLocators.DISLIKE_SOMEONE_COUNTER)
