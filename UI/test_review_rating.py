@@ -149,19 +149,19 @@ class TestReviewRating:
         with step('Dislike own review'):            
             dislike_counter_before = product_page.get_dislike_own_counter()
             product_page.dislike_own_review()
-            dislike_counter_after = product_page.get_dislike_someone_counter()
+            dislike_counter_after = product_page.get_dislike_own_counter()
             assert dislike_counter_before == dislike_counter_after - 1, \
                 'Dislike counter does not work'
-            like_counter_after_dislike = product_page.get_like_someone_counter()
+            like_counter_after_dislike = product_page.get_like_own_counter()
             assert like_counter_after_dislike == like_counter_after - 1, \
                 'Like counter has not decreased after dislike'
         with step('Delete dislike review'):
-            product_page.dislike_someone_review()
-            dislike_counter_after_delete = product_page.get_dislike_someone_counter()
+            product_page.dislike_own_review()
+            dislike_counter_after_delete = product_page.get_dislike_own_counter()
             assert dislike_counter_after_delete == dislike_counter_after - 1
         with step('Delete like review'):
-            like_counter_before = product_page.get_like_someone_counter()
-            product_page.like_someone_review()
-            product_page.like_someone_review()
-            like_counter_after = product_page.get_like_someone_counter()
+            like_counter_before = product_page.get_like_own_counter()
+            product_page.like_own_review()
+            product_page.like_own_review()
+            like_counter_after = product_page.get_like_own_counter()
             assert like_counter_after == like_counter_before
