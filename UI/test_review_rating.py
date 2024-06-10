@@ -192,6 +192,4 @@ class TestReviewRating:
             product_page = ProductPage(browser, browser.current_url)
             product_page.checkbox_5()
             rating = ['5']
-            assert product_page.is_only_filtered_ratings(rating)
-        
-        
+            assert product_page.is_only_filtered_ratings(rating)        
