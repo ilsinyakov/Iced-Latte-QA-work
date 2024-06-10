@@ -195,9 +195,10 @@ class TestReviewRating:
             main_page.open()
         with step('Filter 5'):
             product_page = ProductPage(browser, browser.current_url)            
-            product_page.rating_checkbox('5')
-            rating = ['5']
-            assert product_page.is_only_filtered_ratings(rating)
+            ratings = ['5']
+            for rating in ratings:
+                product_page.rating_checkbox(rating)            
+            assert product_page.is_only_filtered_ratings(ratings)
         # with step('Filter 4'):
         #     product_page = ProductPage(browser, browser.current_url)
         #     product_page.checkbox_4()

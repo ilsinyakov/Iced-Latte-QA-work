@@ -209,14 +209,14 @@ class ProductPage(BasePage):
     def is_main_page_link_clickable(self):
         return self.is_element_clickable(*HeaderLocators.MAIN_PAGE_LINK)
     
-    def is_only_filtered_ratings(self, rating):
+    def is_only_filtered_ratings(self, ratings):
         is_only_filtered_ratings = True
         # get all ratings from filtered reviews list
         filtered_ratings = self.browser.find_elements(*ProductPageLocators.RATINGS_IN_REVIEWS_LIST)
         
         for filtered_rating in filtered_ratings:
             print('filtered_rating', filtered_rating.text)
-            if filtered_rating.text not in rating:
+            if filtered_rating.text not in ratings:
                 is_only_filtered_ratings = False
         
         return is_only_filtered_ratings
