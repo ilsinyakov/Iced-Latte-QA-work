@@ -174,10 +174,12 @@ class TestReviewRating:
         with step('Sort product by rating'):
             main_page = BasePage(browser, link)
             main_page.sort_by('rating', 'high')
+        with step('Go to product page'):
+            main_page.go_to_product_page()
         with step('Delete old review'):
-            delete_old_review(browser, link)
-        with step('Add review and rating'):
             product_page = ProductPage(browser, browser.current_url)
+            delete_review(browser, link)
+        with step('Add review and rating'):            
             product_page.click_add_review()
             product_page.set_rating()
             review_text = "It's a very good coffee"
