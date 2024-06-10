@@ -178,7 +178,7 @@ class TestReviewRating:
             main_page.go_to_product_page()
         with step('Delete old review'):
             product_page = ProductPage(browser, browser.current_url)
-            product_page.delete_review(browser, link)
+            product_page.delete_review()
         with step('Add review and rating'):            
             product_page.click_add_review()
             product_page.set_rating()
