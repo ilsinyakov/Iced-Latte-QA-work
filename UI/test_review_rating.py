@@ -199,8 +199,27 @@ class TestReviewRating:
             for rating in ratings:
                 product_page.rating_checkbox(rating)            
             assert product_page.is_only_filtered_ratings(ratings)
-        # with step('Filter 4'):
-        #     product_page = ProductPage(browser, browser.current_url)
-        #     product_page.checkbox_4()
-        #     rating = ['5']
-        #     assert product_page.is_only_filtered_ratings(rating)
+        with step('Filter 4'):
+            product_page = ProductPage(browser, browser.current_url)            
+            ratings = ['4']
+            for rating in ratings:
+                product_page.rating_checkbox(rating)            
+            assert product_page.is_only_filtered_ratings(ratings)
+        with step('Filter 3'):
+            product_page = ProductPage(browser, browser.current_url)            
+            ratings = ['3']
+            for rating in ratings:
+                product_page.rating_checkbox(rating)            
+            assert product_page.is_only_filtered_ratings(ratings)
+        with step('Filter 2'):
+            product_page = ProductPage(browser, browser.current_url)            
+            ratings = ['2']
+            for rating in ratings:
+                product_page.rating_checkbox(rating)            
+            assert product_page.is_only_filtered_ratings(ratings)
+        with step('Filter 1'):
+            product_page = ProductPage(browser, browser.current_url)            
+            ratings = ['1']
+            for rating in ratings:
+                product_page.rating_checkbox(rating)            
+            assert product_page.is_only_filtered_ratings(ratings)
