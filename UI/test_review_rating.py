@@ -198,28 +198,38 @@ class TestReviewRating:
             ratings = ['5']
             for rating in ratings:
                 product_page.rating_checkbox(rating)            
-            assert product_page.is_only_filtered_ratings(ratings)
+            assert product_page.is_only_filtered_ratings(ratings), "Rating filter does not work"
+            for rating in ratings:
+                product_page.rating_checkbox(rating)            
         with step('Filter 4'):
             product_page = ProductPage(browser, browser.current_url)            
             ratings = ['4']
             for rating in ratings:
                 product_page.rating_checkbox(rating)            
-            assert product_page.is_only_filtered_ratings(ratings)
+            assert product_page.is_only_filtered_ratings(ratings), "Rating filter does not work"
+            for rating in ratings:
+                product_page.rating_checkbox(rating)            
         with step('Filter 3'):
             product_page = ProductPage(browser, browser.current_url)            
             ratings = ['3']
             for rating in ratings:
                 product_page.rating_checkbox(rating)            
-            assert product_page.is_only_filtered_ratings(ratings)
+            assert product_page.is_only_filtered_ratings(ratings), "Rating filter does not work"
+            for rating in ratings:
+                product_page.rating_checkbox(rating)            
         with step('Filter 2'):
             product_page = ProductPage(browser, browser.current_url)            
             ratings = ['2']
             for rating in ratings:
                 product_page.rating_checkbox(rating)            
-            assert product_page.is_only_filtered_ratings(ratings)
+            assert product_page.is_only_filtered_ratings(ratings), "Rating filter does not work"
+            for rating in ratings:
+                product_page.rating_checkbox(rating)            
         with step('Filter 1'):
             product_page = ProductPage(browser, browser.current_url)            
             ratings = ['1']
             for rating in ratings:
                 product_page.rating_checkbox(rating)            
-            assert product_page.is_only_filtered_ratings(ratings)
+            assert product_page.is_only_filtered_ratings(ratings), "Rating filter does not work"
+            for rating in ratings:
+                product_page.rating_checkbox(rating)            
