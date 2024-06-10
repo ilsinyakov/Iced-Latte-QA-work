@@ -214,7 +214,7 @@ class ProductPage(BasePage):
         filtered_ratings = self.browser.find_elements(*ProductPageLocators.RATINGS_IN_REVIEWS_LIST)
         
         for filtered_rating in filtered_ratings:
-            print('filtered_rating', filtered_rating)
+            print('filtered_rating', filtered_rating.text)
             if filtered_rating.text not in rating:
                 is_only_filtered_ratings = False
         
