@@ -3,9 +3,7 @@ from time import sleep
 import pytest
 
 from .pages.base_page import BasePage
-from .pages.favorites_page import FavoritesPage
 from .pages.product_page import ProductPage
-from .pages.cart_page import CartPage
 from .pages.login_page import LoginPage
 from .pages.profile_page import ProfilePage
 from .set_of_steps import login_user, delete_old_review
@@ -20,9 +18,9 @@ from data.text_review import parameterize_text_review_positive
 class TestReviewRating:    
     def test_add_review_guest(self, browser):
         with step('Open main page'):            
-                main_page = BasePage(browser, link)
-                main_page.open()
-                sleep(2)  # waiting is mandatory (do not remove)
+            main_page = BasePage(browser, link)
+            main_page.open()
+            sleep(2)  # waiting is mandatory (do not remove)
         with step('Go to product page'):
             main_page.go_to_product_page()
             sleep(2)  # waiting is mandatory (do not remove)
@@ -53,7 +51,7 @@ class TestReviewRating:
                 f'Review author {first_name} is not present'
             new_rating, new_reviews_amount = product_page.get_actual_rating()
             assert new_rating == round((old_rating * old_reviews_amount + 2) 
-                                        / (old_reviews_amount + 1), 1), \
+                                       / (old_reviews_amount + 1), 1), \
                 'New rating is not correct'            
             assert new_reviews_amount == product_page.get_reviews_amount(), \
                 'Review amount is not correct'
@@ -63,7 +61,7 @@ class TestReviewRating:
             assert new_rating == old_rating, 'New rating is not correct'
             assert new_reviews_amount == product_page.get_reviews_amount() \
                    and new_reviews_amount == old_reviews_amount, \
-                'Review amount is not correct'
+                   'Review amount is not correct'
         
     @pytest.mark.parametrize('review_text', parameterize_text_review_positive)    
     def test_add_review_parametrize(self, browser, review_text):

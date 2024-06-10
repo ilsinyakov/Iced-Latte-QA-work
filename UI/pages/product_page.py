@@ -18,8 +18,8 @@ class ProductPage(BasePage):
     
     def rating_checkbox(self, rating):
         locator = ProductPageLocators.checkbox(rating)
-        raiting_checkbox = self.browser.find_element(*locator)
-        raiting_checkbox.click()
+        rating_checkbox = self.browser.find_element(*locator)
+        rating_checkbox.click()
         
     def click_add_review(self):
         add_review_button = self.browser.find_element(*ProductPageLocators.ADD_REVIEW_BUTTON)
@@ -48,7 +48,7 @@ class ProductPage(BasePage):
         driver = self.browser
         WebDriverWait(self.browser, 4).until(
             lambda driver: driver.find_element(*ProductPageLocators.DISLIKE_OWN_COUNTER).text 
-                            != dislike_counter_before
+            != dislike_counter_before
         )
 
     def dislike_someone_review(self):
@@ -58,7 +58,7 @@ class ProductPage(BasePage):
         driver = self.browser
         WebDriverWait(self.browser, 5).until(
             lambda driver: driver.find_element(*ProductPageLocators.DISLIKE_SOMEONE_COUNTER).text 
-                            != dislike_counter_before
+            != dislike_counter_before
         )
 
     def fill_review(self, review_text):
@@ -223,7 +223,6 @@ class ProductPage(BasePage):
         
         return is_only_filtered_ratings
 
-
     def is_profile_page_link_present(self):
         return self.is_element_present(*HeaderLocators.PROFILE_LINK)
     
@@ -253,7 +252,7 @@ class ProductPage(BasePage):
         remove_from_favorites_button.click()
 
     def set_rating(self):
-        # set 2 star rating
+        # set 2-star rating
         star_button_2 = self.browser.find_element(*ProductPageLocators.STAR_BUTTON_2)
         star_button_2.click()  
     

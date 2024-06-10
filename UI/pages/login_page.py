@@ -16,14 +16,14 @@ class LoginPage(BasePage):
         self.is_element_present(*BasePageLocators.SORT_DROPDOWN)
 
     def is_login_page(self):
-        is_True = True
+        is_true = True
         try:
             WebDriverWait(self.browser, 4).until(
                 ec.text_to_be_present_in_element(LoginPageLocators.WELCOME_BACK, 'Welcome back')
             )            
         except TimeoutException:
-            is_True = False
-        if is_True and self.browser.current_url == 'https://iced-latte.uk/auth/login':
+            is_true = False
+        if is_true and self.browser.current_url == 'https://iced-latte.uk/auth/login':
             return True
         else:
             return False

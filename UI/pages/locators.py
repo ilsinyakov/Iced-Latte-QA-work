@@ -1,4 +1,3 @@
-import re
 from selenium.webdriver.common.by import By
 
 
@@ -42,10 +41,12 @@ class EditProfilePageLocators:
     SAVE_CHANGE_BUTTON = (By.CSS_SELECTOR, '[type="submit"]')    
     #  SUCCESS_MESSAGE = (By.ID, 'success')
     EMPTY_FIRST_NAME_MESSAGE = (By.XPATH, "//*[contains(text(), 'name is required')]")
-    NONLATIN_FIRST_NAME_MESSAGE = (By.XPATH, "//*[contains(text(), 'Invalid name format. Use extended Latin letters, spaces, and specified symbols')]")
+    NONLATIN_FIRST_NAME_MESSAGE = (By.XPATH,
+            "//*[contains(text(), 'Invalid name format. Use extended Latin letters, spaces, and specified symbols')]")
     SERVER_ERROR_MESSAGE = (By.XPATH, "//*[contains(text(), 'Server Error: Internal server error')]")
     EMPTY_LAST_NAME_MESSAGE = (By.XPATH, "//*[contains(text(), 'Last name is required')]")
-    NONLATIN_LAST_NAME_MESSAGE = (By.XPATH, "//*[contains(text(), 'Invalid Last name format. Use extended Latin letters')]")
+    NONLATIN_LAST_NAME_MESSAGE = (By.XPATH,
+                                  "//*[contains(text(), 'Invalid Last name format. Use extended Latin letters')]")
     #  SERVER_ERROR_MESSAGE = (By.XPATH, '/html/body/main/div/div/div[3]/form/div[9]/div')
     #  EMPTY_NONLATIN_MESSAGE = (By.CSS_SELECTOR, '.mt-2.font-medium.text-negative')
     #  SERVER_ERROR_MESSAGE = (By.CSS_SELECTOR, '.mt-4.text-negative')
