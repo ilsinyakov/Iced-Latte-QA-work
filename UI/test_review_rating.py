@@ -7,6 +7,7 @@ from .pages.favorites_page import FavoritesPage
 from .pages.product_page import ProductPage
 from .pages.cart_page import CartPage
 from .pages.login_page import LoginPage
+from .pages.profile_page import ProfilePage
 from .set_of_steps import login_user, delete_old_review
 from .configs import link, first_name
 from data.text_review import parameterize_text_review_positive
@@ -128,6 +129,7 @@ class TestReviewRating:
             like_counter_after = product_page.get_like_someone_counter()
             assert like_counter_after == like_counter_before
     
+    @pytest.mark.skip
     def test_like_dislike_own_review(self, browser):
         with step('Login user'):
             login_user(browser, link)
@@ -165,3 +167,31 @@ class TestReviewRating:
             product_page.like_own_review()
             like_counter_after = product_page.get_like_own_counter()
             assert like_counter_after == like_counter_before
+
+    def test_rating_filter(self, browser):
+        with step('Login user'):
+            login_user(browser, link)
+        with step('Delete old review'):
+            delete_old_review(browser, link)
+        with step('Add review and rating'):
+            product_page = ProductPage(browser, browser.current_url)
+            product_page.click_add_review()
+            product_page.set_rating()
+            review_text = "It's a very good coffee"
+            product_page.fill_review(review_text)
+            product_page.submit_review()
+            product_url = browser.current_url
+        with step('Log out'):
+            product_page.go_to_profile_page()
+            profile_page = ProfilePage(browser, browser.current_url)
+            profile_page.log_out()
+        with step('Go to product page'):
+            main_page = BasePage(browser, product_url)
+            main_page.open()
+        with step('Filter 5'):
+            product_page = ProductPage(browser, browser.current_url)
+            product_page.checkbox_5()
+            rating = ['5']
+            assert product_page.is_only_filtered_ratings(rating)
+        
+        

@@ -15,6 +15,10 @@ class ProductPage(BasePage):
     def add_product_to_favorites(self):
         add_to_favorites_button = self.browser.find_element(*ProductPageLocators.ADD_TO_FAVORITES_BUTTON)
         add_to_favorites_button.click() 
+    
+    def checkbox_5(self):
+        checkbox_5 = self.browser.find_element(*ProductPageLocators.CHECKBOX_5)
+        checkbox_5.click()
         
     def click_add_review(self):
         add_review_button = self.browser.find_element(*ProductPageLocators.ADD_REVIEW_BUTTON)
@@ -203,6 +207,18 @@ class ProductPage(BasePage):
     
     def is_main_page_link_clickable(self):
         return self.is_element_clickable(*HeaderLocators.MAIN_PAGE_LINK)
+    
+    def is_only_filtered_ratings(self, rating):
+        is_only_filtered_ratings = True
+        # get all ratings from filtered reviews list
+        filtered_ratings = self.browser.find_elements(*ProductPageLocators.RATINGS_IN_REVIEWS_LIST)
+        
+        for filtered_rating in filtered_ratings:
+            if filtered_rating.text not in rating:
+                is_only_filtered_ratings = False
+        
+        return is_only_filtered_ratings
+
 
     def is_profile_page_link_present(self):
         return self.is_element_present(*HeaderLocators.PROFILE_LINK)
@@ -226,7 +242,7 @@ class ProductPage(BasePage):
         driver = self.browser
         WebDriverWait(self.browser, 4).until(
             lambda driver: driver.find_element(*ProductPageLocators.LIKE_SOMEONE_COUNTER).text != like_counter_before
-        )
+        )    
 
     def remove_product_from_favorites(self):
         remove_from_favorites_button = self.browser.find_element(*ProductPageLocators.REMOVE_FROM_FAVORITES_BUTTON)
