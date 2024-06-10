@@ -56,7 +56,7 @@ class ProductPage(BasePage):
         dislike_button = self.browser.find_element(*ProductPageLocators.DISLIKE_SOMEONE_BUTTON)    
         dislike_button.click()
         driver = self.browser
-        WebDriverWait(self.browser, 4).until(
+        WebDriverWait(self.browser, 5).until(
             lambda driver: driver.find_element(*ProductPageLocators.DISLIKE_SOMEONE_COUNTER).text 
                             != dislike_counter_before
         )
