@@ -244,7 +244,7 @@ class ProductPage(BasePage):
         like_button = self.browser.find_element(*ProductPageLocators.LIKE_SOMEONE_BUTTON)            
         like_button.click()        
         driver = self.browser
-        WebDriverWait(self.browser, 4).until(
+        WebDriverWait(self.browser, 5).until(
             lambda driver: driver.find_element(*ProductPageLocators.LIKE_SOMEONE_COUNTER).text != like_counter_before
         )    
 
