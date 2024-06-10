@@ -171,6 +171,9 @@ class TestReviewRating:
     def test_rating_filter(self, browser):
         with step('Login user'):
             login_user(browser, link)
+        with step('Sort product by rating'):
+            main_page = BasePage(browser, link)
+            main_page.sort_by('rating', 'high')
         with step('Delete old review'):
             delete_old_review(browser, link)
         with step('Add review and rating'):
