@@ -232,4 +232,12 @@ class TestReviewRating:
                 product_page.rating_checkbox(rating)            
             assert product_page.is_only_filtered_ratings(ratings), "Rating filter does not work"
             for rating in ratings:
+                product_page.rating_checkbox(rating)
+        with step('Filter 4 and 2'):
+            product_page = ProductPage(browser, browser.current_url)            
+            ratings = ['4', '2']
+            for rating in ratings:
                 product_page.rating_checkbox(rating)            
+            assert product_page.is_only_filtered_ratings(ratings), "Rating filter does not work"
+            for rating in ratings:
+                product_page.rating_checkbox(rating)
