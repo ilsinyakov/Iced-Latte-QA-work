@@ -151,11 +151,14 @@ class ProductPage(BasePage):
         return review_author.text
     
     # This amount: "Based on X reviews"
-    def get_reviews_amount(self):        
-        reviews_amount_element = self.browser.find_element(*ProductPageLocators.REVIEWS_AMOUNT).text
-        pattern = re.compile(r'\b\d+\b')
-        reviews_amount = pattern.findall(reviews_amount_element)
-        return int(reviews_amount[0])
+    def get_reviews_amount(self):
+        if is_element_present(self.browser.find_element(*ProductPageLocators.REVIEWS_AMOUNT)):
+            reviews_amount_element = self.browser.find_element(*ProductPageLocators.REVIEWS_AMOUNT).text
+            pattern = re.compile(r'\b\d+\b')
+            reviews_amount = pattern.findall(reviews_amount_element)
+            return int(reviews_amount[0])
+        else:
+            return 0
         
     def get_review_symbols_counter(self):
         counter = self.browser.find_element(*ProductPageLocators.REVIEW_SYMBOLS_COUNTER).text        
