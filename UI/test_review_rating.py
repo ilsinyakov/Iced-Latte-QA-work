@@ -48,6 +48,7 @@ class TestReviewRating:
             counter = product_page.get_review_symbols_counter()
             assert counter == len(review_text), 'Counter does not work'
             product_page.submit_review()
+            sleep(2)  # waiting is mandatory (do not remove)
             assert product_page.get_review_author() == first_name, \
                 f'Review author {first_name} is not present'
             new_rating, new_reviews_amount = product_page.get_actual_rating()
