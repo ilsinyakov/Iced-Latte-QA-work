@@ -17,8 +17,7 @@ from data.text_review import parameterize_text_review_positive
 # @allure.description("")
 # @allure.tag("")
 @severity(severity_level.NORMAL)
-class TestReviewRating:
-    @pytest.mark.skip
+class TestReviewRating:    
     def test_add_review_guest(self, browser):
         with step('Open main page'):            
                 main_page = BasePage(browser, link)
@@ -32,8 +31,7 @@ class TestReviewRating:
             product_page.click_add_review()
             login_page = LoginPage(browser, browser.current_url)            
             assert login_page.is_login_page(), 'The guest was not redirected to the login page'     
-
-    @pytest.mark.skip
+    
     def test_add_and_delete_review_user(self, browser):
         with step('Login user'):
             login_user(browser, link)
@@ -65,8 +63,7 @@ class TestReviewRating:
             assert new_reviews_amount == product_page.get_reviews_amount() \
                    and new_reviews_amount == old_reviews_amount, \
                 'Review amount is not correct'
-    
-    @pytest.mark.skip
+        
     @pytest.mark.parametrize('review_text', parameterize_text_review_positive)    
     def test_add_review_parametrize(self, browser, review_text):
         with step('Login user'):
@@ -85,8 +82,7 @@ class TestReviewRating:
                 f'Review author {first_name} is not present'       
         with step('Delete review'):
             product_page.delete_review()
-
-    @pytest.mark.skip
+    
     def test_like_dislike_someones_review(self, browser):
         with step('Login user'):
             login_user(browser, link)
@@ -128,8 +124,7 @@ class TestReviewRating:
             product_page.like_someone_review()
             like_counter_after = product_page.get_like_someone_counter()
             assert like_counter_after == like_counter_before
-    
-    @pytest.mark.skip
+        
     def test_like_dislike_own_review(self, browser):
         with step('Login user'):
             login_user(browser, link)
