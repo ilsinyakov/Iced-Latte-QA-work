@@ -103,7 +103,7 @@ class ProductPageLocators:
     PRODUCT_RATING = (By.XPATH, '//h2/following-sibling::div/span[1]')
     PRODUCT_REVIEWS = (By.XPATH, '//h2/following-sibling::div/span[2]')
     PRODUCT_WEIGHT = (By.XPATH, '//h2/following-sibling::div/span[3]')
-    RATINGS_IN_REVIEWS_LIST = (By.CSS_SELECTOR, 'ul li div:nth-child(2) div span')
+    RATINGS_IN_REVIEWS_LIST = (By.XPATH, '//ul/li/div[2]/div[1]/span')
     REVIEWS_AMOUNT = (By.XPATH, '//section/div[2]/div/div/div[2]/div/div/div[1]/div[2]')
     REVIEW_AUTHOR = (By.XPATH, '//div[@id="reviewsDropdown"]/following-sibling::div/div/span')
     REVIEW_FIELD = (By.ID, 'review-textarea')
