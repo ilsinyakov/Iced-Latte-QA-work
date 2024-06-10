@@ -83,7 +83,7 @@ class ProductPageLocators:
     ADD_TO_CART_BUTTON = (By.ID, 'add-btn')
     ADD_TO_FAVORITES_BUTTON = (By.XPATH, '//*[@alt="heart unliked"]/ancestor::button')
 
-    def checkbox(self, rating):        
+    def checkbox(rating):        
         checkbox = (By.ID, f'checkbox-{rating}')
         return checkbox
 
