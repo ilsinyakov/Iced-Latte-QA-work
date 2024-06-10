@@ -1,3 +1,4 @@
+import re
 from selenium.webdriver.common.by import By
 
 
@@ -81,11 +82,11 @@ class ProductPageLocators:
     AMOUNT = (By.XPATH, '//*[@id="min-btn"]/following-sibling::span')
     ADD_TO_CART_BUTTON = (By.ID, 'add-btn')
     ADD_TO_FAVORITES_BUTTON = (By.XPATH, '//*[@alt="heart unliked"]/ancestor::button')
-    CHECKBOX_1 = (By.ID, 'checkbox-1')
-    CHECKBOX_2 = (By.ID, 'checkbox-2')
-    CHECKBOX_3 = (By.ID, 'checkbox-3')
-    CHECKBOX_4 = (By.ID, 'checkbox-4')
-    CHECKBOX_5 = (By.ID, 'checkbox-5')
+
+    def checkbox(self, rating):        
+        checkbox = (By.ID, f'checkbox-{rating}')
+        return checkbox
+
     DELETE_REVIEW_BUTTON = (By.ID, 'delete-review-btn')
     LIKE_OWN_BUTTON = (By.CSS_SELECTOR, '#delete-review-btn + div [id^="like-btn"]')
     LIKE_SOMEONE_BUTTON = (By.CSS_SELECTOR, 'li:nth-child(1) [id^="like-btn"]')
