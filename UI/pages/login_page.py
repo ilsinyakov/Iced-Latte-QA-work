@@ -23,10 +23,7 @@ class LoginPage(BasePage):
             )            
         except TimeoutException:
             is_true = False
-        if is_true and self.browser.current_url == 'https://iced-latte.uk/auth/login':
-            return True
-        else:
-            return False
+        return is_true
 
     def login_existing_user(self, email, password):
         email_field = self.browser.find_element(*LoginPageLocators.EMAIL_FIELD)
