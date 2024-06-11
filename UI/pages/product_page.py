@@ -17,7 +17,7 @@ class ProductPage(BasePage):
         add_to_favorites_button.click() 
     
     def rating_checkbox(self, rating):
-        product_page_locators= ProductPageLocators()
+        product_page_locators = ProductPageLocators()
         locator = product_page_locators.checkbox(rating)
         rating_checkbox = self.browser.find_element(*locator)
         rating_checkbox.click()
